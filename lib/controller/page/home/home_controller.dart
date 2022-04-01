@@ -7,6 +7,9 @@ import 'package:get/get.dart';
 
 import '../../../lang/string.dart';
 import '../../../res/resource.dart';
+import '../../../ui/page/home/home_assets_page.dart';
+import '../../../ui/page/home/home_myself_page.dart';
+import '../../../ui/page/home/home_node_page.dart';
 import '../../../ui/page/home/home_page.dart';
 
 
@@ -22,7 +25,9 @@ class HomeController extends SuperController{
   void onInit() {
     super.onInit();
        tabData=[
-
+         TabData(Ids.assets.tr,ImageResource.homeAssets,ImageResource.homeAssets, HomeAssetsPage(),0),
+         TabData(Ids.node.tr,ImageResource.homeNode,ImageResource.homeNode,  HomeNodePage(),0),
+         TabData(Ids.myself.tr,ImageResource.homeMyself,ImageResource.homeMyself, HomeMyselfPage(),0),
        ];
        initVibrate();
 

@@ -48,8 +48,8 @@ void init()async{
       .then((_) {
 
     FlavorConfig(
-      name: "正式",
-      color: Colors.redAccent,
+      name: "",
+      color: Colors.transparent,
       location: BannerLocation.topStart,
       variables: {
 

@@ -33,6 +33,7 @@ class Colours {
 
   static Color color349AFF =const  Color(0xFF349AFF);
   static Color color46B1FF =const  Color(0xFF46B1FF);
+  static Color colorA554e2 =const  Color(0xFFA554e2);
 
 
 

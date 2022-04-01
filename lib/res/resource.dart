@@ -37,4 +37,12 @@ class ImageResource {
   static  String share = '$dir/share.png';
   static  String wallet = '$dir/wallet.png';
   static  String warn = '$dir/warn.png';
+
+  static  String slide = '$dir/slide.png';
+  static  String accounts = '$dir/accounts.png';
+  static  String blocks = '$dir/blocks.png';
+  static  String countDown = '$dir/countDown.png';
+  static  String masterNodes = '$dir/masterNodes.png';
+  static  String peers = '$dir/peers.png';
+  static  String transfer = '$dir/transfer.png';
 }

@@ -533,6 +533,9 @@ class Ids {
   static const String noDataPost = "noDataPost";
   static const String noDataResource = "noDataResource";
 
+  static const String node = "node";
+  static const String assets = "assets";
+
 }
   Map<String, Map<String, Map<String, String>>> localizedDefaultValues = {
     'en': {
@@ -1412,6 +1415,9 @@ class Ids {
           Ids.noDataPost: "没有搜到相关动态～",
           Ids.noDataResource: "没有搜到相关资源～",
 
+
+        Ids.node: "节点",
+        Ids.assets: "资产",
       },
        'HK':{},
     },
