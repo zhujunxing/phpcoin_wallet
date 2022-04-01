@@ -28,7 +28,6 @@ abstract class Paths {
   static const imageScreenShow = '/image/screenShow';
 
 
-  static const userHome = '/user/home';
 
 
 }

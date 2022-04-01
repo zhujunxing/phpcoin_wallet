@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 
+import '../ui/page/home/home_page.dart';
 import '../ui/page/image/image_screen_show_page.dart';
 import '../ui/page/web/web_page.dart';
 
@@ -17,13 +18,13 @@ class AppPages {
   static final routes = [
     GetPage(
         name:install,
-        page:()=>  Container(),
+        page:()=>  HomePage(),
     ),
 
 
     GetPage(
       name: Routes.home,
-      page:()=>  Container(),
+      page:()=>  HomePage(),
     ),
 
 

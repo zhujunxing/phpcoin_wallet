@@ -8,7 +8,7 @@ class Colours {
   static  Color primaryColor = const Color(0xFFFFFFFF);
 
 
-  static  Color accentColor =const Color(0xFFF83522);
+  static  Color accentColor =const Color(0xFF687bed);
   static  Color defaultTextColor = const Color(0xFF232323);
 
   static  Color grayColor =const Color(0xFFB2B2B2);
