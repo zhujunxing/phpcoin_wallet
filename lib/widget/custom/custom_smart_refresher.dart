@@ -33,7 +33,7 @@ class CustomSmartRefresher extends StatelessWidget {
   Widget build(BuildContext context) {
     return SmartRefresher(
       key: key,
-      header:isCustomHeader==false? MaterialClassicHeader(color: Colours.accentColor,):const RefreshHeader(),
+      header:isCustomHeader==false? MaterialClassicHeader(color: Colours.accentColor,):const RefreshDotHeader(),
       footer: const RefreshFooter(),
       enablePullDown: enablePullDown,
       enablePullUp: enablePullUp,

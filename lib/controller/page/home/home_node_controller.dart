@@ -97,7 +97,7 @@ class HomeNodeController extends SuperController{
             avgBlockTime100.value=data.avgBlockTime100??0.0;
             hashRate10.value=data.hashRate10??0.0;
             hashRate100.value=data.hashRate100??0.0;
-            currentSupply.value=data.totalSupply??0.00000000;
+            currentSupply.value=data.currentSupply??0.00000000;
             int current=DateTime.now().millisecondsSinceEpoch~/1000;
             time.value=current-lastBlockTime;
 

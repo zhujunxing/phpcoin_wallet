@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_flavor/flutter_flavor.dart';
+import 'package:flutter_phpcoin/db/service/address_book_db_service.dart';
 import 'package:get_storage/get_storage.dart';
 
 import 'ui/page/app/app_page.dart';
@@ -42,6 +43,7 @@ void init()async{
 
   ///初始化数据存储
   await GetStorage.init();
+  await AddressBookDbService.getInstance()!.open();
   /// 强制竖屏
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp])

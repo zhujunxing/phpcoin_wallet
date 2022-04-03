@@ -8,6 +8,9 @@ import 'package:flutter_phpcoin/utils/screen.dart';
 
 import 'package:flutter_phpcoin/widget/bar/app_bar.dart';
 import 'package:flutter_phpcoin/widget/custom/divider_line.dart';
+import 'package:get/get.dart';
+
+import '../../../../lang/string.dart';
 
 
 
@@ -57,13 +60,13 @@ class HomeAssetsNoWallet extends StatelessWidget {
                            systemOverlayStyle: SystemUiOverlayStyle.light,
                         ),
                         Gaps.hGap10,
-                        Text("Pure PHP blockchain built for Web",style: TextStyle(
+                        Text(Ids.phpWebBuild.tr,style: TextStyle(
                           fontSize: Dimens.sp20,
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
                         ),),
                         Gaps.hGap4,
-                        Text("Mine.Develop.Trade",style: TextStyle(
+                        Text(Ids.phpWebBuildDesc.tr,style: TextStyle(
                           fontSize: Dimens.sp16,
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
@@ -85,13 +88,13 @@ class HomeAssetsNoWallet extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text("数字资产钱包",style: TextStyle(
+                  Text(Ids.digitalAssetWallet.tr,style: TextStyle(
                     fontWeight: FontWeight.w500,
                     color: Colours.defaultTextColor,
                     fontSize: Dimens.sp18,
                   ),),
                   Gaps.hGap4,
-                  Text("目前支持PHPCOIN公链",style: TextStyle(
+                  Text("${Ids.currentlySupported.tr} PHPCOIN ${Ids.maleChain.tr}",style: TextStyle(
                     fontWeight: FontWeight.w500,
                     color: Colours.grayColor,
                     fontSize: Dimens.sp12,
@@ -113,12 +116,12 @@ class HomeAssetsNoWallet extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text("我有钱包",style: TextStyle(
+                      Text(Ids.haveWallet.tr,style: TextStyle(
                         fontSize: Dimens.sp16,
                         color: Colours.defaultTextColor,
                       ),),
                       Gaps.hGap4,
-                      Text("导入钱包",style: TextStyle(
+                      Text(Ids.importWallet.tr,style: TextStyle(
                         fontSize: Dimens.sp12,
                         color: Colours.grayColor,
                       ),),
@@ -147,12 +150,12 @@ class HomeAssetsNoWallet extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text("我没有钱包",style: TextStyle(
+                      Text(Ids.noHaveWallet.tr,style: TextStyle(
                         fontSize: Dimens.sp16,
                         color: Colours.defaultTextColor,
                       ),),
                       Gaps.hGap4,
-                      Text("创建钱包",style: TextStyle(
+                      Text(Ids.createWallet.tr,style: TextStyle(
                         fontSize: Dimens.sp12,
                         color: Colours.grayColor,
                       ),),

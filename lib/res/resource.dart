@@ -1,13 +1,22 @@
 class RawResource {
   static const String dir = "assets/raw";
 
+
+  static const String receiveMessageMusic = "$dir/receiveMessageMusic.mp3";
+  static const String scanMusic = "$dir/scanMusic.mp3";
+  static const String videoCallHangUp = "$dir/videoCallHangUp.mp3";
+  static const String videoCallLoading = "$dir/videoCallLoading.mp3";
 }
 
 
 class ImageResource {
 
   static const String dir = "assets/images";
+  static const String iconDir = "assets/icon";
 
+
+  static  String icon = '$iconDir/icon.png';
+  static  String iconRound = '$iconDir/iconRound.png';
 
   static  String about = '$dir/about.png';
   static  String addBorder = '$dir/addBorder.png';
@@ -49,4 +58,12 @@ class ImageResource {
   static  String coinSupply = '$dir/coinSupply.png';
   static  String miner = '$dir/miner.png';
   static  String time = '$dir/time.png';
+
+  static  String ethereum = '$dir/ethereum.png';
+  static  String whiteFlash = '$dir/whiteFlash.png';
+  static  String album = '$dir/album.png';
+
+  static  String selected = '$dir/selected.png';
+
+
 }

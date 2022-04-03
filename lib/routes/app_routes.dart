@@ -15,6 +15,23 @@ abstract class Routes {
   ///主页
   static const home=Paths.home;
 
+  ///总资产
+  static const assetsMain=Paths.assetsMain;
+
+  ///地址薄列表
+  static const addressBookList=Paths.addressBookList;
+  ///地址薄编辑
+  static const addressBookEdit=Paths.addressBookEdit;
+  ///扫码
+  static const scan=Paths.scan;
+
+  ///关于app
+  static const aboutApp=Paths.aboutApp;
+  ///系统设置
+  static const systemSet=Paths.systemSet;
+
+  ///语言切换
+  static const  languageSwitch=Paths.languageSwitch;
 }
 
 
@@ -27,9 +44,18 @@ abstract class Paths {
   static const web = '/web';
   static const imageScreenShow = '/image/screenShow';
 
+  static const assetsMain = '/assets/main';
 
+  static const addressBookList = '/address/book/list';
 
+  static const addressBookEdit = '/address/book/edit';
 
+  static const scan = '/scan';
+
+  static const aboutApp = '/about/app';
+
+  static const systemSet = '/system/set';
+  static const languageSwitch = '/language/switch';
 }
 
 

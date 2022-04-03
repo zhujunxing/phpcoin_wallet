@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -50,7 +51,7 @@ class AppPage extends StatelessWidget {
             primaryColor: Colors.white,
             colorScheme: ThemeData().colorScheme.copyWith(
                 secondary: Colours.accentColor),
-            primaryColorBrightness: Brightness.light,
+            brightness:Brightness.light,
             highlightColor: Colors.transparent,
             splashColor: Colours.loadingColor,
             textSelectionTheme: TextSelectionThemeData(
@@ -59,7 +60,7 @@ class AppPage extends StatelessWidget {
               selectionHandleColor: Colours.accentColor.withOpacity(1),
             ),
           ),
-
+          builder: EasyLoading.init(),
         );
       },
     );

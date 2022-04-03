@@ -243,6 +243,101 @@ class HomeNodePage extends StatelessWidget {
                               children: [
                                 Row(
                                   children: [
+                                    ImageIcon(AssetImage(ImageResource.miner),size: Dimens.sp20,
+                                      color: Colours.defaultTextColor.withOpacity(0.85),
+                                    ),
+                                    Gaps.wGap5,
+                                      Text(Ids.hashRate.tr,style:TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: Dimens.sp20,
+                                      color: Colours.defaultTextColor.withOpacity(0.85),
+                                    ),),
+                                  ],
+                                ),
+
+                                Gaps.hGap6,
+                                SizedBox(
+                                  width: Screen.width,
+                                  child: Row(
+                                    children: [
+                                      Expanded(child: Container(
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Text(FormatUtil.formatNum(controller.hashRate10.value, 2),style:TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: Dimens.sp16,
+                                              color: Colours.defaultTextColor,
+                                            ),),
+                                            Gaps.hGap5,
+                                            Text("${Ids.last} 10 ${Ids.blocks1.tr}",style:TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: Dimens.sp12,
+                                              color: Colours.defaultTextColor,
+                                            ),),
+                                          ],
+                                        ),
+                                        alignment: Alignment.centerLeft,
+                                      )),
+                                      Expanded(child: Container(
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Text(FormatUtil.formatNum(controller.hashRate100.value, 2),style:TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: Dimens.sp16,
+                                              color: Colours.defaultTextColor,
+                                            ),),
+                                            Gaps.hGap5,
+                                            Text("${Ids.last} 100 ${Ids.blocks1.tr}",style:TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: Dimens.sp12,
+                                              color: Colours.defaultTextColor,
+                                            ),),
+                                          ],
+                                        ),
+                                        alignment: Alignment.centerLeft,
+                                      )),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),),
+
+                        ],
+                      ),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(Dimens.sp8),
+                          boxShadow: [
+                            BoxShadow(
+                                offset:Offset(0,Dimens.dp1),
+                                blurRadius: Dimens.dp4,
+                                spreadRadius:Dimens.dp1,
+                                color: Colors.grey.withOpacity(0.1)),
+                          ]
+                      ),
+                    );
+                  })
+              ),
+              SliverToBoxAdapter(child: Gaps.hGap10,),
+              SliverToBoxAdapter(
+                  child:Obx((){
+                    return Container(
+
+                      margin: EdgeInsets.fromLTRB(Dimens.dp15, 0, Dimens.dp15, 0),
+                      child: Row(
+                        children: [
+                          Expanded(child: Container(
+                            padding: EdgeInsets.fromLTRB(Dimens.dp15, Dimens.dp15, Dimens.dp15,Dimens.dp15),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
                                     ImageIcon(AssetImage(ImageResource.coinSupply),size: Dimens.sp20,
                                       color: Colours.defaultTextColor.withOpacity(0.85),
                                     ),

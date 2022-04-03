@@ -44,7 +44,7 @@ class NoData extends StatelessWidget {
           ),
           Gaps.hGap5,
           Text(
-             content==''?Ids.noData.tr:content!,
+            content!=null&&content!=''?content!:Ids.noData.tr,
             style: TextStyle(
               fontSize: Dimens.sp13,
               color:textColor ?? Colours.grayColor,

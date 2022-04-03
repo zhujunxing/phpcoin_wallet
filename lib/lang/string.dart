@@ -551,6 +551,51 @@ class Ids {
   static const String masterNodes = "masterNodes";
 
 
+  static const String assetOverview = "assetOverview";
+  static const String walletManager = "walletManager";
+  static const String addressBook = "addressBook";
+  static const String aboutMyself = "aboutMyself";
+  static const String systemSetting = "systemSetting";
+
+
+  static const String hashRate = "hashRate";
+
+
+  static const String discord = "discord";
+  static const String twitter = "twitter";
+
+
+  static const String createContact = "createContact";
+  static const String editContact = "editContact";
+  static const String name = "name";
+  static const String remarks1 = "remarks1";
+  static const String walletWeb = "walletWeb";
+  static const String walletAddress = "walletAddress";
+  static const String pleaseInputName = "pleaseInputName";
+  static const String pleaseInputRemarks = "pleaseInputRemarks";
+  static const String selectWalletNetwork = "selectWalletNetwork";
+  static const String scanOrCopyWalletAddress = "scanOrCopyWalletAddress";
+
+
+  static const String totalAssets = "totalAssets";
+  static const String myAssets = "myAssets";
+
+
+
+  static const String phpWebBuild = "phpWebBuild";
+  static const String phpWebBuildDesc = "phpWebBuildDesc";
+
+
+  static const String digitalAssetWallet = "digitalAssetWallet";
+  static const String currentlySupported = "currentlySupported";
+
+  static const String maleChain = "maleChain";
+
+  static const String haveWallet = "haveWallet";
+  static const String noHaveWallet = "noHaveWallet";
+  static const String importWallet = "importWallet";
+  static const String createWallet = "createWallet";
+
 
 }
   Map<String, Map<String, Map<String, String>>> localizedDefaultValues = {
@@ -559,9 +604,9 @@ class Ids {
          Ids.appTitle: 'PHPCoin',
          Ids.message: 'message',
          Ids.shopping: 'shopping',
-         Ids.recommend: 'recommended',
-         Ids.nearby: 'nearby',
-         Ids.myself: 'my',
+         Ids.recommend: 'Recommended',
+         Ids.nearby: 'Nearby',
+         Ids.myself: 'My',
 
 
          Ids.noOpenBrowser: 'Cannot open browser',
@@ -993,7 +1038,8 @@ class Ids {
          Ids.noDataPost: "No related news found~",
          Ids.noDataResource: "No related resources found~",
 
-
+         Ids.node: "Node",
+         Ids.assets: "Assets",
 
 
          Ids.lastBlockBefore: "Last block before",
@@ -1009,6 +1055,49 @@ class Ids {
          Ids.peers:"Peers",
          Ids.memPool:"MemPool",
          Ids.masterNodes:"MasterNodes",
+
+         Ids.assetOverview:"Asset overview",
+         Ids.walletManager:"Wallet manager",
+         Ids.addressBook:"Address book",
+         Ids.aboutMyself:"About myself",
+         Ids.systemSetting:"System settings",
+         Ids.hashRate:"Hash rate",
+
+         Ids.discord:"Discord",
+         Ids.twitter:"Twitter",
+
+
+
+
+         Ids.createContact:"Creating a Contact",
+         Ids.editContact:"Edit contacts",
+         Ids.name:"Name",
+         Ids.remarks1:"Remarks(Optional)",
+         Ids.walletWeb:"The wallet network",
+         Ids.walletAddress:"The wallet address",
+
+
+         Ids.pleaseInputName:"Please fill in your name",
+         Ids.pleaseInputRemarks:"Please fill in remarks",
+         Ids.selectWalletNetwork:"Choose wallet Network",
+         Ids.scanOrCopyWalletAddress:"Scan or paste the wallet address",
+
+
+         Ids.totalAssets:"Total assets",
+         Ids.myAssets:"My assets",
+
+
+
+         Ids.phpWebBuild:"Pure PHP blockchain built for Web",
+         Ids.phpWebBuildDesc:"Mine.Develop.Trade",
+
+         Ids.digitalAssetWallet:"Digital asset wallet",
+         Ids.currentlySupported:"Currently supported",
+         Ids.maleChain:"The male chain",
+         Ids.haveWallet:"I have my wallet",
+         Ids.noHaveWallet:"I don't have a wallet",
+         Ids.importWallet:"Import the wallet",
+         Ids.createWallet:"Create a wallet",
        },
     },
     'zh': {
@@ -1468,6 +1557,55 @@ class Ids {
         Ids.memPool:"内存池",
         Ids.masterNodes:"主节点",
 
+
+        Ids.assetOverview:"资产总览",
+        Ids.walletManager:"钱包管理",
+        Ids.addressBook:"地址薄",
+        Ids.aboutMyself:"关于我们",
+        Ids.systemSetting:"系统设置",
+
+        Ids.hashRate:"哈希算力",
+
+
+
+
+
+        Ids.discord:"不和谐",
+        Ids.twitter:"推特",
+
+
+
+        Ids.createContact:"新建联系人",
+        Ids.editContact:"编辑联系人",
+        Ids.name:"名字",
+        Ids.remarks1:"备注(可选)",
+        Ids.walletWeb:"钱包网络",
+        Ids.walletAddress:"钱包地址",
+
+
+        Ids.pleaseInputName:"请填写名字",
+        Ids.pleaseInputRemarks:"请填写备注",
+        Ids.selectWalletNetwork:"选择钱包网络",
+        Ids.scanOrCopyWalletAddress:"扫描或粘贴钱包地址",
+
+
+        Ids.totalAssets:"总资产",
+        Ids.myAssets:"我的资产",
+
+
+        Ids.phpWebBuild:"纯PHP区块链构建的Web",
+        Ids.phpWebBuildDesc:"挖矿.开发.交易",
+
+        Ids.digitalAssetWallet:"数字资产钱包",
+        Ids.currentlySupported:"目前支持",
+        Ids.maleChain:"公链",
+
+
+
+        Ids.haveWallet:"我有钱包",
+        Ids.noHaveWallet:"我没有钱包",
+        Ids.importWallet:"导入钱包",
+        Ids.createWallet:"创建钱包",
       },
        'HK':{},
     },
