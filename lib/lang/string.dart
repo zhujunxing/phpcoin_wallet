@@ -536,6 +536,22 @@ class Ids {
   static const String node = "node";
   static const String assets = "assets";
 
+  static const String lastBlockBefore = "lastBlockBefore";
+  static const String seconds = "seconds";
+  static const String averageBlockTime = "averageBlockTime";
+  static const String last = "last";
+  static const String blocks = "blocks";
+  static const String blocks1 = "blocks1";
+  static const String currentSupply = "currentSupply";
+  static const String totalSupply = "totalSupply";
+  static const String transactions = "transactions";
+  static const String accounts = "accounts";
+  static const String peers = "peers";
+  static const String memPool = "memPool";
+  static const String masterNodes = "masterNodes";
+
+
+
 }
   Map<String, Map<String, Map<String, String>>> localizedDefaultValues = {
     'en': {
@@ -976,6 +992,23 @@ class Ids {
 
          Ids.noDataPost: "No related news found~",
          Ids.noDataResource: "No related resources found~",
+
+
+
+
+         Ids.lastBlockBefore: "Last block before",
+         Ids.seconds: "seconds",
+         Ids.averageBlockTime: "Average Block time",
+         Ids.last: "last",
+         Ids.blocks: "Blocks",
+         Ids.blocks1: "blocks",
+         Ids.currentSupply: "Current supply",
+         Ids.totalSupply: "Total supply",
+         Ids.transactions: "Transactions",
+         Ids.accounts: "Accounts",
+         Ids.peers:"Peers",
+         Ids.memPool:"MemPool",
+         Ids.masterNodes:"MasterNodes",
        },
     },
     'zh': {
@@ -1418,6 +1451,23 @@ class Ids {
 
         Ids.node: "节点",
         Ids.assets: "资产",
+
+
+
+        Ids.lastBlockBefore: "最近的区块距离",
+        Ids.seconds: "秒",
+        Ids.averageBlockTime: "平均区块时间",
+        Ids.last: "最近的",
+        Ids.blocks: "区块",
+        Ids.blocks1: "区块",
+        Ids.currentSupply: "当前供应量",
+        Ids.totalSupply: "总供应量",
+        Ids.transactions: "交易",
+        Ids.accounts: "账号",
+        Ids.peers:"对等",
+        Ids.memPool:"内存池",
+        Ids.masterNodes:"主节点",
+
       },
        'HK':{},
     },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_phpcoin/res/colors.dart';
 
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -13,13 +14,12 @@ class CustomSmartRefresher extends StatelessWidget {
   final bool enablePullDown,enablePullUp;
   final VoidCallback? onRefresh;
   final VoidCallback? onLoading;
-  final ScrollController pageScrollController;
+   ScrollController? pageScrollController;
 
   final bool isCustomHeader;
 
- const  CustomSmartRefresher(
-      {Key? key,
-      required this.pageScrollController,
+   CustomSmartRefresher(
+      {
       required this.refreshController,
       required this.child,
       this.enablePullDown = true,
@@ -27,21 +27,22 @@ class CustomSmartRefresher extends StatelessWidget {
       this.isCustomHeader = false,
         this.onRefresh,
         this.onLoading,
-      }) : super(key: key);
+         this.pageScrollController,
+      });
   @override
   Widget build(BuildContext context) {
     return SmartRefresher(
       key: key,
-      header:  isCustomHeader==true?const RefreshDotHeader():const RefreshHeader(),
+      header:isCustomHeader==false? MaterialClassicHeader(color: Colours.accentColor,):const RefreshHeader(),
       footer: const RefreshFooter(),
       enablePullDown: enablePullDown,
       enablePullUp: enablePullUp,
-      scrollController: pageScrollController,
-      primary: false,
       controller: refreshController,
+      scrollController: pageScrollController,
       onRefresh:onRefresh,
       onLoading: onLoading,
       child: child,
+      primary: pageScrollController!=null?false:true,
     );
   }
 }

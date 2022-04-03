@@ -45,4 +45,8 @@ class ImageResource {
   static  String masterNodes = '$dir/masterNodes.png';
   static  String peers = '$dir/peers.png';
   static  String transfer = '$dir/transfer.png';
+
+  static  String coinSupply = '$dir/coinSupply.png';
+  static  String miner = '$dir/miner.png';
+  static  String time = '$dir/time.png';
 }
