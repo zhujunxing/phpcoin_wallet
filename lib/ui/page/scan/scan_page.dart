@@ -2,8 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_qr_reader/flutter_qr_reader.dart';
 
-import 'package:flutter_qr_reader_copy/flutter_qr_reader_copy.dart';
+
 import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import '../../../controller/page/scan/scan_controller.dart';

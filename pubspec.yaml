@@ -132,7 +132,7 @@ dependencies:
   #https://pub.dev/packages/percent_indicator/install 进度条指示器
   percent_indicator: ^4.0.0
   #https://pub.dev/packages/flutter_qr_reader#-installing-tab- 二维码扫描 android ios
-  flutter_qr_reader_copy: ^1.0.9
+  flutter_qr_reader: ^1.0.5
   #https://pub.dev/packages/logger/install 日志输出  android ios web
   logger: ^1.1.0
   #https://pub.dev/packages/flutter_image_compress#-installing-tab-  图片压缩  android ios
