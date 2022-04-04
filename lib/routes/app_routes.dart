@@ -32,6 +32,14 @@ abstract class Routes {
 
   ///语言切换
   static const  languageSwitch=Paths.languageSwitch;
+
+  ///钱包选择
+  static const  walletSelect=Paths.walletSelect;
+  ///钱包选择创建，导入
+  static const  walletCreateImport=Paths.walletCreateImport;
+
+  ///钱包-创建钱包
+  static const  walletCreate=Paths.walletCreate;
 }
 
 
@@ -56,6 +64,12 @@ abstract class Paths {
 
   static const systemSet = '/system/set';
   static const languageSwitch = '/language/switch';
+
+  static const walletSelect = '/wallet/select';
+
+  static const walletCreateImport = '/wallet/createImport';
+  static const walletCreate = '/wallet/create';
+
 }
 
 

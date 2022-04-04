@@ -12,6 +12,5 @@ class TranslationService extends Translations {
         'zh_CN': localizedDefaultValues['zh']!['CN']!,
         'zh_HK': localizedDefaultValues['zh']!['HK']!,
         'en_US':localizedDefaultValues['en']!['US']!,
-        'ja_JP':localizedDefaultValues['ja']!['JP']!,
       };
 }

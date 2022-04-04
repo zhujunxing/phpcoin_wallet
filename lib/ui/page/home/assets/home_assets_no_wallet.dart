@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_phpcoin/res/colors.dart';
 import 'package:flutter_phpcoin/res/resource.dart';
 import 'package:flutter_phpcoin/res/style.dart';
+import 'package:flutter_phpcoin/ui/page/wallet/wallet_select_page.dart';
 import 'package:flutter_phpcoin/utils/screen.dart';
 
 import 'package:flutter_phpcoin/widget/bar/app_bar.dart';
@@ -11,6 +12,7 @@ import 'package:flutter_phpcoin/widget/custom/divider_line.dart';
 import 'package:get/get.dart';
 
 import '../../../../lang/string.dart';
+import '../../../../routes/app_pages.dart';
 
 
 
@@ -106,30 +108,37 @@ class HomeAssetsNoWallet extends StatelessWidget {
 
 
           SliverToBoxAdapter(
-            child: Container(
-              padding: EdgeInsets.fromLTRB(Dimens.dp15, Dimens.dp15, Dimens.dp15, Dimens.dp15),
-              child: Row(
-                children: [
-                  Image.asset(ImageResource.importWallet,width: Dimens.dp30,),
-                  Gaps.wGap15,
-                  Expanded(child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(Ids.haveWallet.tr,style: TextStyle(
-                        fontSize: Dimens.sp16,
-                        color: Colours.defaultTextColor,
-                      ),),
-                      Gaps.hGap4,
-                      Text(Ids.importWallet.tr,style: TextStyle(
-                        fontSize: Dimens.sp12,
-                        color: Colours.grayColor,
-                      ),),
-                    ],
-                  )),
-                  ImageIcon(AssetImage(ImageResource.right),size: Dimens.sp14,color: Colours.grayColor,),
-                ],
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              child: Container(
+                padding: EdgeInsets.fromLTRB(Dimens.dp15, Dimens.dp15, Dimens.dp15, Dimens.dp15),
+                child: Row(
+                  children: [
+                    Image.asset(ImageResource.importWallet,width: Dimens.dp30,),
+                    Gaps.wGap15,
+                    Expanded(child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(Ids.haveWallet.tr,style: TextStyle(
+                          fontSize: Dimens.sp16,
+                          color: Colours.defaultTextColor,
+                        ),),
+                        Gaps.hGap4,
+                        Text(Ids.importWallet.tr,style: TextStyle(
+                          fontSize: Dimens.sp12,
+                          color: Colours.grayColor,
+                        ),),
+                      ],
+                    )),
+                    ImageIcon(AssetImage(ImageResource.right),size: Dimens.sp14,color: Colours.grayColor,),
+                  ],
+                ),
               ),
+              onTap: (){
+                Get.toNamed(Routes.walletSelect,arguments: WalletSelectType.import);
+
+              },
             ),
           ),
           SliverToBoxAdapter(
@@ -140,30 +149,36 @@ class HomeAssetsNoWallet extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(
-            child: Container(
-              padding: EdgeInsets.fromLTRB(Dimens.dp15, Dimens.dp15, Dimens.dp15, Dimens.dp15),
-              child: Row(
-                children: [
-                  Image.asset(ImageResource.createWallet,width: Dimens.dp30,),
-                  Gaps.wGap15,
-                  Expanded(child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(Ids.noHaveWallet.tr,style: TextStyle(
-                        fontSize: Dimens.sp16,
-                        color: Colours.defaultTextColor,
-                      ),),
-                      Gaps.hGap4,
-                      Text(Ids.createWallet.tr,style: TextStyle(
-                        fontSize: Dimens.sp12,
-                        color: Colours.grayColor,
-                      ),),
-                    ],
-                  )),
-                  ImageIcon(AssetImage(ImageResource.right),size: Dimens.sp14,color: Colours.grayColor,),
-                ],
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              child: Container(
+                padding: EdgeInsets.fromLTRB(Dimens.dp15, Dimens.dp15, Dimens.dp15, Dimens.dp15),
+                child: Row(
+                  children: [
+                    Image.asset(ImageResource.createWallet,width: Dimens.dp30,),
+                    Gaps.wGap15,
+                    Expanded(child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(Ids.noHaveWallet.tr,style: TextStyle(
+                          fontSize: Dimens.sp16,
+                          color: Colours.defaultTextColor,
+                        ),),
+                        Gaps.hGap4,
+                        Text(Ids.createWallet.tr,style: TextStyle(
+                          fontSize: Dimens.sp12,
+                          color: Colours.grayColor,
+                        ),),
+                      ],
+                    )),
+                    ImageIcon(AssetImage(ImageResource.right),size: Dimens.sp14,color: Colours.grayColor,),
+                  ],
+                ),
               ),
+              onTap: (){
+                Get.toNamed(Routes.walletSelect,arguments: WalletSelectType.create);
+              },
             ),
           ),
           SliverToBoxAdapter(

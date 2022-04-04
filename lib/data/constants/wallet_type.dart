@@ -8,6 +8,10 @@ class WalletType{
   static const String phpCoin="PHPCoin";
 }
 
+class BType{
+  static const String phpCoin="PHPCOIN";
+}
+
 
 
 

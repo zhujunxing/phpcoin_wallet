@@ -8,8 +8,12 @@ import 'package:get/get.dart';
 import '../../../controller/page/home/home_controller.dart';
 import '../../../lang/string.dart';
 import '../../../res/colors.dart';
+import '../../../res/resource.dart';
 import '../../../res/style.dart';
 import '../../../utils/toast_util.dart';
+import 'home_assets_page.dart';
+import 'home_myself_page.dart';
+import 'home_node_page.dart';
 // ignore: must_be_immutable
 class HomePage extends StatelessWidget {
    late HomeController controller;
@@ -18,6 +22,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     controller=Get.put(HomeController());
+
+    controller.tabData=[
+      TabData(Ids.assets.tr,ImageResource.homeAssets,ImageResource.homeAssets, HomeAssetsPage(),0),
+      TabData(Ids.node.tr,ImageResource.homeNode,ImageResource.homeNode,  HomeNodePage(),0),
+      TabData(Ids.myself.tr,ImageResource.homeMyself,ImageResource.homeMyself, HomeMyselfPage(),0),
+    ];
     return Scaffold(
       backgroundColor: Colors.white,
       body:WillPopScope(

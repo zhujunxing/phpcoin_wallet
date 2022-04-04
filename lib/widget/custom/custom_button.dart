@@ -33,7 +33,7 @@ class CustomButton extends StatelessWidget {
               isClick??true?Colours.accentColor:Colours.accentColor.withOpacity(0.5),
             ),
             shape: MaterialStateProperty.all(RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(radius!=null?radius!:Dimens.sp8),
+              borderRadius: BorderRadius.circular(radius!=null?radius!:Dimens.sp4),
               side:isBorderButton==true?BorderSide(
                 color: Colours.accentColor,
                 width: Dimens.dp1,

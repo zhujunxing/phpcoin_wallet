@@ -65,5 +65,10 @@ class ImageResource {
 
   static  String selected = '$dir/selected.png';
 
+  static  String phpCoin = '$dir/phpCoin.png';
 
+  static  String keyIcon = '$dir/keyIcon.png';
+  static  String seeIcon = '$dir/seeIcon.png';
+  static  String walletIcon = '$dir/walletIcon.png';
+  static  String clearCircle = '$dir/clearCircle.png';
 }
