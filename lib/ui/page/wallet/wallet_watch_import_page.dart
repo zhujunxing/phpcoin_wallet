@@ -35,8 +35,8 @@ class WalletWatchImportPage extends StatelessWidget {
     controller=Get.put(WalletWatchImportController(data));
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar:const BaseAppBar(
-          title:"观察钱包",
+        appBar: BaseAppBar(
+          title:Ids.watchWallet.tr,
         ),
         body: CustomScrollView(
           slivers: [
@@ -59,7 +59,7 @@ class WalletWatchImportPage extends StatelessWidget {
                   maxLines: 15,
                   minLines: 1,
                   decoration: InputDecoration(
-                    hintText:"输入或粘贴钱包地址",
+                    hintText:Ids.enterOrPasteWalletAddress.tr,
                     hintStyle: TextStyle(
                       fontSize: Dimens.sp13,
                       textBaseline: TextBaseline.alphabetic,
@@ -84,7 +84,7 @@ class WalletWatchImportPage extends StatelessWidget {
             SliverToBoxAdapter(
               child: Container(
                 margin: EdgeInsets.fromLTRB(Dimens.dp15, Dimens.dp10, Dimens.dp15, 0),
-                child: Text("观察钱包不需要导入私钥，只导入公钥，进行日常查看账号，交易记录和接受通知。",style: TextStyle(
+                child: Text(Ids.watchWalletImportTip.tr,style: TextStyle(
                   fontSize: Dimens.sp12,
                   color: Colours.defaultTextColor,
                 ),),
@@ -97,7 +97,7 @@ class WalletWatchImportPage extends StatelessWidget {
               child: Container(
                 child: Row(
                   children: [
-                    Text("钱包体系",style: TextStyle(
+                    Text(Ids.walletSystem.tr,style: TextStyle(
                       fontSize: Dimens.sp12,
                       color: Colours.defaultTextColor,
                     ),),
@@ -117,7 +117,7 @@ class WalletWatchImportPage extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: Container(
-                child: CustomButton("开始导入",onPressed: (){
+                child: CustomButton(Ids.startImport.tr,onPressed: (){
                   controller.submit(context);
                 },),
                 margin: EdgeInsets.fromLTRB(Dimens.dp15, 0, Dimens.dp15,0),

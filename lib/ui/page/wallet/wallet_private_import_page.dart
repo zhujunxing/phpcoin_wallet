@@ -16,7 +16,6 @@ import '../../../res/resource.dart';
 import '../../../res/style.dart';
 import '../../../utils/screen.dart';
 import '../../../widget/bar/app_bar.dart';
-import '../../../widget/custom/back_button.dart';
 import '../../../widget/custom/custom_button.dart';
 import '../../../widget/custom/divider_line.dart';
 
@@ -32,8 +31,8 @@ class WalletPrivateImportPage extends StatelessWidget {
     controller=WalletPrivateImportController(data);
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar:const BaseAppBar(
-          title:"私钥导入",
+        appBar: BaseAppBar(
+          title:Ids.privateImport.tr,
         ),
         body: CustomScrollView(
           slivers: [
@@ -44,7 +43,7 @@ class WalletPrivateImportPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text("钱包公钥",style: TextStyle(
+                    Text(Ids.walletPublicKey.tr,style: TextStyle(
                       fontSize: Dimens.sp16,
                       color: Colours.defaultTextColor,
                     ),),
@@ -64,7 +63,7 @@ class WalletPrivateImportPage extends StatelessWidget {
                                   fontSize: Dimens.sp14),
                               maxLines: 1,
                               decoration: InputDecoration(
-                                hintText:"请输入钱包公钥",
+                                hintText:Ids.pleaseEnterWalletPublicKey.tr,
                                 hintStyle: TextStyle(
                                   fontSize: Dimens.sp14,
                                   color: Colours.hintTextColor,
@@ -102,7 +101,7 @@ class WalletPrivateImportPage extends StatelessWidget {
                   maxLines: 15,
                   minLines: 1,
                   decoration: InputDecoration(
-                    hintText:"请输入钱包私钥",
+                    hintText:Ids.pleaseEnterWalletPrivateKey.tr,
                     hintStyle: TextStyle(
                       fontSize: Dimens.sp13,
                       textBaseline: TextBaseline.alphabetic,
@@ -131,7 +130,7 @@ class WalletPrivateImportPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text("设置钱包名（${controller.walletName.value}）",style: TextStyle(
+                    Text("${Ids.setWalletName.tr}（${controller.walletName.value}）",style: TextStyle(
                       fontSize: Dimens.sp16,
                       color: Colours.defaultTextColor,
                     ),),
@@ -158,7 +157,7 @@ class WalletPrivateImportPage extends StatelessWidget {
                                 fontSize: Dimens.sp14),
                             maxLines: 1,
                             decoration: InputDecoration(
-                              hintText:"请输入名称",
+                              hintText:Ids.pleaseEnterName.tr,
                               hintStyle: TextStyle(
                                 fontSize: Dimens.sp14,
                                 color: Colours.hintTextColor,
@@ -173,6 +172,7 @@ class WalletPrivateImportPage extends StatelessWidget {
                             return controller.showClear.value?GestureDetector(
                               onTap: () {
                                 controller.editName.text='';
+                                controller.showClear.value=false;
                               },
                               child:Container(
                                 color: Colors.transparent,
@@ -201,7 +201,7 @@ class WalletPrivateImportPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text("设置密码",style: TextStyle(
+                    Text(Ids.setPassword.tr,style: TextStyle(
                       fontSize: Dimens.sp16,
                       color: Colours.defaultTextColor,
                     ),),
@@ -220,7 +220,7 @@ class WalletPrivateImportPage extends StatelessWidget {
                             fontSize: Dimens.sp14),
                         maxLines: 1,
                         decoration: InputDecoration(
-                          hintText:"密码不能少于6位数",
+                          hintText:Ids.mustPwd6Digits.tr,
                           hintStyle: TextStyle(
                             fontSize: Dimens.sp14,
                             color: Colours.hintTextColor,
@@ -247,7 +247,7 @@ class WalletPrivateImportPage extends StatelessWidget {
                             fontSize: Dimens.sp14),
                         maxLines: 1,
                         decoration: InputDecoration(
-                          hintText:"请再次输入密码",
+                          hintText:Ids.pleaseEnterPwd.tr,
                           hintStyle: TextStyle(
                             fontSize: Dimens.sp14,
                             color: Colours.hintTextColor,
@@ -271,7 +271,7 @@ class WalletPrivateImportPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text("密码提示",style: TextStyle(
+                    Text(Ids.pwdTip.tr,style: TextStyle(
                       fontSize: Dimens.sp16,
                       color: Colours.defaultTextColor,
                     ),),
@@ -289,7 +289,7 @@ class WalletPrivateImportPage extends StatelessWidget {
                             fontSize: Dimens.sp14),
                         maxLines: 1,
                         decoration: InputDecoration(
-                          hintText:"可不填",
+                          hintText:Ids.optional.tr,
                           hintStyle: TextStyle(
                             fontSize: Dimens.sp14,
                             color: Colours.hintTextColor,
@@ -312,7 +312,7 @@ class WalletPrivateImportPage extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: Container(
-                child: CustomButton("创建钱包",onPressed: (){
+                child: CustomButton(Ids.startImport.tr,onPressed: (){
                     controller.submit(context);
                 },),
                 margin: EdgeInsets.fromLTRB(Dimens.dp15, 0, Dimens.dp15,0),

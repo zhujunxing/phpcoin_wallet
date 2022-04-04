@@ -597,6 +597,35 @@ class Ids {
   static const String createWallet = "createWallet";
 
 
+  static const String selectNetwork = "selectNetwork";
+  static const String singleWebWallet = "singleWebWallet";
+  static const String privateImport = "privateImport";
+  static const String privateImportTip = "privateImportTip";
+  static const String watchWallet = "watchWallet";
+  static const String watchWalletTip = "watchWalletTip";
+  static const String setWalletName = "setWalletName";
+  static const String pleaseEnterName = "pleaseEnterName";
+  static const String setPassword = "setPassword";
+  static const String mustPwd6Digits = "mustPwd6Digits";
+  static const String pleaseEnterPwd = "pleaseEnterPwd";
+  static const String pwdTip = "pwdTip";
+  static const String optional = "optional";
+  static const String enterOrPasteWalletAddress = "enterOrPasteWalletAddress";
+  static const String watchWalletImportTip = "watchWalletImportTip";
+  static const String startImport = "startImport";
+  static const String walletSystem = "walletSystem";
+  static const String walletPublicKey = "walletPublicKey";
+  static const String walletPrivateKey = "walletPrivateKey";
+  static const String pleaseEnterWalletPublicKey = "pleaseEnterWalletPublicKey";
+  static const String pleaseEnterWalletPrivateKey = "pleaseEnterWalletPrivateKey";
+
+
+  static const String pwdConfirmPwdNoEquals = "pwdConfirmPwdNoEquals";
+  static const String walletNameExist = "walletNameExist";
+
+  static const String importWalletSuccess = "importWalletSuccess";
+  static const String pleaseCheckTrueAddress = "pleaseCheckTrueAddress";
+
 }
   Map<String, Map<String, Map<String, String>>> localizedDefaultValues = {
     'en': {
@@ -1098,6 +1127,37 @@ class Ids {
          Ids.noHaveWallet:"I don't have a wallet",
          Ids.importWallet:"Import the wallet",
          Ids.createWallet:"Create a wallet",
+
+
+
+
+         Ids.selectNetwork:"Select Network",
+         Ids.singleWebWallet: "Single Web Wallet",
+         Ids.privateImport:"Private key import",
+         Ids.privateImportTip: "Import by entering the plaintext public key and private key or scanning the QR code of the private key",
+         Ids.watchWallet: "Watch Wallet",
+         Ids.watchWalletTip: "You don't need to import the private key, just enter the corresponding wallet address to import",
+         Ids.setWalletName:"Set Wallet Name",
+         Ids.pleaseEnterName:"Please enter a name",
+         Ids.setPassword:"Set Password",
+         Ids.mustPwd6Digits: "Password cannot be less than 6 digits",
+         Ids.pleaseEnterPwd:"Please enter the password again",
+         Ids.pwdTip: "Password Tip",
+         Ids.optional:"can be left blank",
+         Ids.enterOrPasteWalletAddress:"Enter or paste wallet address",
+         Ids.watchWalletImportTip: "The watch wallet does not need to import the private key, only the address is imported to check the account number, transaction records and receive notifications on a daily basis.",
+         Ids.startImport:"Start import",
+         Ids.walletSystem:"Wallet System",
+         Ids.walletPublicKey:"Wallet Public Key",
+         Ids.walletPrivateKey: "Wallet Private Key",
+         Ids.pleaseEnterWalletPublicKey:"Please enter the wallet public key",
+         Ids.pleaseEnterWalletPrivateKey:"Please enter the wallet private key",
+
+         Ids.pwdConfirmPwdNoEquals:"The password does not match the confirmation password",
+         Ids.walletNameExist:"wallet name already exists",
+
+         Ids.importWalletSuccess:"Import wallet successfully",
+         Ids.pleaseCheckTrueAddress:"Please check if it is the correct address",
        },
     },
     'zh': {
@@ -1604,8 +1664,40 @@ class Ids {
 
         Ids.haveWallet:"我有钱包",
         Ids.noHaveWallet:"我没有钱包",
-        Ids.importWallet:"导入钱包",
         Ids.createWallet:"创建钱包",
+        Ids.importWallet:"导入钱包",
+
+
+        Ids.selectNetwork:"选择网络",
+        Ids.singleWebWallet:"单网络钱包",
+        Ids.privateImport:"私钥导入",
+        Ids.privateImportTip:"通过输入明文公钥跟私钥或扫描私钥二维码进行导入",
+        Ids.watchWallet:"观察钱包",
+        Ids.watchWalletTip:"无需导入私钥，输入对应钱包地址即可导入",
+        Ids.setWalletName:"设置钱包名",
+        Ids.pleaseEnterName:"请输入名称",
+        Ids.setPassword:"设置密码",
+        Ids.mustPwd6Digits:"密码不能少于6位数",
+        Ids.pleaseEnterPwd:"请再次输入密码",
+        Ids.pwdTip:"密码提示",
+        Ids.optional:"可不填",
+        Ids.enterOrPasteWalletAddress:"输入或粘贴钱包地址",
+        Ids.watchWalletImportTip:"观察钱包不需要导入私钥，只导入地址，进行日常查看账号，交易记录和接受通知。",
+        Ids.startImport:"开始导入",
+        Ids.walletSystem:"钱包体系",
+        Ids.walletPublicKey:"钱包公钥",
+        Ids.walletPrivateKey:"钱包私钥",
+        Ids.pleaseEnterWalletPublicKey:"请输入钱包公钥",
+        Ids.pleaseEnterWalletPrivateKey:"请输入钱包私钥",
+
+
+        Ids.pwdConfirmPwdNoEquals:"密码跟确认密码不一致",
+        Ids.walletNameExist:"钱包名称已经存在",
+
+        Ids.importWalletSuccess:"导入钱包成功",
+        Ids.pleaseCheckTrueAddress:"请检查是否是正确的地址",
+
+
       },
        'HK':{
 
@@ -2113,6 +2205,34 @@ class Ids {
          Ids.noHaveWallet:"我沒有錢包",
          Ids.importWallet:"導入錢包",
          Ids.createWallet:"創建錢包",
+
+         Ids.selectNetwork:"選擇網絡",
+         Ids.singleWebWallet:"單網絡錢包",
+         Ids.privateImport:"私鑰導入",
+         Ids.privateImportTip:"通過輸入明文公鑰跟私鑰或掃描私鑰二維碼進行導入",
+         Ids.watchWallet:"觀察錢包",
+         Ids.watchWalletTip:"無需導入私鑰，輸入對應錢包地址即可導入",
+         Ids.setWalletName:"設置錢包名",
+         Ids.pleaseEnterName:"請輸入名稱",
+         Ids.setPassword:"設置密碼",
+         Ids.mustPwd6Digits:"密碼不能少於6位數",
+         Ids.pleaseEnterPwd:"請再次輸入密碼",
+         Ids.pwdTip:"密碼提示",
+         Ids.optional:"可不填",
+         Ids.enterOrPasteWalletAddress:"輸入或粘貼錢包地址",
+         Ids.watchWalletImportTip:"觀察錢包不需要導入私鑰，只導入地址，進行日常查看賬號，交易記錄和接受通知。",
+         Ids.startImport:"開始導入",
+         Ids.walletSystem:"錢包體系",
+         Ids.walletPublicKey:"錢包公鑰",
+         Ids.walletPrivateKey:"錢包私鑰",
+         Ids.pleaseEnterWalletPublicKey:"請輸入錢包公鑰",
+         Ids.pleaseEnterWalletPrivateKey:"請輸入錢包私鑰",
+
+
+         Ids.pwdConfirmPwdNoEquals:"密碼跟確認密碼不一致",
+         Ids.walletNameExist:"錢包名稱已經存在",
+         Ids.importWalletSuccess:"導入錢包成功",
+         Ids.pleaseCheckTrueAddress:"請檢查是否是正確的地址",
        },
     },
     'jp': {

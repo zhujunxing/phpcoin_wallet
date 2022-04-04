@@ -120,29 +120,29 @@ class WalletCreateController extends SuperController{
   void submit(BuildContext context)async {
 
     if(editName.text.trim().isEmpty){
-      ToastUtil.toast(context, "请输入名称");
+      ToastUtil.toast(context, Ids.pleaseEnterName.tr);
       return;
     }
 
     if(editPwd.text.trim().isEmpty){
-      ToastUtil.toast(context,"请输入密码");
+      ToastUtil.toast(context,Ids.mustPwd6Digits.tr);
       return;
     }
     if(editPwd.text.trim().length<6){
-      ToastUtil.toast(context,"请密码不小于6位数");
+      ToastUtil.toast(context,Ids.mustPwd6Digits.tr);
       return;
     }
     if(editPwdConfirm.text.trim().isEmpty){
-      ToastUtil.toast(context,"请再次输入密码");
+      ToastUtil.toast(context,Ids.pleaseEnterPwd.tr);
       return;
     }
     if(editPwd.text.trim()!=editPwdConfirm.text.trim()){
-      ToastUtil.toast(context,"密码跟确认密码不一致");
+      ToastUtil.toast(context,Ids.pwdConfirmPwdNoEquals.tr);
       return;
     }
      List<Wallet> walletList=await WalletDbService.getInstance()!.findWalletByWalletName(editName.text.trim());
     if(walletList.isNotEmpty){
-      ToastUtil.toast(context,"钱包名称已经存在");
+      ToastUtil.toast(context,Ids.walletNameExist.tr);
       return;
     }
     LoadingDialog.show();
@@ -171,7 +171,7 @@ class WalletCreateController extends SuperController{
                  "",
                  null,0,allAr.isNotEmpty?0:1);
             await WalletDbService.getInstance()!.add(wallet);
-             ToastUtil.toast(context,"创建钱包成功");
+             ToastUtil.toast(context,Ids.createWallet.tr+" "+Ids.success.tr);
              if(this.data.refresh!=null){
                this.data.refresh!.call();
              }

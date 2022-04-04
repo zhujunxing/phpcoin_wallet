@@ -3,22 +3,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phpcoin/data/wallet/wallet_create_import_data.dart';
-import 'package:flutter_phpcoin/ui/page/wallet/wallet_select_page.dart';
 
 
 import 'package:get/get.dart';
 
 
 import '../../../controller/page/wallet/wallet_create_controller.dart';
-import '../../../controller/page/wallet/wallet_create_import_controller.dart';
-import '../../../controller/page/wallet/wallet_select_controller.dart';
+
 import '../../../lang/string.dart';
 import '../../../res/colors.dart';
 import '../../../res/resource.dart';
 import '../../../res/style.dart';
 import '../../../utils/screen.dart';
 import '../../../widget/bar/app_bar.dart';
-import '../../../widget/custom/back_button.dart';
 import '../../../widget/custom/custom_button.dart';
 import '../../../widget/custom/divider_line.dart';
 
@@ -34,8 +31,8 @@ class WalletCreatePage extends StatelessWidget {
     controller=WalletCreateController(data);
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar:const BaseAppBar(
-          title:"创建钱包",
+        appBar: BaseAppBar(
+          title:Ids.createWallet.tr,
         ),
         body: CustomScrollView(
           slivers: [
@@ -46,7 +43,7 @@ class WalletCreatePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text("设置钱包名（${controller.walletName.value}）",style: TextStyle(
+                    Text("${Ids.setWalletName.tr}（${controller.walletName.value}）",style: TextStyle(
                       fontSize: Dimens.sp16,
                       color: Colours.defaultTextColor,
                     ),),
@@ -73,7 +70,7 @@ class WalletCreatePage extends StatelessWidget {
                                 fontSize: Dimens.sp14),
                             maxLines: 1,
                             decoration: InputDecoration(
-                              hintText:"请输入名称",
+                              hintText:Ids.pleaseEnterName.tr,
                               hintStyle: TextStyle(
                                 fontSize: Dimens.sp14,
                                 color: Colours.hintTextColor,
@@ -88,6 +85,7 @@ class WalletCreatePage extends StatelessWidget {
                             return controller.showClear.value?GestureDetector(
                               onTap: () {
                                 controller.editName.text='';
+                                controller.showClear.value=false;
                               },
                               child:Container(
                                 color: Colors.transparent,
@@ -116,7 +114,7 @@ class WalletCreatePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text("设置密码",style: TextStyle(
+                    Text(Ids.setPassword.tr,style: TextStyle(
                       fontSize: Dimens.sp16,
                       color: Colours.defaultTextColor,
                     ),),
@@ -135,7 +133,7 @@ class WalletCreatePage extends StatelessWidget {
                             fontSize: Dimens.sp14),
                         maxLines: 1,
                         decoration: InputDecoration(
-                          hintText:"密码不能少于6位数",
+                          hintText:Ids.mustPwd6Digits.tr,
                           hintStyle: TextStyle(
                             fontSize: Dimens.sp14,
                             color: Colours.hintTextColor,
@@ -162,7 +160,7 @@ class WalletCreatePage extends StatelessWidget {
                             fontSize: Dimens.sp14),
                         maxLines: 1,
                         decoration: InputDecoration(
-                          hintText:"请再次输入密码",
+                          hintText:Ids.pleaseEnterPwd.tr,
                           hintStyle: TextStyle(
                             fontSize: Dimens.sp14,
                             color: Colours.hintTextColor,
@@ -186,7 +184,7 @@ class WalletCreatePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text("密码提示",style: TextStyle(
+                    Text(Ids.pwdTip.tr,style: TextStyle(
                       fontSize: Dimens.sp16,
                       color: Colours.defaultTextColor,
                     ),),
@@ -204,7 +202,7 @@ class WalletCreatePage extends StatelessWidget {
                             fontSize: Dimens.sp14),
                         maxLines: 1,
                         decoration: InputDecoration(
-                          hintText:"可不填",
+                          hintText:Ids.optional.tr,
                           hintStyle: TextStyle(
                             fontSize: Dimens.sp14,
                             color: Colours.hintTextColor,
@@ -227,7 +225,7 @@ class WalletCreatePage extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: Container(
-                child: CustomButton("创建钱包",onPressed: (){
+                child: CustomButton(Ids.createWallet.tr,onPressed: (){
                     controller.submit(context);
                 },),
                 margin: EdgeInsets.fromLTRB(Dimens.dp15, 0, Dimens.dp15,0),

@@ -34,7 +34,7 @@ class WalletCreateImportPage extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colours.bgColor,
         appBar:BaseAppBar(
-          title:data.walletSelectType==WalletSelectType.create?"创建钱包":"导入钱包",
+          title:data.walletSelectType==WalletSelectType.create?Ids.createWallet.tr:Ids.importWallet.tr,
         ),
         body: CustomScrollView(
           slivers: [
@@ -64,12 +64,12 @@ class WalletCreateImportPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text("创建钱包",style: TextStyle(
+                          Text(Ids.createWallet.tr,style: TextStyle(
                             fontSize: Dimens.sp16,
                             color: Colours.defaultTextColor,
                           ),),
                           Gaps.hGap4,
-                          Text("创建钱包",style: TextStyle(
+                          Text(Ids.createWallet.tr,style: TextStyle(
                             fontSize: Dimens.sp12,
                             color: Colours.grayColor,
                           ),),
@@ -115,12 +115,12 @@ class WalletCreateImportPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text("私钥导入",style: TextStyle(
+                          Text(Ids.privateImport.tr,style: TextStyle(
                             fontSize: Dimens.sp16,
                             color: Colours.defaultTextColor,
                           ),),
                           Gaps.hGap4,
-                          Text("通过输入明文公钥跟私钥或扫描私钥二维码进行导入",style: TextStyle(
+                          Text(Ids.privateImportTip.tr,style: TextStyle(
                             fontSize: Dimens.sp12,
                             color: Colours.grayColor,
                           ),),
@@ -165,12 +165,12 @@ class WalletCreateImportPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text("观察钱包",style: TextStyle(
+                          Text(Ids.watchWallet.tr,style: TextStyle(
                             fontSize: Dimens.sp16,
                             color: Colours.defaultTextColor,
                           ),),
                           Gaps.hGap4,
-                          Text("无需导入私钥，输入对应公钥即可导入",style: TextStyle(
+                          Text(Ids.privateImportTip.tr,style: TextStyle(
                             fontSize: Dimens.sp12,
                             color: Colours.grayColor,
                           ),),

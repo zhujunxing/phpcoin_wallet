@@ -38,7 +38,7 @@ class WalletSelectPage extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colours.bgColor,
         appBar:BaseAppBar(
-          title:"选择网络",
+          title:Ids.selectNetwork.tr,
           leading: BackBt(
             color: Colours.defaultTextColor,
             isClose: true,
@@ -52,7 +52,7 @@ class WalletSelectPage extends StatelessWidget {
             SliverToBoxAdapter(
               child: Container(
                 padding:EdgeInsets.fromLTRB(Dimens.dp15, 0, Dimens.dp15, 0),
-                child: Text("单网络钱包",style: TextStyle(
+                child: Text(Ids.singleWebWallet.tr,style: TextStyle(
                   fontSize: Dimens.sp14,
                   color: Colours.grayColor,
                 ),),

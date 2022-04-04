@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import '../../../data/wallet/wallet_create_import_data.dart';
 import '../../../db/entity/wallet_entity.dart';
 import '../../../db/service/wallet_db_service.dart';
+import '../../../lang/string.dart';
 import '../../../service/node/node_service.dart';
 import '../../../utils/toast_util.dart';
 import '../../../widget/loading/loading_dialog.dart';
@@ -68,13 +69,13 @@ class WalletWatchImportController extends SuperController{
   void submit(BuildContext context)async {
 
     if(editAddress.text.trim().isEmpty){
-      ToastUtil.toast(context, "输入或粘贴钱包地址");
+      ToastUtil.toast(context, Ids.enterOrPasteWalletAddress.tr);
       return;
     }
 
     List<Wallet> walletList=await WalletDbService.getInstance()!.findWalletByWalletName(editAddress.text.trim());
     if(walletList.isNotEmpty){
-      ToastUtil.toast(context,"钱包名称已经存在");
+      ToastUtil.toast(context,Ids.walletNameExist.tr);
       return;
     }
     LoadingDialog.show();
@@ -98,13 +99,13 @@ class WalletWatchImportController extends SuperController{
               "",
               null,0,allAr.isNotEmpty?0:1);
           await WalletDbService.getInstance()!.add(wallet);
-          ToastUtil.toast(context,"导入钱包成功");
+          ToastUtil.toast(context,Ids.importWalletSuccess.tr);
           if(data.refresh!=null){
             data.refresh!.call();
           }
           Get.back();
         }else{
-          ToastUtil.toast(context, "请检查是否是正确的地址");
+          ToastUtil.toast(context,Ids.pleaseCheckTrueAddress.tr);
         }
        }
 
