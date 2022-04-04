@@ -171,7 +171,7 @@ class WalletCreateController extends SuperController{
                  "",
                  null,0,allAr.isNotEmpty?0:1);
             await WalletDbService.getInstance()!.add(wallet);
-             ToastUtil.toast(context,Ids.createWallet.tr+" "+Ids.success.tr);
+             ToastUtil.toast(context,Ids.createWalletSuccess.tr);
              if(this.data.refresh!=null){
                this.data.refresh!.call();
              }

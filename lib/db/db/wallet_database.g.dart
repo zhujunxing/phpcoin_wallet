@@ -232,6 +232,27 @@ class _$WalletDao extends WalletDao {
   }
 
   @override
+  Future<List<Wallet>?> findWalletByWalletAddress(String walletAddress) async {
+    return _queryAdapter.queryList(
+        'SELECT * FROM Wallet WHERE walletAddress = ?1 order by id desc',
+        mapper: (Map<String, Object?> row) => Wallet(
+            row['id'] as int?,
+            row['walletName'] as String?,
+            row['walletType'] as String?,
+            row['walletAddress'] as String?,
+            row['walletPublicKey'] as String?,
+            row['walletPrivateKey'] as String?,
+            row['pwd'] as String?,
+            row['pwdTip'] as String?,
+            row['createDate'] as int?,
+            row['mnemonic'] as String?,
+            row['updateDate'] as int?,
+            row['watch'] as int?,
+            row['select'] as int?),
+        arguments: [walletAddress]);
+  }
+
+  @override
   Stream<Wallet?> findWalletById(int id) {
     return _queryAdapter.queryStream('SELECT * FROM Wallet WHERE id = ?1',
         mapper: (Map<String, Object?> row) => Wallet(

@@ -24,6 +24,10 @@ abstract class WalletDao {
   @Query('SELECT * FROM Wallet WHERE walletName = :walletName order by id desc')
   Future<List<Wallet>?> findWalletByWalletName(String walletName);
 
+  //通过钱包地址查询
+  @Query('SELECT * FROM Wallet WHERE walletAddress = :walletAddress order by id desc')
+  Future<List<Wallet>?> findWalletByWalletAddress(String walletAddress);
+
 
   @Query('SELECT * FROM Wallet WHERE id = :id')
   Stream<Wallet?> findWalletById(int id);

@@ -28,7 +28,7 @@ class WalletPrivateImportPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    controller=WalletPrivateImportController(data);
+    controller=Get.put(WalletPrivateImportController(data));
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: BaseAppBar(

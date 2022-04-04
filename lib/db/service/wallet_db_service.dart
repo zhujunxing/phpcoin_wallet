@@ -67,7 +67,16 @@ class WalletDbService {
     data ??= [];
     return data;
   }
+  Future<List<Wallet>> findWalletByWalletAddress(String walletAddress) async {
 
+    List<Wallet>? data=[];
+
+    WalletDao dao = database.walletDao;
+    data = await dao.findWalletByWalletAddress(walletAddress);
+
+    data ??= [];
+    return data;
+  }
 
   Future<List<Wallet>> findWalletByWalletType(String walletType) async {
 

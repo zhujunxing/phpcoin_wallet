@@ -626,6 +626,11 @@ class Ids {
   static const String importWalletSuccess = "importWalletSuccess";
   static const String pleaseCheckTrueAddress = "pleaseCheckTrueAddress";
 
+
+  static const String privateImportError = "privateImportError";
+  static const String createWalletSuccess = "createWalletSuccess";
+  static const String walletAddressExist = "walletAddressExist";
+
 }
   Map<String, Map<String, Map<String, String>>> localizedDefaultValues = {
     'en': {
@@ -1158,6 +1163,11 @@ class Ids {
 
          Ids.importWalletSuccess:"Import wallet successfully",
          Ids.pleaseCheckTrueAddress:"Please check if it is the correct address",
+
+         Ids.privateImportError:"Failed to import private key",
+         Ids.createWalletSuccess:"Create wallet successfully",
+
+         Ids.walletAddressExist:"wallet address already exists",
        },
     },
     'zh': {
@@ -1697,7 +1707,9 @@ class Ids {
         Ids.importWalletSuccess:"导入钱包成功",
         Ids.pleaseCheckTrueAddress:"请检查是否是正确的地址",
 
-
+        Ids.privateImportError:"私钥导入失败",
+        Ids.createWalletSuccess:"创建钱包成功",
+        Ids.walletAddressExist:"钱包地址已经存在",
       },
        'HK':{
 
@@ -2233,6 +2245,11 @@ class Ids {
          Ids.walletNameExist:"錢包名稱已經存在",
          Ids.importWalletSuccess:"導入錢包成功",
          Ids.pleaseCheckTrueAddress:"請檢查是否是正確的地址",
+
+
+         Ids.privateImportError:"私鑰導入失敗",
+           Ids.createWalletSuccess:"創建錢包成功",
+         Ids.walletAddressExist:"錢包地址已經存在",
        },
     },
     'jp': {

@@ -147,6 +147,14 @@ dependencies:
   animated_digit: ^3.1.3
   #https://pub.dev/packages/flutter_easyloading/install 进度条
   flutter_easyloading: ^3.0.3
+  #https://pub.dev/packages/basic_utils/install
+  basic_utils: ^4.2.0
+  #https://pub.dev/packages/fast_base58/install
+  fast_base58: ^0.2.1
+  #https://pub.dev/packages/encrypt/install
+  encrypt: ^5.0.1
+  #https://pub.dev/packages/hash/install
+  hash: ^1.0.4
 
 
 dev_dependencies:

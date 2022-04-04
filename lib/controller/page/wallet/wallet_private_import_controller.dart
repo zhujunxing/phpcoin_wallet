@@ -2,6 +2,7 @@
 
 import 'dart:ffi';
 
+import 'package:basic_utils/basic_utils.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phpcoin/db/entity/wallet_entity.dart';
@@ -13,6 +14,8 @@ import 'package:get/get.dart';
 import '../../../data/wallet/wallet_create_import_data.dart';
 import '../../../lang/string.dart';
 import '../../../service/node/node_service.dart';
+import '../../../utils/crypt_utils_ex.dart';
+import '../../../utils/phpcoin.dart';
 import '../../../utils/toast_util.dart';
 
 
@@ -24,16 +27,14 @@ class WalletPrivateImportController extends SuperController{
 
   var showClear=true.obs;
   CancelToken cancelToken=CancelToken();
-  WalletPrivateImportController(this.data){
-    initEdit();
-    walletName.value=data.walletType;
-    initData();
-  }
+  WalletPrivateImportController(this.data);
 
   @override
   void onInit() {
     super.onInit();
-
+    initEdit();
+    walletName.value=data.walletType;
+    initData();
   }
   @override
   void onReady() {
@@ -174,23 +175,41 @@ class WalletPrivateImportController extends SuperController{
       ToastUtil.toast(context,Ids.walletNameExist.tr);
       return;
     }
-    LoadingDialog.show();
-    CreateWalletResp? resp=await NodeService.getInstance()!.createWallet(cancelToken: cancelToken);
-    LoadingDialog.hide();
-    if(!cancelToken.isCancelled){
-      if(resp!=null){
 
-        if(resp.status=='ok'){
-          CreateWalletDataBean? data = resp.data;
-          if(data!=null){
-             String address=data.address!;
-             String publicKey=data.publicKey!;
-             String privateKey=data.privateKey!;
+
+    String privateKey="";
+    String publicKey="";
+    String address="";
+    try{
+       privateKey=editAddress.text.trim();
+       publicKey=editPublic.text.trim();
+      //TODO coin2Pem -> pem -> key
+      String ecPrivateKeyPem2 = coin2Pem(privateKey);
+      print("ecPrivateKeyPem:\n" + ecPrivateKeyPem2);
+      ECPrivateKey ecPrivateKey2 = CryptoUtilsEx.ecPrivateKeyFromPem(ecPrivateKeyPem2);
+      String ecPrivateKey2P=CryptoUtilsEx.encodeEcPrivateKeyToPem(ecPrivateKey2);
+      print("ecPrivateKey2P:\n" + ecPrivateKey2P);
+
+
+      String ecPublicKeyPem2 = coin2Pem(publicKey,private: false);
+      print("ecPublicKeyPem2:\n" + ecPublicKeyPem2);
+        address=CryptoUtilsEx.getAddress(publicKey);
+    }catch(e){
+      ToastUtil.toast(context,Ids.privateImportError.tr);
+      return;
+    }
+
+    List<Wallet> walletAddressList=await WalletDbService.getInstance()!.findWalletByWalletAddress(address);
+    if(walletAddressList.isNotEmpty){
+      ToastUtil.toast(context,Ids.walletAddressExist.tr);
+      return;
+    }
+
 
              List<Wallet> allAr=await WalletDbService.getInstance()!.findAll();
              Wallet wallet=Wallet(null,
                  editName.text.trim(),
-                 this.data.walletType,
+                 data.walletType,
                  address,
                  publicKey,
                  privateKey,
@@ -201,20 +220,53 @@ class WalletPrivateImportController extends SuperController{
                  null,0,allAr.isNotEmpty?0:1);
             await WalletDbService.getInstance()!.add(wallet);
              ToastUtil.toast(context,Ids.importWalletSuccess.tr);
-             if(this.data.refresh!=null){
-               this.data.refresh!.call();
+             if(data.refresh!=null){
+               data.refresh!.call();
              }
              Get.back();
 
 
-          }
-        }
 
-
-
-      }
-
-
-    }
+    // CreateWalletResp? resp=await NodeService.getInstance()!.createWallet(cancelToken: cancelToken);
+    // LoadingDialog.hide();
+    // if(!cancelToken.isCancelled){
+    //   if(resp!=null){
+    //
+    //     if(resp.status=='ok'){
+    //       CreateWalletDataBean? data = resp.data;
+    //       if(data!=null){
+    //          String address=data.address!;
+    //          String publicKey=data.publicKey!;
+    //          String privateKey=data.privateKey!;
+    //
+    //          List<Wallet> allAr=await WalletDbService.getInstance()!.findAll();
+    //          Wallet wallet=Wallet(null,
+    //              editName.text.trim(),
+    //              this.data.walletType,
+    //              address,
+    //              publicKey,
+    //              privateKey,
+    //              editPwd.text.trim(),
+    //              editPwdTip.text.trim(),
+    //              DateTime.now().millisecondsSinceEpoch,
+    //              "",
+    //              null,0,allAr.isNotEmpty?0:1);
+    //         await WalletDbService.getInstance()!.add(wallet);
+    //          ToastUtil.toast(context,Ids.importWalletSuccess.tr);
+    //          if(this.data.refresh!=null){
+    //            this.data.refresh!.call();
+    //          }
+    //          Get.back();
+    //
+    //
+    //       }
+    //     }
+    //
+    //
+    //
+    //   }
+    //
+    //
+    // }
   }
 }

@@ -78,6 +78,11 @@ class WalletWatchImportController extends SuperController{
       ToastUtil.toast(context,Ids.walletNameExist.tr);
       return;
     }
+    List<Wallet> walletAddressList=await WalletDbService.getInstance()!.findWalletByWalletAddress(editAddress.text.trim());
+    if(walletAddressList.isNotEmpty){
+      ToastUtil.toast(context,Ids.walletAddressExist.tr);
+      return;
+    }
     LoadingDialog.show();
     QueryPublicKeyResp? resp=await NodeService.getInstance()!.queryPublicKey(editAddress.text.trim(),cancelToken: cancelToken);
     LoadingDialog.hide();
