@@ -16,15 +16,15 @@ import '../../../service/node/node_service.dart';
 import '../../../utils/toast_util.dart';
 
 
-class WalletCreateController extends SuperController{
+class WalletPrivateImportController extends SuperController{
   WalletCreateImportData data;
-
+  late TextEditingController editAddress,editPublic;
   late TextEditingController editName,editPwd,editPwdConfirm,editPwdTip;
   var walletName="".obs;
 
   var showClear=true.obs;
   CancelToken cancelToken=CancelToken();
-  WalletCreateController(this.data){
+  WalletPrivateImportController(this.data){
     initEdit();
     walletName.value=data.walletType;
     initData();
@@ -68,7 +68,24 @@ class WalletCreateController extends SuperController{
 
 
   void initEdit(){
-
+    editPublic=TextEditingController.fromValue(
+        TextEditingValue(
+          // 设置内容
+            text: "",
+            // 保持光标在最后
+            selection: TextSelection
+                .fromPosition( const TextPosition(
+                affinity: TextAffinity.downstream,
+                offset:"".length))));
+    editAddress=TextEditingController.fromValue(
+        TextEditingValue(
+          // 设置内容
+            text: "",
+            // 保持光标在最后
+            selection: TextSelection
+                .fromPosition( const TextPosition(
+                affinity: TextAffinity.downstream,
+                offset:"".length))));
     editName=TextEditingController.fromValue(
         TextEditingValue(
           // 设置内容
@@ -118,6 +135,18 @@ class WalletCreateController extends SuperController{
   }
 
   void submit(BuildContext context)async {
+
+
+
+    if(editPublic.text.trim().isEmpty){
+        ToastUtil.toast(context, "请输入钱包公钥");
+      return;
+    }
+
+    if(editAddress.text.trim().isEmpty){
+      ToastUtil.toast(context, "请输入钱包私钥");
+      return;
+    }
 
     if(editName.text.trim().isEmpty){
       ToastUtil.toast(context, "请输入名称");

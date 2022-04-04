@@ -7,4 +7,9 @@ class NodeApi{
 
   //创建钱包
   static String generateAccount=BaseApi.baseNodeUrl+"/api.php?q=generateAccount";
+  //通过地址获取公钥
+  static String queryPublicKey=BaseApi.baseNodeUrl+"/api.php?q=getPublicKey";
+
+
+
 }

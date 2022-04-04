@@ -24,7 +24,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
         width:width ?? Screen.width,
-        height:height ?? Dimens.dp45,
+        height:height ?? Dimens.dp40,
         child: ElevatedButton(
           style: ButtonStyle(
             backgroundColor:isBorderButton==true?MaterialStateProperty.all(

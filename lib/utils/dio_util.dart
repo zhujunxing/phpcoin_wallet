@@ -161,17 +161,27 @@ class HttpUtil {
    * post请求
    */
   post(url, Function successCallBack,
-      {data, options, cancelToken, Function? errorCallBack}) async {
+      {Map<dynamic,dynamic>? data, options, cancelToken, Function? errorCallBack}) async {
     Response<String> response;
     try {
 
       dio.options.connectTimeout = 15000;
       dio.options.receiveTimeout = 15000;
       dio.options.contentType="application/json;charset=utf-8";
+     Map<String,dynamic> query={};
+
+     if(data!.isNotEmpty){
+       print("循环start");
+       data.forEach((key, value) {
+           query.putIfAbsent("$key", () => value);
+       });
+
+       print("循环end");
+     }
 
 
 
-      response = await dio.post(url,data: data, options: options, cancelToken: cancelToken);
+      response = await dio.post(url,data: data.isNotEmpty?data:null, options: options, cancelToken: cancelToken,queryParameters: query.isNotEmpty?query:null);
 
       if(response.data!=null){
         Map<dynamic, dynamic> dataMap = json.decode(response.data!);

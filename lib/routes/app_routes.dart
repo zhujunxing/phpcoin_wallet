@@ -40,6 +40,12 @@ abstract class Routes {
 
   ///钱包-创建钱包
   static const  walletCreate=Paths.walletCreate;
+
+  ///钱包-观察钱包
+  static const  walletWatchImport=Paths.walletWatchImport;
+
+  ///钱包-私钥导入
+  static const  walletPrivateImport=Paths.walletPrivateImport;
 }
 
 
@@ -69,6 +75,9 @@ abstract class Paths {
 
   static const walletCreateImport = '/wallet/createImport';
   static const walletCreate = '/wallet/create';
+
+  static const walletWatchImport = '/wallet/watch/import';
+  static const walletPrivateImport = '/wallet/private/import';
 
 }
 

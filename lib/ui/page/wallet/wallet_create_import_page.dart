@@ -81,10 +81,10 @@ class WalletCreateImportPage extends StatelessWidget {
                 ),
                 onTap: (){
                   WalletCreateImportData data=WalletCreateImportData(walletType: controller.data.walletType,walletSelectType: controller.data.walletSelectType,refresh: (){
-                    Get.back();
                     if(controller.data.refresh!=null){
                       controller.data.refresh!.call();
                     }
+                    Get.back();
                   });
                   Get.toNamed(Routes.walletCreate,arguments:data);
                 },
@@ -131,6 +131,13 @@ class WalletCreateImportPage extends StatelessWidget {
                   ),
                 ),
                 onTap: (){
+                  WalletCreateImportData data=WalletCreateImportData(walletType: controller.data.walletType,walletSelectType: controller.data.walletSelectType,refresh: (){
+                    if(controller.data.refresh!=null){
+                      controller.data.refresh!.call();
+                    }
+                    Get.back();
+                  });
+                  Get.toNamed(Routes.walletPrivateImport,arguments:data);
 
                 },
               ),
@@ -174,6 +181,14 @@ class WalletCreateImportPage extends StatelessWidget {
                   ),
                 ),
                 onTap: (){
+
+                  WalletCreateImportData data=WalletCreateImportData(walletType: controller.data.walletType,walletSelectType: controller.data.walletSelectType,refresh: (){
+                    if(controller.data.refresh!=null){
+                      controller.data.refresh!.call();
+                    }
+                    Get.back();
+                  });
+                  Get.toNamed(Routes.walletWatchImport,arguments:data);
 
                 },
               ),
