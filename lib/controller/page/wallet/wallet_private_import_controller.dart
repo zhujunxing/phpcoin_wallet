@@ -21,7 +21,7 @@ import '../../../utils/toast_util.dart';
 
 class WalletPrivateImportController extends SuperController{
   WalletCreateImportData data;
-  late TextEditingController editAddress,editPublic;
+  late TextEditingController editAddress;
   late TextEditingController editName,editPwd,editPwdConfirm,editPwdTip;
   var walletName="".obs;
 
@@ -69,15 +69,7 @@ class WalletPrivateImportController extends SuperController{
 
 
   void initEdit(){
-    editPublic=TextEditingController.fromValue(
-        TextEditingValue(
-          // 设置内容
-            text: "",
-            // 保持光标在最后
-            selection: TextSelection
-                .fromPosition( const TextPosition(
-                affinity: TextAffinity.downstream,
-                offset:"".length))));
+
     editAddress=TextEditingController.fromValue(
         TextEditingValue(
           // 设置内容
@@ -138,12 +130,6 @@ class WalletPrivateImportController extends SuperController{
   void submit(BuildContext context)async {
 
 
-
-    if(editPublic.text.trim().isEmpty){
-        ToastUtil.toast(context, Ids.pleaseEnterWalletPublicKey.tr);
-      return;
-    }
-
     if(editAddress.text.trim().isEmpty){
       ToastUtil.toast(context, Ids.pleaseEnterWalletPrivateKey.tr);
       return;
@@ -182,18 +168,9 @@ class WalletPrivateImportController extends SuperController{
     String address="";
     try{
        privateKey=editAddress.text.trim();
-       publicKey=editPublic.text.trim();
-      //TODO coin2Pem -> pem -> key
-      String ecPrivateKeyPem2 = coin2Pem(privateKey);
-      print("ecPrivateKeyPem:\n" + ecPrivateKeyPem2);
-      ECPrivateKey ecPrivateKey2 = CryptoUtilsEx.ecPrivateKeyFromPem(ecPrivateKeyPem2);
-      String ecPrivateKey2P=CryptoUtilsEx.encodeEcPrivateKeyToPem(ecPrivateKey2);
-      print("ecPrivateKey2P:\n" + ecPrivateKey2P);
+       publicKey=private2publicKey(privateKey);
 
-
-      String ecPublicKeyPem2 = coin2Pem(publicKey,private: false);
-      print("ecPublicKeyPem2:\n" + ecPublicKeyPem2);
-        address=CryptoUtilsEx.getAddress(publicKey);
+       address=CryptoUtilsEx.getAddress(publicKey);
     }catch(e){
       ToastUtil.toast(context,Ids.privateImportError.tr);
       return;

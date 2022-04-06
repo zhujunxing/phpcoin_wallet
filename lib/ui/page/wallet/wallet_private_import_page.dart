@@ -36,52 +36,7 @@ class WalletPrivateImportPage extends StatelessWidget {
         ),
         body: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(
-              child: Container(
-                margin: EdgeInsets.fromLTRB(Dimens.dp15, Dimens.dp15, Dimens.dp15, 0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(Ids.walletPublicKey.tr,style: TextStyle(
-                      fontSize: Dimens.sp16,
-                      color: Colours.defaultTextColor,
-                    ),),
-                    SizedBox(
-                        height: Dimens.dp45,
-                        width: Screen.width,
 
-                        child:Row(
-                          children: [
-                            Expanded(child: TextField(
-                              textInputAction:TextInputAction.done,
-                              keyboardType: TextInputType.text,
-                              controller: controller.editPublic,
-                              style: TextStyle(
-                                  textBaseline:TextBaseline.alphabetic,
-                                  color: Colours.defaultTextColor,
-                                  fontSize: Dimens.sp14),
-                              maxLines: 1,
-                              decoration: InputDecoration(
-                                hintText:Ids.pleaseEnterWalletPublicKey.tr,
-                                hintStyle: TextStyle(
-                                  fontSize: Dimens.sp14,
-                                  color: Colours.hintTextColor,
-                                ),
-                                contentPadding: const EdgeInsets.all(0),
-                                border: const OutlineInputBorder(
-                                    borderSide: BorderSide.none
-                                ),
-                              ),
-                            ),),
-                          ],
-                        )
-                    ),
-                    const DividerLine(),
-                  ],
-                ),
-              ),
-            ),
             SliverToBoxAdapter(
               child: Gaps.hGap10,
             ),

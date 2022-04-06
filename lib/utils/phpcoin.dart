@@ -136,3 +136,18 @@ ECSignature signatureFromString(String signature) {
   ECSignature ecSignature = ECSignature(r, s);
   return ecSignature;
 }
+
+
+
+String private2publicKey(String privateKey) {
+  String privateKeyPem = CryptoUtilsEx.coin2Pem(privateKey);
+  ECPrivateKey ecPrivateKey = CryptoUtilsEx.ecPrivateKeyFromPem(privateKeyPem);
+  ECDomainParameters? params = ecPrivateKey.parameters;
+  BigInt? d = ecPrivateKey.d;
+
+  var Q = params!.G * d;
+  ECPublicKey ecPublicKey = ECPublicKey(Q, params);
+
+  String ecPublicKeyPem = CryptoUtilsEx.encodeEcPublicKeyToPem(ecPublicKey);
+  return CryptoUtilsEx.pem2Coin(ecPublicKeyPem);
+}
