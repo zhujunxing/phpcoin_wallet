@@ -15,10 +15,10 @@ class Wallet {
   String? mnemonic; //助记词
   int? updateDate; //更新时间
   int? watch; // 0 不是观察钱包 1 是观察钱包
-  int? select;//0 没有选中 1 被选中
+  int? walletSelect;//0 没有选中 1 被选中
   Wallet(this.id,this.walletName, this.walletType, this.walletAddress, this.walletPublicKey,
       this.walletPrivateKey,this.pwd,this.pwdTip,this.createDate,this.mnemonic,this.updateDate,
-      this.watch,this.select);
+      this.watch,this.walletSelect);
 
   @override
   int get hashCode => id.hashCode;

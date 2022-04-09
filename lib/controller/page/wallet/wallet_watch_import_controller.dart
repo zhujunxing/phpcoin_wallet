@@ -12,12 +12,14 @@ import '../../../lang/string.dart';
 import '../../../service/node/node_service.dart';
 import '../../../utils/toast_util.dart';
 import '../../../widget/loading/loading_dialog.dart';
+import '../home/home_assets_controller.dart';
 
 
 class WalletWatchImportController extends SuperController{
   WalletCreateImportData data;
   late TextEditingController editAddress;
   CancelToken cancelToken=CancelToken();
+  HomeAssetsController homeAssetsController=Get.find();
   WalletWatchImportController(this.data){
     editAddress=TextEditingController.fromValue(
         TextEditingValue(
@@ -104,6 +106,7 @@ class WalletWatchImportController extends SuperController{
               "",
               null,0,allAr.isNotEmpty?0:1);
           await WalletDbService.getInstance()!.add(wallet);
+          homeAssetsController.initWallet();
           ToastUtil.toast(context,Ids.importWalletSuccess.tr);
           if(data.refresh!=null){
             data.refresh!.call();

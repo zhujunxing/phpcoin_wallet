@@ -82,7 +82,7 @@ class _$WalletDatabase extends WalletDatabase {
       },
       onCreate: (database, version) async {
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `Wallet` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `walletName` TEXT, `walletType` TEXT, `walletAddress` TEXT, `walletPublicKey` TEXT, `walletPrivateKey` TEXT, `pwd` TEXT, `pwdTip` TEXT, `createDate` INTEGER, `mnemonic` TEXT, `updateDate` INTEGER, `watch` INTEGER, `select` INTEGER)');
+            'CREATE TABLE IF NOT EXISTS `Wallet` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `walletName` TEXT, `walletType` TEXT, `walletAddress` TEXT, `walletPublicKey` TEXT, `walletPrivateKey` TEXT, `pwd` TEXT, `pwdTip` TEXT, `createDate` INTEGER, `mnemonic` TEXT, `updateDate` INTEGER, `watch` INTEGER, `walletSelect` INTEGER)');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -98,7 +98,7 @@ class _$WalletDatabase extends WalletDatabase {
 
 class _$WalletDao extends WalletDao {
   _$WalletDao(this.database, this.changeListener)
-      : _queryAdapter = QueryAdapter(database, changeListener),
+      : _queryAdapter = QueryAdapter(database),
         _walletInsertionAdapter = InsertionAdapter(
             database,
             'Wallet',
@@ -115,9 +115,8 @@ class _$WalletDao extends WalletDao {
                   'mnemonic': item.mnemonic,
                   'updateDate': item.updateDate,
                   'watch': item.watch,
-                  'select': item.select
-                },
-            changeListener),
+                  'walletSelect': item.walletSelect
+                }),
         _walletUpdateAdapter = UpdateAdapter(
             database,
             'Wallet',
@@ -135,9 +134,8 @@ class _$WalletDao extends WalletDao {
                   'mnemonic': item.mnemonic,
                   'updateDate': item.updateDate,
                   'watch': item.watch,
-                  'select': item.select
-                },
-            changeListener);
+                  'walletSelect': item.walletSelect
+                });
 
   final sqflite.DatabaseExecutor database;
 
@@ -165,7 +163,7 @@ class _$WalletDao extends WalletDao {
             row['mnemonic'] as String?,
             row['updateDate'] as int?,
             row['watch'] as int?,
-            row['select'] as int?));
+            row['walletSelect'] as int?));
   }
 
   @override
@@ -185,7 +183,7 @@ class _$WalletDao extends WalletDao {
             row['mnemonic'] as String?,
             row['updateDate'] as int?,
             row['watch'] as int?,
-            row['select'] as int?),
+            row['walletSelect'] as int?),
         arguments: [startIndex, pageSize]);
   }
 
@@ -206,7 +204,7 @@ class _$WalletDao extends WalletDao {
             row['mnemonic'] as String?,
             row['updateDate'] as int?,
             row['watch'] as int?,
-            row['select'] as int?),
+            row['walletSelect'] as int?),
         arguments: [walletType]);
   }
 
@@ -227,7 +225,7 @@ class _$WalletDao extends WalletDao {
             row['mnemonic'] as String?,
             row['updateDate'] as int?,
             row['watch'] as int?,
-            row['select'] as int?),
+            row['walletSelect'] as int?),
         arguments: [walletName]);
   }
 
@@ -248,13 +246,13 @@ class _$WalletDao extends WalletDao {
             row['mnemonic'] as String?,
             row['updateDate'] as int?,
             row['watch'] as int?,
-            row['select'] as int?),
+            row['walletSelect'] as int?),
         arguments: [walletAddress]);
   }
 
   @override
-  Stream<Wallet?> findWalletById(int id) {
-    return _queryAdapter.queryStream('SELECT * FROM Wallet WHERE id = ?1',
+  Future<Wallet?> findWalletById(int id) async {
+    return _queryAdapter.query('SELECT * FROM Wallet WHERE id = ?1',
         mapper: (Map<String, Object?> row) => Wallet(
             row['id'] as int?,
             row['walletName'] as String?,
@@ -268,15 +266,13 @@ class _$WalletDao extends WalletDao {
             row['mnemonic'] as String?,
             row['updateDate'] as int?,
             row['watch'] as int?,
-            row['select'] as int?),
-        arguments: [id],
-        queryableName: 'Wallet',
-        isView: false);
+            row['walletSelect'] as int?),
+        arguments: [id]);
   }
 
   @override
-  Stream<Wallet?> findWalletBySelect(int select) {
-    return _queryAdapter.queryStream('SELECT * FROM Wallet WHERE select = ?1',
+  Future<Wallet?> findWalletBySelect(int walletSelect) async {
+    return _queryAdapter.query('SELECT * FROM Wallet WHERE walletSelect = ?1',
         mapper: (Map<String, Object?> row) => Wallet(
             row['id'] as int?,
             row['walletName'] as String?,
@@ -290,10 +286,8 @@ class _$WalletDao extends WalletDao {
             row['mnemonic'] as String?,
             row['updateDate'] as int?,
             row['watch'] as int?,
-            row['select'] as int?),
-        arguments: [select],
-        queryableName: 'Wallet',
-        isView: false);
+            row['walletSelect'] as int?),
+        arguments: [walletSelect]);
   }
 
   @override

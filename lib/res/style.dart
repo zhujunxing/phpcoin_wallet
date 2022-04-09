@@ -197,9 +197,11 @@ class Dimens {
 
   static  double dp24 = 24.w;
   static  double dp25 = 25.w;
-
+  static  double dp26 = 26.w;
+  static  double dp28 = 28.w;
   static  double dp30 = 30.w;
   static  double dp35 = 35.w;
+  static  double dp38 = 38.w;
   static  double dp40 = 40.w;
   static  double dp42 = 42.w;
   static  double dp44 = 44.w;

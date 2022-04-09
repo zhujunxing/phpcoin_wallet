@@ -23,7 +23,10 @@ class HomeAssetsPage extends StatelessWidget {
 
     controller=Get.put(HomeAssetsController());
 
-    return controller.isHaveWallet.value?const HomeAssetsHaveWallet():const HomeAssetsNoWallet();
+    return Obx((){
+
+      return controller.isHaveWallet.value? HomeAssetsHaveWallet():const HomeAssetsNoWallet();
+    });
   }
 
 

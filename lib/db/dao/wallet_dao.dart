@@ -30,11 +30,11 @@ abstract class WalletDao {
 
 
   @Query('SELECT * FROM Wallet WHERE id = :id')
-  Stream<Wallet?> findWalletById(int id);
+  Future<Wallet?> findWalletById(int id);
 
 
-  @Query('SELECT * FROM Wallet WHERE select = :select')
-  Stream<Wallet?> findWalletBySelect(int select);
+  @Query('SELECT * FROM Wallet WHERE walletSelect = :walletSelect')
+  Future<Wallet?> findWalletBySelect(int walletSelect);
 
 
   @Query('DELETE FROM Wallet  WHERE  id = :id')

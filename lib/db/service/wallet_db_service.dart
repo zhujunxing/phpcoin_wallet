@@ -102,4 +102,15 @@ class WalletDbService {
     return data;
   }
 
+
+
+  ///查询选中钱包
+  Future<Wallet?> findSelect() async {
+
+
+    WalletDao dao = database.walletDao;
+    Wallet?  data = await dao.findWalletBySelect(1);
+
+    return data;
+  }
 }

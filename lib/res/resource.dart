@@ -71,4 +71,7 @@ class ImageResource {
   static  String seeIcon = '$dir/seeIcon.png';
   static  String walletIcon = '$dir/walletIcon.png';
   static  String clearCircle = '$dir/clearCircle.png';
+
+  static  String receive = '$dir/receive.png';
+  static  String exchange = '$dir/exchange.png';
 }

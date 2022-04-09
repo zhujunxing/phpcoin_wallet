@@ -17,6 +17,7 @@ import '../../../service/node/node_service.dart';
 import '../../../utils/crypt_utils_ex.dart';
 import '../../../utils/phpcoin.dart';
 import '../../../utils/toast_util.dart';
+import '../home/home_assets_controller.dart';
 
 
 class WalletPrivateImportController extends SuperController{
@@ -27,6 +28,7 @@ class WalletPrivateImportController extends SuperController{
 
   var showClear=true.obs;
   CancelToken cancelToken=CancelToken();
+  HomeAssetsController homeAssetsController=Get.find();
   WalletPrivateImportController(this.data);
 
   @override
@@ -196,6 +198,7 @@ class WalletPrivateImportController extends SuperController{
                  "",
                  null,0,allAr.isNotEmpty?0:1);
             await WalletDbService.getInstance()!.add(wallet);
+              homeAssetsController.initWallet();
              ToastUtil.toast(context,Ids.importWalletSuccess.tr);
              if(data.refresh!=null){
                data.refresh!.call();

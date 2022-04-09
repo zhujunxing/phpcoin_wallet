@@ -14,6 +14,7 @@ import '../../../data/wallet/wallet_create_import_data.dart';
 import '../../../lang/string.dart';
 import '../../../service/node/node_service.dart';
 import '../../../utils/toast_util.dart';
+import '../home/home_assets_controller.dart';
 
 
 class WalletCreateController extends SuperController{
@@ -24,6 +25,7 @@ class WalletCreateController extends SuperController{
 
   var showClear=true.obs;
   CancelToken cancelToken=CancelToken();
+  HomeAssetsController homeAssetsController=Get.find();
   WalletCreateController(this.data){
     initEdit();
     walletName.value=data.walletType;
@@ -171,6 +173,7 @@ class WalletCreateController extends SuperController{
                  "",
                  null,0,allAr.isNotEmpty?0:1);
             await WalletDbService.getInstance()!.add(wallet);
+             homeAssetsController.initWallet();
              ToastUtil.toast(context,Ids.createWalletSuccess.tr);
              if(this.data.refresh!=null){
                this.data.refresh!.call();

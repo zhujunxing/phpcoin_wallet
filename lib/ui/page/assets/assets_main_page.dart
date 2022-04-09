@@ -43,7 +43,6 @@ class AssetsMainPage extends StatelessWidget {
         ),
       body:CustomSmartRefresher(
           refreshController:controller.refreshController,
-          isCustomHeader: true,
           onRefresh: (){
             controller.refreshController.refreshCompleted();
           },
