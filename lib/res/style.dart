@@ -206,6 +206,7 @@ class Dimens {
   static  double dp42 = 42.w;
   static  double dp44 = 44.w;
   static  double dp45 = 45.w;
+  static  double dp48 = 48.w;
   static  double dp50 = 50.w;
   static  double dp55 = 55.w;
   static  double dp60 = 60.w;

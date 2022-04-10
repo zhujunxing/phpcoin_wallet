@@ -6,6 +6,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_phpcoin/res/colors.dart';
 import 'package:flutter_phpcoin/res/resource.dart';
 import 'package:flutter_phpcoin/res/style.dart';
+import 'package:flutter_phpcoin/routes/app_pages.dart';
+import 'package:flutter_phpcoin/ui/dialog/select_bottom_dialog.dart';
 import 'package:flutter_phpcoin/widget/custom/custom_smart_refresher.dart';
 import 'package:flutter_phpcoin/widget/custom/join_right.dart';
 import 'package:get/get.dart';
@@ -14,11 +16,14 @@ import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
 import '../../../../controller/page/home/assets/home_assets_have_wallet_controller.dart';
 import '../../../../data/wallet/assets_b_data.dart';
+import '../../../../lang/string.dart';
 import '../../../../utils/screen.dart';
+import '../../../../utils/toast_util.dart';
 import '../../../../widget/bar/app_bar.dart';
 import '../../../../widget/bar/status_bar.dart';
 import '../../assets/assets_b_item.dart';
 import '../../assets/assets_coin_item.dart';
+import '../../wallet/wallet_select_page.dart';
 
 
 
@@ -35,7 +40,7 @@ class HomeAssetsHaveWallet extends StatelessWidget {
     controller=Get.put(HomeAssetsHaveWalletController());
      controller.titleAr.value=["资产"];
      controller.initWallet();
-
+    controller.queryBalance();
     return Scaffold(
       backgroundColor: Colors.white,
 
@@ -113,6 +118,17 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                                     mainAxisSize: MainAxisSize.min,
                                     children:[
                                       GestureDetector(
+                                        onTap: (){
+                                          List<String> data=[Ids.createWallet.tr,Ids.importWallet.tr];
+                                          Get.bottomSheet(SelectBottomDialog(data,selectCallback: (select){
+                                              if(select==0){
+                                                Get.toNamed(Routes.walletSelect,arguments: WalletSelectType.create);
+                                              }else if(select==1){
+                                                Get.toNamed(Routes.walletSelect,arguments: WalletSelectType.import);
+                                              }
+                                          },));
+
+                                        },
                                         child: Container(
                                           height: Dimens.dp30,
                                           alignment: Alignment.center,
@@ -123,6 +139,11 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                                         ),
                                       ),
                                       GestureDetector(
+                                        onTap: (){
+
+                                        Get.toNamed(Routes.scan);
+
+                                        },
                                         child: Container(
                                           height: Dimens.dp30,
                                           alignment: Alignment.center,
@@ -147,6 +168,9 @@ class HomeAssetsHaveWallet extends StatelessWidget {
               Expanded(child: CustomSmartRefresher(
                 refreshController: controller.refreshController,
                 enablePullUp: false,
+                onRefresh: (){
+                  controller.queryBalance();
+                },
                 child: CustomScrollView(
                   slivers: [
 
@@ -176,60 +200,69 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                         ),
                         child: Column(
                           children: [
-                            Expanded(child: Stack(
-                              children: [
+                            Expanded(child: GestureDetector(
+                              child: Stack(
+                                children: [
 
-                                Positioned(child: Container(
-                                  padding: EdgeInsets.fromLTRB(Dimens.dp15, Dimens.dp8, Dimens.dp10, Dimens.dp10),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Text("我的资产(\$)",style: TextStyle(
-                                            fontSize: Dimens.sp12,
-                                            color: Colors.white,
-                                          ),),
-                                          GestureDetector(
-                                            onTap: (){
+                                  Positioned(child: Container(
+                                    padding: EdgeInsets.fromLTRB(Dimens.dp15, Dimens.dp8, Dimens.dp10, Dimens.dp10),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Text("我的资产(\$)",style: TextStyle(
+                                              fontSize: Dimens.sp12,
+                                              color: Colors.white,
+                                            ),),
+                                            GestureDetector(
+                                              onTap: (){
 
-                                            },
-                                            child: Container(
-                                              padding: EdgeInsets.only(left: Dimens.dp6,right: Dimens.dp6),
-                                              child: ImageIcon(AssetImage(ImageResource.eysOpen),size: Dimens.sp12,color: Colors.white.withOpacity(0.5),),
+                                              },
+                                              child: Container(
+                                                padding: EdgeInsets.only(left: Dimens.dp6,right: Dimens.dp6),
+                                                child: ImageIcon(AssetImage(ImageResource.eysOpen),size: Dimens.sp12,color: Colors.white.withOpacity(0.5),),
+                                              ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                      Gaps.hGap10,
-                                      AnimatedDigitWidget(
-                                          value: 0.00,
-                                          fractionDigits: 2, // number of decimal places reserved, not rounded
-                                          textStyle: TextStyle(
-                                            fontSize: Dimens.sp28,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                          )
-                                      ),
-                                    ],
-                                  ),
-                                ),left: 0,top:Dimens.dp10,),
+                                          ],
+                                        ),
+                                        Gaps.hGap10,
+                                        AnimatedDigitWidget(
+                                            value: 0.00,
+                                            fractionDigits: 2, // number of decimal places reserved, not rounded
+                                            textStyle: TextStyle(
+                                              fontSize: Dimens.sp28,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                            )
+                                        ),
+                                      ],
+                                    ),
+                                  ),left: 0,top:Dimens.dp10,),
 
-                                Positioned(child: Container(
-                                  child: Row(
-                                    children: [
-                                      Text("详情",style: TextStyle(
-                                        fontSize: Dimens.sp12,
-                                        color: Colors.white.withOpacity(0.5),
-                                      ),),
-                                      JoinRight(color: Colors.white.withOpacity(0.5),size: Dimens.sp12,),
-                                    ],
-                                  ),
-                                  padding: EdgeInsets.fromLTRB(Dimens.dp10, Dimens.dp10, Dimens.dp10, Dimens.dp10),
-                                ),top: 0,right: 0,),
-                              ],
+                                  Positioned(child: Container(
+                                    child: Row(
+                                      children: [
+                                        Text("详情",style: TextStyle(
+                                          fontSize: Dimens.sp12,
+                                          color: Colors.white.withOpacity(0.5),
+                                        ),),
+                                        JoinRight(color: Colors.white.withOpacity(0.5),size: Dimens.sp12,),
+                                      ],
+                                    ),
+                                    padding: EdgeInsets.fromLTRB(Dimens.dp10, Dimens.dp10, Dimens.dp10, Dimens.dp10),
+                                  ),top: 0,right: 0,),
+                                ],
+                              ),
+                              onTap: (){
+                                   if(controller.wallet==null){
+                                     return;
+                                   }
+                                 Get.toNamed(Routes.walletDetail,arguments: controller.wallet);
+                              },
+                              behavior: HitTestBehavior.opaque,
                             )),
                             Container(
                               width: Screen.width,
@@ -243,18 +276,52 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                               ),
                               child: Row(
                                 children: [
-                                  Expanded(child: Container(
-                                    alignment: Alignment.center,
-                                    child: Row(
-                                      children: [
-                                        ImageIcon(AssetImage(ImageResource.transfer),size: Dimens.sp14,color:Colors.white,),
-                                        Gaps.wGap8,
-                                        Text("转账",style: TextStyle(
-                                          fontSize:Dimens.sp14,
-                                          color: Colors.white,
-                                        ),),
-                                      ],
-                                      mainAxisSize: MainAxisSize.min,
+                                  Expanded(child: GestureDetector(
+                                    behavior: HitTestBehavior.opaque,
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      child: Row(
+                                        children: [
+                                          ImageIcon(AssetImage(ImageResource.transfer),size: Dimens.sp14,color:Colors.white,),
+                                          Gaps.wGap8,
+                                          Text("转账",style: TextStyle(
+                                            fontSize:Dimens.sp14,
+                                            color: Colors.white,
+                                          ),),
+                                        ],
+                                        mainAxisSize: MainAxisSize.min,
+                                      ),
+                                    ),
+                                    onTap: (){
+
+                                    },
+                                  )),
+                                  Container(
+                                    height: Dimens.dp15,
+                                    width: Dimens.dp1,
+                                    color: Colors.white.withOpacity(0.2),
+                                  ),
+                                  Expanded(child: GestureDetector(
+                                    behavior: HitTestBehavior.opaque,
+                                    onTap: (){
+                                      if(controller.wallet==null){
+                                        return;
+                                      }
+                                      Get.toNamed(Routes.transferReceiveErWei,arguments: controller.wallet!.walletAddress);
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      child: Row(
+                                        children: [
+                                          ImageIcon(AssetImage(ImageResource.receive),size: Dimens.sp14,color:Colors.white,),
+                                          Gaps.wGap8,
+                                          Text("收款",style: TextStyle(
+                                            fontSize:Dimens.sp14,
+                                            color: Colors.white,
+                                          ),),
+                                        ],
+                                        mainAxisSize: MainAxisSize.min,
+                                      ),
                                     ),
                                   )),
                                   Container(
@@ -262,38 +329,25 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                                     width: Dimens.dp1,
                                     color: Colors.white.withOpacity(0.2),
                                   ),
-                                  Expanded(child: Container(
-                                    alignment: Alignment.center,
-                                    child: Row(
-                                      children: [
-                                        ImageIcon(AssetImage(ImageResource.receive),size: Dimens.sp14,color:Colors.white,),
-                                        Gaps.wGap8,
-                                        Text("收款",style: TextStyle(
-                                          fontSize:Dimens.sp14,
-                                          color: Colors.white,
-                                        ),),
-                                      ],
-                                      mainAxisSize: MainAxisSize.min,
+                                  Expanded(child: GestureDetector(
+                                    behavior: HitTestBehavior.opaque,
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      child: Row(
+                                        children: [
+                                          ImageIcon(AssetImage(ImageResource.exchange),size: Dimens.sp14,color:Colors.white,),
+                                          Gaps.wGap8,
+                                          Text("闪兑",style: TextStyle(
+                                            fontSize:Dimens.sp14,
+                                            color: Colors.white,
+                                          ),),
+                                        ],
+                                        mainAxisSize: MainAxisSize.min,
+                                      ),
                                     ),
-                                  )),
-                                  Container(
-                                    height: Dimens.dp15,
-                                    width: Dimens.dp1,
-                                    color: Colors.white.withOpacity(0.2),
-                                  ),
-                                  Expanded(child: Container(
-                                    alignment: Alignment.center,
-                                    child: Row(
-                                      children: [
-                                        ImageIcon(AssetImage(ImageResource.exchange),size: Dimens.sp14,color:Colors.white,),
-                                        Gaps.wGap8,
-                                        Text("闪兑",style: TextStyle(
-                                          fontSize:Dimens.sp14,
-                                          color: Colors.white,
-                                        ),),
-                                      ],
-                                      mainAxisSize: MainAxisSize.min,
-                                    ),
+                                    onTap: (){
+                                       ToastUtil.toast(context, "等待开放");
+                                    },
                                   )),
                                 ],
                               ),
@@ -347,43 +401,53 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                                     );
                                   }).toList(),
                                 )),
-                                Container(
-                                  width: Dimens.dp90,
-                                  height: Dimens.dp25,
-                                  padding: EdgeInsets.only(left: Dimens.dp10),
-                                  decoration: BoxDecoration(
-                                    color: Colours.hintBgColor,
-                                    borderRadius: BorderRadius.circular(Dimens.sp20),
+                                GestureDetector(
+                                  child: Container(
+                                    width: Dimens.dp90,
+                                    height: Dimens.dp25,
+                                    padding: EdgeInsets.only(left: Dimens.dp10),
+                                    decoration: BoxDecoration(
+                                      color: Colours.hintBgColor,
+                                      borderRadius: BorderRadius.circular(Dimens.sp20),
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        ImageIcon(AssetImage(ImageResource.search),size: Dimens.sp14,
+                                          color: Colours.defaultTextColor,),
+                                        Gaps.wGap4,
+                                        Text("搜索",style: TextStyle(
+                                          fontSize: Dimens.sp12,
+                                          color: Colours.hintTextColor,
+                                        ),)
+                                      ],
+                                    ),
                                   ),
-                                  child: Row(
-                                    children: [
-                                      ImageIcon(AssetImage(ImageResource.search),size: Dimens.sp14,
-                                        color: Colours.defaultTextColor,),
-                                      Gaps.wGap4,
-                                      Text("搜索",style: TextStyle(
-                                        fontSize: Dimens.sp12,
-                                        color: Colours.hintTextColor,
-                                      ),)
-                                    ],
-                                  ),
+                                  onTap: (){
+                                    ToastUtil.toast(context, "等待开放");
+                                  },
                                 ),
                                 Gaps.wGap5,
-                                Container(
-                                  width:Dimens.dp25,
-                                  height: Dimens.dp25,
-                                  decoration: BoxDecoration(
-                                    color: Colours.hintBgColor,
-                                    shape: BoxShape.circle,
+                                GestureDetector(
+                                  child: Container(
+                                    width:Dimens.dp25,
+                                    height: Dimens.dp25,
+                                    decoration: BoxDecoration(
+                                      color: Colours.hintBgColor,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Stack(
+                                      children: [
+                                        Align(
+                                          alignment: Alignment.center,
+                                          child: ImageIcon(AssetImage(ImageResource.addBorder),size: Dimens.sp14,
+                                            color: Colours.defaultTextColor,),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                  child: Stack(
-                                    children: [
-                                      Align(
-                                        alignment: Alignment.center,
-                                        child: ImageIcon(AssetImage(ImageResource.addBorder),size: Dimens.sp14,
-                                          color: Colours.defaultTextColor,),
-                                      ),
-                                    ],
-                                  ),
+                                  onTap: (){
+                                    ToastUtil.toast(context, "等待开放");
+                                  },
                                 ),
                               ],
                             ),

@@ -74,4 +74,6 @@ class ImageResource {
 
   static  String receive = '$dir/receive.png';
   static  String exchange = '$dir/exchange.png';
+
+  static  String warnExport = '$dir/warnExport.png';
 }

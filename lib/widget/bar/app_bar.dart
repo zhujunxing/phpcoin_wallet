@@ -23,9 +23,9 @@ class BaseAppBar extends StatelessWidget  implements PreferredSizeWidget{
  final  SystemUiOverlayStyle? systemOverlayStyle;
  final Widget? centerWidget;
  final double? titleSize;
-
+ final Color? textColor;
  const BaseAppBar({Key? key,this.title,this.leading,this.actions,this.bgColor,this.titleAlignment,this.elevation,
-    this.backBtColor,this.systemOverlayStyle,this.centerWidget,this.titleSize}) : super(key: key);
+    this.backBtColor,this.systemOverlayStyle,this.centerWidget,this.titleSize,this.textColor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +65,7 @@ class BaseAppBar extends StatelessWidget  implements PreferredSizeWidget{
                               width: Dimens.dp250,
                               child: centerWidget??Text(title ?? "",style:TextStyle(
                                 fontWeight: FontWeight.w500,
-                                color: Colours.defaultTextColor,
+                                color: textColor??Colours.defaultTextColor,
                                 fontSize: titleSize??Dimens.sp16,
                               ),maxLines: 1,overflow: TextOverflow.ellipsis,),
                             ),

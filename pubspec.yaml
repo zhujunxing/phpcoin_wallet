@@ -155,7 +155,8 @@ dependencies:
   encrypt: ^5.0.1
   #https://pub.dev/packages/hash/install
   hash: ^1.0.4
-
+  #https://pub.dev/packages/uri_to_file/install
+  uri_to_file: ^0.2.0
 
 dev_dependencies:
   flutter_test:

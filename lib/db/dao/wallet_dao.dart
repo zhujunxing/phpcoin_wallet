@@ -33,8 +33,7 @@ abstract class WalletDao {
   Future<Wallet?> findWalletById(int id);
 
 
-  @Query('SELECT * FROM Wallet WHERE walletSelect = :walletSelect')
-  Future<Wallet?> findWalletBySelect(int walletSelect);
+
 
 
   @Query('DELETE FROM Wallet  WHERE  id = :id')
@@ -48,4 +47,18 @@ abstract class WalletDao {
 
   @update
   Future<void> updateWallet(Wallet data);
+
+
+
+  @Query('SELECT * FROM Wallet WHERE pwd = :pwd and walletAddress = :walletAddress')
+  Future<Wallet?> findWalletByPwdAddress(String pwd,String walletAddress);
+
+  @Query('SELECT * FROM Wallet WHERE walletPrivateKey = :walletPrivateKey and walletAddress = :walletAddress')
+  Future<Wallet?> findWalletByPrivateKeyAddress(String walletPrivateKey,String walletAddress);
+
+
+  //通过钱包地址查询
+  @Query('SELECT * FROM Wallet order by walletSelect desc,id asc')
+  Future<List<Wallet>?> findWalletBySelect();
+
 }

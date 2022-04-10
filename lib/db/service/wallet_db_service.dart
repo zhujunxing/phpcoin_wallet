@@ -104,13 +104,43 @@ class WalletDbService {
 
 
 
-  ///查询选中钱包
+  ///查询选中钱包，如果选中钱包被删除就会默认选中
   Future<Wallet?> findSelect() async {
+
+    List<Wallet>? data=[];
+
+    WalletDao dao = database.walletDao;
+    data = await dao.findWalletBySelect();
+
+    data ??= [];
+
+    if(data.isNotEmpty){
+      return data.first;
+    }else{
+      return null;
+    }
+  }
+
+
+  ///查询密码
+  Future<Wallet?> findWalletByPwdAddress(String  pwd,String address) async {
 
 
     WalletDao dao = database.walletDao;
-    Wallet?  data = await dao.findWalletBySelect(1);
+    Wallet?  data = await dao.findWalletByPwdAddress(pwd,address);
 
     return data;
   }
+
+  ///查询私钥
+  Future<Wallet?> findWalletByPrivateKeyAddress(String  walletPrivateKey,String address) async {
+
+
+    WalletDao dao = database.walletDao;
+    Wallet?  data = await dao.findWalletByPrivateKeyAddress(walletPrivateKey,address);
+
+    return data;
+  }
+
+
 }

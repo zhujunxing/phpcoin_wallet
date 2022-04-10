@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
+import 'package:uri_to_file/uri_to_file.dart';
 import 'package:uuid/uuid.dart';
 
 import 'directory_util.dart';
@@ -109,6 +110,15 @@ class FileUtil {
     }
 
     return "${teraBytes.toStringAsFixed(2)}TB";
+  }
+  static Future<File?> convertUriToFile(String uriString) async {
+    File? file;
+    try {
+       file = await toFile(uriString); // Converting uri to file
+    }catch (e) {
+      print(e); // General exception
+    }
+    return file;
   }
 
 }

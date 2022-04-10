@@ -11,5 +11,9 @@ class NodeApi{
   static String queryPublicKey=BaseApi.baseNodeUrl+"/api.php?q=getPublicKey";
 
 
+  //查询余额
+    static String queryBalance=BaseApi.baseNodeUrl+"/api.php?q=getBalance";
+
+
 
 }

@@ -46,6 +46,20 @@ abstract class Routes {
 
   ///钱包-私钥导入
   static const  walletPrivateImport=Paths.walletPrivateImport;
+  ///钱包-钱包详情
+  static const  walletDetail=Paths.walletDetail;
+  ///钱包-钱包导出私钥
+  static const  walletExportPrivateKey=Paths.walletExportPrivateKey;
+
+  ///钱包-钱包密码修改
+  static const  walletPwdModify=Paths.walletPwdModify;
+  ///钱包-钱包密码修改-私钥修改
+  static const  walletPwdPrivateKeyModify=Paths.walletPwdPrivateKeyModify;
+
+
+  ///转账接受二维码
+  static const  transferReceiveErWei=Paths.transferReceiveErWei;
+
 }
 
 
@@ -78,6 +92,15 @@ abstract class Paths {
 
   static const walletWatchImport = '/wallet/watch/import';
   static const walletPrivateImport = '/wallet/private/import';
+
+  static const walletDetail= '/wallet/detail';
+  static const walletExportPrivateKey= '/wallet/export/private/key';
+  static const walletPwdModify= '/wallet/pwd/modify';
+
+  static const walletPwdPrivateKeyModify= '/wallet/pwd/private/key/modify';
+
+  static const transferReceiveErWei= '/transfer/receive/erWei';
+
 
 }
 

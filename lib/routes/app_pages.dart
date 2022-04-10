@@ -1,8 +1,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_phpcoin/ui/page/address/address_book_list_page.dart';
+import 'package:flutter_phpcoin/ui/page/transfer/transfer_receive_erwei_page.dart';
 import 'package:flutter_phpcoin/ui/page/wallet/wallet_create_import_page.dart';
+import 'package:flutter_phpcoin/ui/page/wallet/wallet_detail_page.dart';
 import 'package:flutter_phpcoin/ui/page/wallet/wallet_private_import_page.dart';
+import 'package:flutter_phpcoin/ui/page/wallet/wallet_pwd_modify_page.dart';
+import 'package:flutter_phpcoin/ui/page/wallet/wallet_pwd_private_key_modify_page.dart';
 
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
@@ -17,6 +21,7 @@ import '../ui/page/language/language_switch_page.dart';
 import '../ui/page/scan/scan_page.dart';
 import '../ui/page/set/system_set_page.dart';
 import '../ui/page/wallet/wallet_create_page.dart';
+import '../ui/page/wallet/wallet_export_private_key_page.dart';
 import '../ui/page/wallet/wallet_select_page.dart';
 import '../ui/page/wallet/wallet_watch_import_page.dart';
 import '../ui/page/web/web_page.dart';
@@ -105,6 +110,32 @@ class AppPages {
       name: Routes.walletPrivateImport,
       page:()=> WalletPrivateImportPage(Get.arguments,),
     ),
+
+
+    GetPage(
+      name: Routes.walletDetail,
+      page:()=> WalletDetailPage(wallet: Get.arguments,),
+    ),
+
+    GetPage(
+      name: Routes.walletExportPrivateKey,
+      page:()=> WalletExportPrivateKeyPage(data: Get.arguments,),
+    ),
+
+    GetPage(
+      name: Routes.walletPwdModify,
+      page:()=> WalletPwdModifyPage(Get.arguments),
+    ),
+
+    GetPage(
+      name: Routes.walletPwdPrivateKeyModify,
+      page:()=> WalletPwdPrivateKeyModifyPage(Get.arguments),
+    ),
+    GetPage(
+      name: Routes.transferReceiveErWei,
+      page:()=> TransferReceiveErWeiPage( address: Get.arguments,),
+    ),
+
 
   ];
 }

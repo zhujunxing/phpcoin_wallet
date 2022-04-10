@@ -3,11 +3,16 @@
  * @create 21-03-28
  * @desc 获取手机屏幕宽高 及 底部 顶部安全高度
  */
+import 'dart:async';
 import 'dart:ui' as ui show window;
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_phpcoin/utils/toast_util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'dart:ui' as ui;
 
+import 'package:image_gallery_saver/image_gallery_saver.dart';
 class Screen {
   ///默认设计稿尺寸（单位 dp or pt）
   static  double designW = 360.0;
@@ -123,5 +128,21 @@ class Screen {
     }
     return aspectRatio;
   }
+  static Future<dynamic> saveScreen(GlobalKey rootWidgetKey,BuildContext context) async {
 
+    RenderRepaintBoundary boundary = rootWidgetKey.currentContext
+        !.findRenderObject() as RenderRepaintBoundary;
+
+    ui.Image image = await boundary.toImage(pixelRatio: 3);
+
+
+      ByteData? byteData = await (image.toByteData(format: ui.ImageByteFormat.png));
+      dynamic result = await ImageGallerySaver.saveImage(
+          byteData!.buffer.asUint8List(),
+          quality: 100);
+
+      return result;
+
+
+  }
 }

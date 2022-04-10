@@ -271,8 +271,21 @@ class _$WalletDao extends WalletDao {
   }
 
   @override
-  Future<Wallet?> findWalletBySelect(int walletSelect) async {
-    return _queryAdapter.query('SELECT * FROM Wallet WHERE walletSelect = ?1',
+  Future<void> deleteWalletById(int id) async {
+    await _queryAdapter
+        .queryNoReturn('DELETE FROM Wallet  WHERE  id = ?1', arguments: [id]);
+  }
+
+  @override
+  Future<void> deleteWallet() async {
+    await _queryAdapter.queryNoReturn('DELETE FROM Wallet');
+  }
+
+  @override
+  Future<Wallet?> findWalletByPwdAddress(
+      String pwd, String walletAddress) async {
+    return _queryAdapter.query(
+        'SELECT * FROM Wallet WHERE pwd = ?1 and walletAddress = ?2',
         mapper: (Map<String, Object?> row) => Wallet(
             row['id'] as int?,
             row['walletName'] as String?,
@@ -287,18 +300,36 @@ class _$WalletDao extends WalletDao {
             row['updateDate'] as int?,
             row['watch'] as int?,
             row['walletSelect'] as int?),
-        arguments: [walletSelect]);
+        arguments: [pwd, walletAddress]);
   }
 
   @override
-  Future<void> deleteWalletById(int id) async {
-    await _queryAdapter
-        .queryNoReturn('DELETE FROM Wallet  WHERE  id = ?1', arguments: [id]);
+  Future<Wallet?> findWalletByPrivateKeyAddress(
+      String walletPrivateKey, String walletAddress) async {
+    return _queryAdapter.query(
+        'SELECT * FROM Wallet WHERE walletPrivateKey = ?1 and walletAddress = ?2',
+        mapper: (Map<String, Object?> row) => Wallet(row['id'] as int?, row['walletName'] as String?, row['walletType'] as String?, row['walletAddress'] as String?, row['walletPublicKey'] as String?, row['walletPrivateKey'] as String?, row['pwd'] as String?, row['pwdTip'] as String?, row['createDate'] as int?, row['mnemonic'] as String?, row['updateDate'] as int?, row['watch'] as int?, row['walletSelect'] as int?),
+        arguments: [walletPrivateKey, walletAddress]);
   }
 
   @override
-  Future<void> deleteWallet() async {
-    await _queryAdapter.queryNoReturn('DELETE FROM Wallet');
+  Future<List<Wallet>?> findWalletBySelect() async {
+    return _queryAdapter.queryList(
+        'SELECT * FROM Wallet order by walletSelect desc,id asc',
+        mapper: (Map<String, Object?> row) => Wallet(
+            row['id'] as int?,
+            row['walletName'] as String?,
+            row['walletType'] as String?,
+            row['walletAddress'] as String?,
+            row['walletPublicKey'] as String?,
+            row['walletPrivateKey'] as String?,
+            row['pwd'] as String?,
+            row['pwdTip'] as String?,
+            row['createDate'] as int?,
+            row['mnemonic'] as String?,
+            row['updateDate'] as int?,
+            row['watch'] as int?,
+            row['walletSelect'] as int?));
   }
 
   @override

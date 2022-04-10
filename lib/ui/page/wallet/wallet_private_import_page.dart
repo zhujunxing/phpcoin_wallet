@@ -44,7 +44,7 @@ class WalletPrivateImportPage extends StatelessWidget {
               child:Container(
                 height: Dimens.dp80,
                 margin: EdgeInsets.fromLTRB(Dimens.dp15,0, Dimens.dp15,0),
-                padding: EdgeInsets.fromLTRB(Dimens.dp10, 0, Dimens.dp10, 0),
+                padding: EdgeInsets.fromLTRB(Dimens.dp10, Dimens.dp10, Dimens.dp10, Dimens.dp10),
                 child: TextField(
                   keyboardType: TextInputType.multiline,
                   textInputAction: TextInputAction.done,
@@ -56,6 +56,7 @@ class WalletPrivateImportPage extends StatelessWidget {
                   maxLines: 15,
                   minLines: 1,
                   decoration: InputDecoration(
+                    isCollapsed: true,
                     hintText:Ids.pleaseEnterWalletPrivateKey.tr,
                     hintStyle: TextStyle(
                       fontSize: Dimens.sp13,
