@@ -26,20 +26,18 @@ class WalletCreateController extends SuperController{
 
   var showClear=true.obs;
   CancelToken cancelToken=CancelToken();
-   HomeAssetsController? homeAssetsController;
+   HomeAssetsController homeAssetsController=Get.find();
 
-   WalletManagerRightController? walletManagerRightController;
+    WalletManagerRightController? walletManagerRightController;
 
 
 
   WalletCreateController(this.data){
-    try{
-      homeAssetsController=Get.find();
-    }catch(e){
-    }
+
     try{
       walletManagerRightController=Get.find();
     }catch(e){
+      walletManagerRightController=null;
     }
 
     initEdit();
@@ -189,12 +187,12 @@ class WalletCreateController extends SuperController{
                  null,0,allAr.isNotEmpty?0:1);
             await WalletDbService.getInstance()!.add(wallet);
 
-             if(homeAssetsController!=null){
-               homeAssetsController!.initWallet();
-             }
+             homeAssetsController.initWallet();
+
              if(walletManagerRightController!=null){
                walletManagerRightController!.initWalletList();
              }
+
 
              ToastUtil.toast(context,Ids.createWalletSuccess.tr);
              if(this.data.refresh!=null){
