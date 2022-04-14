@@ -67,7 +67,7 @@ class WalletSelectPage extends StatelessWidget {
                     refresh: (){
                       Get.back();
                     },
-                    walletType:"PHPCoin"));
+                    walletType:WalletType.phpCoin));
               },isVisible: false),
             ),
           ]),

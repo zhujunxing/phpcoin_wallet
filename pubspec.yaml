@@ -66,7 +66,7 @@ dependencies:
   #https://pub.dev/packages/pull_to_refresh 下拉刷新 android ios web
   pull_to_refresh: ^2.0.0
   #https://pub.dev/packages/flutter_html  加载html内容 android ios
-  flutter_html: ^2.2.1
+  flutter_html: ^3.0.0-alpha.3
 
   #https://pub.dev/packages/device_info  查看设备信息 android ios
   device_info_plus: ^3.2.2
@@ -155,8 +155,10 @@ dependencies:
   encrypt: ^5.0.1
   #https://pub.dev/packages/hash/install
   hash: ^1.0.4
-  #https://pub.dev/packages/uri_to_file/install
+  #https://pub.dev/packages/uri_to_file/install  uri转换成存储路径
   uri_to_file: ^0.2.0
+  #https://pub.dev/packages/dotted_border/install 添加 虚线
+  dotted_border: ^2.0.0+2
 
 dev_dependencies:
   flutter_test:

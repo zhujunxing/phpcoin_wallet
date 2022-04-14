@@ -48,6 +48,7 @@ class HomeMyselfPage extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: _buildItem(ImageResource.wallet,Ids.walletManager.tr,click: (){
+                Get.toNamed(Routes.walletManager);
               },isVisible: false),
             ),
             SliverToBoxAdapter(

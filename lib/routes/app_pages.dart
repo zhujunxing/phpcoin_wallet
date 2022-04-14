@@ -4,6 +4,7 @@ import 'package:flutter_phpcoin/ui/page/address/address_book_list_page.dart';
 import 'package:flutter_phpcoin/ui/page/transfer/transfer_receive_erwei_page.dart';
 import 'package:flutter_phpcoin/ui/page/wallet/wallet_create_import_page.dart';
 import 'package:flutter_phpcoin/ui/page/wallet/wallet_detail_page.dart';
+import 'package:flutter_phpcoin/ui/page/wallet/wallet_manager_page.dart';
 import 'package:flutter_phpcoin/ui/page/wallet/wallet_private_import_page.dart';
 import 'package:flutter_phpcoin/ui/page/wallet/wallet_pwd_modify_page.dart';
 import 'package:flutter_phpcoin/ui/page/wallet/wallet_pwd_private_key_modify_page.dart';
@@ -136,6 +137,10 @@ class AppPages {
       page:()=> TransferReceiveErWeiPage( address: Get.arguments,),
     ),
 
+    GetPage(
+      name: Routes.walletManager,
+      page:()=> WalletManagerPage(),
+    ),
 
   ];
 }

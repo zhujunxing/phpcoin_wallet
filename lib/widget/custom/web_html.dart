@@ -57,7 +57,8 @@ class WebHtml extends StatelessWidget {
         ImageScreenShowPage.to(context, ImageScreenData(image,position: position));
 
       },
-      customImageRenders: {
+
+      customRenders: {
         networkSourceMatcher(): networkImageRender(
           loadingWidget: () => Center(
             child:CircularProgressIndicator(

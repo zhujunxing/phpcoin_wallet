@@ -60,6 +60,10 @@ abstract class Routes {
   ///转账接受二维码
   static const  transferReceiveErWei=Paths.transferReceiveErWei;
 
+  ///转账接受二维码
+  static const  walletManager=Paths.walletManager;
+
+
 }
 
 
@@ -101,6 +105,8 @@ abstract class Paths {
 
   static const transferReceiveErWei= '/transfer/receive/erWei';
 
+
+  static const walletManager= '/wallet/manager';
 
 }
 
