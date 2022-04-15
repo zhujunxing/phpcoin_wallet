@@ -32,49 +32,25 @@ import '../../../widget/bar/app_bar.dart';
 import '../../../widget/custom/back_button.dart';
 import '../../../widget/custom/custom_button.dart';
 import '../../../widget/custom/divider_line.dart';
+import 'wallet_manager_item_page.dart';
 import 'wallet_manager_left_item.dart';
 
 ///钱包管理
 // ignore: must_be_immutable
 class WalletManagerPage extends StatelessWidget {
-  late WalletManagerController controller;
+
 
   WalletManagerPage({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    controller=Get.put(WalletManagerController());
+
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: const BaseAppBar(
           title:"钱包管理",
         ),
-        body: Obx((){
-          return Row(
-            children: [
-               Container(
-                  color: Colours.bgColor,
-                  width: Dimens.dp80,
-                  alignment: Alignment.topCenter,
-                  padding: const EdgeInsets.all(0),
-                  child: ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    padding: const EdgeInsets.all(0),
-                    itemBuilder: (BuildContext context, int i) {
-                      return WalletManagerLeftItem(controller.leftAr.toList().elementAt(i),i,leftSelect: controller.leftSelect,);
-                    },
-                    shrinkWrap: true,
-                    itemCount: controller.leftAr.length,
-                  )
-              ),
-               Expanded(child: controller.leftAr.isNotEmpty?
-               WalletManagerRightPage(controller.leftAr.toList().elementAt(controller.leftSelect))
-                   :
-               const SizedBox(),),
-            ],
-          );
-        })
-    );
+        body: WalletManagerItemPage());
   }
 
 }

@@ -61,4 +61,8 @@ abstract class WalletDao {
   @Query('SELECT * FROM Wallet order by walletSelect desc,id asc')
   Future<List<Wallet>?> findWalletBySelect();
 
+
+  @Query('UPDATE Wallet SET walletSelect = :walletSelect')
+  Future<void> updateAllSelect(int walletSelect); // select multiple items
+
 }

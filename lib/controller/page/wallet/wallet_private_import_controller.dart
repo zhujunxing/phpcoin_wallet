@@ -11,6 +11,7 @@ import 'package:flutter_phpcoin/service/resp/node/create_wallet_resp.dart';
 import 'package:flutter_phpcoin/widget/loading/loading_dialog.dart';
 import 'package:get/get.dart';
 
+import '../../../data/constants/wallet_type.dart';
 import '../../../data/wallet/wallet_create_import_data.dart';
 import '../../../lang/string.dart';
 import '../../../service/node/node_service.dart';
@@ -196,7 +197,7 @@ class WalletPrivateImportController extends SuperController{
                  editPwdTip.text.trim(),
                  DateTime.now().millisecondsSinceEpoch,
                  "",
-                 null,0,allAr.isNotEmpty?0:1);
+                 null,0,allAr.isNotEmpty?0:1,BType.phpCoin,"");
             await WalletDbService.getInstance()!.add(wallet);
               homeAssetsController.initWallet();
              ToastUtil.toast(context,Ids.importWalletSuccess.tr);

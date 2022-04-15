@@ -50,7 +50,7 @@ class AssetsCoinItem extends StatelessWidget {
                         ),
                       ),
                       Gaps.wGap10,
-                      Text(item.name,style: TextStyles.largeText,),
+                      Text(item.tokenName,style: TextStyles.largeText,),
                     ],
                   ),
                 ),

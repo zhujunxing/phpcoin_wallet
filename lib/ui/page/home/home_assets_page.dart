@@ -24,7 +24,6 @@ class HomeAssetsPage extends StatelessWidget {
     controller=Get.put(HomeAssetsController());
 
     return Obx((){
-
       return controller.isHaveWallet.value? HomeAssetsHaveWallet():const HomeAssetsNoWallet();
     });
   }

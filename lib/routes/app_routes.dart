@@ -62,7 +62,8 @@ abstract class Routes {
 
   ///转账接受二维码
   static const  walletManager=Paths.walletManager;
-
+  ///钱包token详情
+  static const  walletTokenDetail=Paths.walletTokenDetail;
 
 }
 
@@ -107,6 +108,8 @@ abstract class Paths {
 
 
   static const walletManager= '/wallet/manager';
+
+  static const walletTokenDetail= '/wallet/token/detail';
 
 }
 

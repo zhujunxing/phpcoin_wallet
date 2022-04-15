@@ -8,6 +8,7 @@ import 'package:flutter_phpcoin/ui/page/wallet/wallet_manager_page.dart';
 import 'package:flutter_phpcoin/ui/page/wallet/wallet_private_import_page.dart';
 import 'package:flutter_phpcoin/ui/page/wallet/wallet_pwd_modify_page.dart';
 import 'package:flutter_phpcoin/ui/page/wallet/wallet_pwd_private_key_modify_page.dart';
+import 'package:flutter_phpcoin/ui/page/wallet/wallet_token_detail_page.dart';
 
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
@@ -141,7 +142,10 @@ class AppPages {
       name: Routes.walletManager,
       page:()=> WalletManagerPage(),
     ),
-
+    GetPage(
+      name: Routes.walletTokenDetail,
+      page:()=> WalletTokenDetailPage(data: Get.arguments),
+    ),
   ];
 }
 

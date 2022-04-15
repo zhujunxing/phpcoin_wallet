@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_phpcoin/service/resp/node/query_public_key_resp.dart';
 import 'package:get/get.dart';
 
+import '../../../data/constants/wallet_type.dart';
 import '../../../data/wallet/wallet_create_import_data.dart';
 import '../../../db/entity/wallet_entity.dart';
 import '../../../db/service/wallet_db_service.dart';
@@ -104,7 +105,7 @@ class WalletWatchImportController extends SuperController{
                "",
               DateTime.now().millisecondsSinceEpoch,
               "",
-              null,0,allAr.isNotEmpty?0:1);
+              null,0,allAr.isNotEmpty?0:1,BType.phpCoin,"");
           await WalletDbService.getInstance()!.add(wallet);
           homeAssetsController.initWallet();
           ToastUtil.toast(context,Ids.importWalletSuccess.tr);

@@ -24,14 +24,17 @@ class HomeAssetsHaveWalletController extends SuperController{
  RxList<AssetsCoinData> dataAr=<AssetsCoinData>[].obs;
  Wallet? wallet;
  var walletName=''.obs;
+
+ var isOpen=false.obs;
  CancelToken cancelToken=CancelToken();
   @override
   void onInit() {
     super.onInit();
 
     dataAr.value=[
-     AssetsCoinData(ImageResource.phpCoin,"0","0","PHPCOIN"),
+     AssetsCoinData(ImageResource.phpCoin,"0","0","PHPCOIN",''),
     ];
+    initWallet();
   }
 
   @override
@@ -70,7 +73,7 @@ class HomeAssetsHaveWalletController extends SuperController{
      if(wallet!=null){
       walletName.value=wallet!.walletName??"";
      }
-
+     queryBalance();
   }
 
   void queryBalance()async{
@@ -82,7 +85,7 @@ class HomeAssetsHaveWalletController extends SuperController{
       refreshController.refreshCompleted();
       if(resp.status=='ok'){
         dataAr.value=[
-          AssetsCoinData(ImageResource.phpCoin,resp.data??"0","0",resp.coin!.toUpperCase()),
+          AssetsCoinData(ImageResource.phpCoin,resp.data??"0","0",resp.coin!.toUpperCase(),""),
         ];
       }
   }

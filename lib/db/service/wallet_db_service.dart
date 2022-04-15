@@ -142,5 +142,12 @@ class WalletDbService {
     return data;
   }
 
+  ///更新
+  Future<void> updateAllSelect(int  walletSelect) async {
 
+
+    WalletDao dao = database.walletDao;
+      await dao.updateAllSelect(walletSelect);
+      return;
+  }
 }

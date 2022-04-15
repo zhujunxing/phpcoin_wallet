@@ -82,7 +82,7 @@ class _$WalletDatabase extends WalletDatabase {
       },
       onCreate: (database, version) async {
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `Wallet` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `walletName` TEXT, `walletType` TEXT, `walletAddress` TEXT, `walletPublicKey` TEXT, `walletPrivateKey` TEXT, `pwd` TEXT, `pwdTip` TEXT, `createDate` INTEGER, `mnemonic` TEXT, `updateDate` INTEGER, `watch` INTEGER, `walletSelect` INTEGER)');
+            'CREATE TABLE IF NOT EXISTS `Wallet` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `walletName` TEXT, `walletType` TEXT, `walletAddress` TEXT, `walletPublicKey` TEXT, `walletPrivateKey` TEXT, `pwd` TEXT, `pwdTip` TEXT, `createDate` INTEGER, `mnemonic` TEXT, `updateDate` INTEGER, `watch` INTEGER, `walletSelect` INTEGER, `tokenName` TEXT, `tokenAddress` TEXT NOT NULL)');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -115,7 +115,9 @@ class _$WalletDao extends WalletDao {
                   'mnemonic': item.mnemonic,
                   'updateDate': item.updateDate,
                   'watch': item.watch,
-                  'walletSelect': item.walletSelect
+                  'walletSelect': item.walletSelect,
+                  'tokenName': item.tokenName,
+                  'tokenAddress': item.tokenAddress
                 }),
         _walletUpdateAdapter = UpdateAdapter(
             database,
@@ -134,7 +136,9 @@ class _$WalletDao extends WalletDao {
                   'mnemonic': item.mnemonic,
                   'updateDate': item.updateDate,
                   'watch': item.watch,
-                  'walletSelect': item.walletSelect
+                  'walletSelect': item.walletSelect,
+                  'tokenName': item.tokenName,
+                  'tokenAddress': item.tokenAddress
                 });
 
   final sqflite.DatabaseExecutor database;
@@ -163,7 +167,9 @@ class _$WalletDao extends WalletDao {
             row['mnemonic'] as String?,
             row['updateDate'] as int?,
             row['watch'] as int?,
-            row['walletSelect'] as int?));
+            row['walletSelect'] as int?,
+            row['tokenName'] as String?,
+            row['tokenAddress'] as String));
   }
 
   @override
@@ -183,7 +189,9 @@ class _$WalletDao extends WalletDao {
             row['mnemonic'] as String?,
             row['updateDate'] as int?,
             row['watch'] as int?,
-            row['walletSelect'] as int?),
+            row['walletSelect'] as int?,
+            row['tokenName'] as String?,
+            row['tokenAddress'] as String),
         arguments: [startIndex, pageSize]);
   }
 
@@ -204,7 +212,9 @@ class _$WalletDao extends WalletDao {
             row['mnemonic'] as String?,
             row['updateDate'] as int?,
             row['watch'] as int?,
-            row['walletSelect'] as int?),
+            row['walletSelect'] as int?,
+            row['tokenName'] as String?,
+            row['tokenAddress'] as String),
         arguments: [walletType]);
   }
 
@@ -225,7 +235,9 @@ class _$WalletDao extends WalletDao {
             row['mnemonic'] as String?,
             row['updateDate'] as int?,
             row['watch'] as int?,
-            row['walletSelect'] as int?),
+            row['walletSelect'] as int?,
+            row['tokenName'] as String?,
+            row['tokenAddress'] as String),
         arguments: [walletName]);
   }
 
@@ -246,7 +258,9 @@ class _$WalletDao extends WalletDao {
             row['mnemonic'] as String?,
             row['updateDate'] as int?,
             row['watch'] as int?,
-            row['walletSelect'] as int?),
+            row['walletSelect'] as int?,
+            row['tokenName'] as String?,
+            row['tokenAddress'] as String),
         arguments: [walletAddress]);
   }
 
@@ -266,7 +280,9 @@ class _$WalletDao extends WalletDao {
             row['mnemonic'] as String?,
             row['updateDate'] as int?,
             row['watch'] as int?,
-            row['walletSelect'] as int?),
+            row['walletSelect'] as int?,
+            row['tokenName'] as String?,
+            row['tokenAddress'] as String),
         arguments: [id]);
   }
 
@@ -299,7 +315,9 @@ class _$WalletDao extends WalletDao {
             row['mnemonic'] as String?,
             row['updateDate'] as int?,
             row['watch'] as int?,
-            row['walletSelect'] as int?),
+            row['walletSelect'] as int?,
+            row['tokenName'] as String?,
+            row['tokenAddress'] as String),
         arguments: [pwd, walletAddress]);
   }
 
@@ -308,7 +326,7 @@ class _$WalletDao extends WalletDao {
       String walletPrivateKey, String walletAddress) async {
     return _queryAdapter.query(
         'SELECT * FROM Wallet WHERE walletPrivateKey = ?1 and walletAddress = ?2',
-        mapper: (Map<String, Object?> row) => Wallet(row['id'] as int?, row['walletName'] as String?, row['walletType'] as String?, row['walletAddress'] as String?, row['walletPublicKey'] as String?, row['walletPrivateKey'] as String?, row['pwd'] as String?, row['pwdTip'] as String?, row['createDate'] as int?, row['mnemonic'] as String?, row['updateDate'] as int?, row['watch'] as int?, row['walletSelect'] as int?),
+        mapper: (Map<String, Object?> row) => Wallet(row['id'] as int?, row['walletName'] as String?, row['walletType'] as String?, row['walletAddress'] as String?, row['walletPublicKey'] as String?, row['walletPrivateKey'] as String?, row['pwd'] as String?, row['pwdTip'] as String?, row['createDate'] as int?, row['mnemonic'] as String?, row['updateDate'] as int?, row['watch'] as int?, row['walletSelect'] as int?, row['tokenName'] as String?, row['tokenAddress'] as String),
         arguments: [walletPrivateKey, walletAddress]);
   }
 
@@ -329,7 +347,15 @@ class _$WalletDao extends WalletDao {
             row['mnemonic'] as String?,
             row['updateDate'] as int?,
             row['watch'] as int?,
-            row['walletSelect'] as int?));
+            row['walletSelect'] as int?,
+            row['tokenName'] as String?,
+            row['tokenAddress'] as String));
+  }
+
+  @override
+  Future<void> updateAllSelect(int walletSelect) async {
+    await _queryAdapter.queryNoReturn('UPDATE Wallet SET walletSelect = ?1',
+        arguments: [walletSelect]);
   }
 
   @override

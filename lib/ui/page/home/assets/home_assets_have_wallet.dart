@@ -3,11 +3,13 @@ import 'package:animated_digit/animated_digit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_phpcoin/data/wallet/wallet_token_detail_data.dart';
 import 'package:flutter_phpcoin/res/colors.dart';
 import 'package:flutter_phpcoin/res/resource.dart';
 import 'package:flutter_phpcoin/res/style.dart';
 import 'package:flutter_phpcoin/routes/app_pages.dart';
 import 'package:flutter_phpcoin/ui/dialog/select_bottom_dialog.dart';
+import 'package:flutter_phpcoin/ui/page/wallet/wallet_token_detail_page.dart';
 import 'package:flutter_phpcoin/widget/custom/custom_smart_refresher.dart';
 import 'package:flutter_phpcoin/widget/custom/join_right.dart';
 import 'package:get/get.dart';
@@ -21,6 +23,7 @@ import '../../../../utils/screen.dart';
 import '../../../../utils/toast_util.dart';
 import '../../../../widget/bar/app_bar.dart';
 import '../../../../widget/bar/status_bar.dart';
+import '../../../dialog/wallet/wallet_select_dialog.dart';
 import '../../assets/assets_b_item.dart';
 import '../../assets/assets_coin_item.dart';
 import '../../wallet/wallet_select_page.dart';
@@ -38,9 +41,9 @@ class HomeAssetsHaveWallet extends StatelessWidget {
   Widget build(BuildContext context) {
 
     controller=Get.put(HomeAssetsHaveWalletController());
-     controller.titleAr.value=["资产"];
-     controller.initWallet();
-    controller.queryBalance();
+     controller.titleAr.value=[(Ids.assets.tr)];
+
+
     return Scaffold(
       backgroundColor: Colors.white,
 
@@ -71,44 +74,50 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                                   child:Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      Container(
+                                      GestureDetector(
+                                        onTap: (){
+                                          controller.isOpen.value=true;
+                                          Get.bottomSheet(WalletSelectDialog(),isScrollControlled: true);
+                                        },
+                                        child: Container(
 
-                                        decoration: BoxDecoration(
-                                          color: Colours.accentColor,
-                                          borderRadius: BorderRadius.circular(Dimens.dp20),
-                                        ),
-                                        height: Dimens.dp30,
-                                        padding: EdgeInsets.fromLTRB(Dimens.dp10, 0, Dimens.dp4, 0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Container(
-                                              constraints: BoxConstraints(
-                                                maxWidth: Dimens.dp100,
-                                              ),
-                                              child: Text(controller.walletName.value,style: TextStyles.normalWhiteText,maxLines: 1,
-                                                overflow: TextOverflow.ellipsis,),
-                                            ),
-                                            Gaps.wGap5,
-                                            Container(
-                                                width: Dimens.dp24,
-                                                height: Dimens.dp24,
-                                                decoration: const BoxDecoration(
-                                                  color: Colors.white,
-                                                  shape: BoxShape.circle,
+                                          decoration: BoxDecoration(
+                                            color: Colours.accentColor,
+                                            borderRadius: BorderRadius.circular(Dimens.dp20),
+                                          ),
+                                          height: Dimens.dp30,
+                                          padding: EdgeInsets.fromLTRB(Dimens.dp10, 0, Dimens.dp4, 0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Container(
+                                                constraints: BoxConstraints(
+                                                  maxWidth: Dimens.dp100,
                                                 ),
-                                                child: Stack(
-                                                  children: [
-                                                    Align(
-                                                      alignment:Alignment.center,
-                                                      child: ImageIcon(AssetImage(ImageResource.right),color: Colours.accentColor,size: Dimens.sp14,),
-                                                    ),
-                                                  ],
-                                                )
-                                            ),
-                                          ],
+                                                child: Text(controller.walletName.value,style: TextStyles.normalWhiteText,maxLines: 1,
+                                                  overflow: TextOverflow.ellipsis,),
+                                              ),
+                                              Gaps.wGap5,
+                                              Container(
+                                                  width: Dimens.dp24,
+                                                  height: Dimens.dp24,
+                                                  decoration: const BoxDecoration(
+                                                    color: Colors.white,
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: Stack(
+                                                    children: [
+                                                      Align(
+                                                        alignment:Alignment.center,
+                                                        child: ImageIcon(AssetImage(controller.isOpen.value?ImageResource.down:ImageResource.right),color: Colours.accentColor,size: Dimens.sp14,),
+                                                      ),
+                                                    ],
+                                                  )
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                      )
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -458,7 +467,14 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                     SliverList(
                       delegate: SliverChildBuilderDelegate((content, index) {
                         AssetsCoinData  item=controller.dataAr.toList().elementAt(index);
-                        return AssetsCoinItem(item,index);
+                        return GestureDetector(
+                          behavior: HitTestBehavior.opaque,
+                          child: AssetsCoinItem(item,index),
+                          onTap: (){
+                            WalletTokenDetailData data=WalletTokenDetailData(wallet: controller.wallet,tokenName: item.tokenName, tokenAddress:item.tokenAddress);
+                            Get.toNamed(Routes.walletTokenDetail,arguments: data);
+                          },
+                        );
                       }, childCount: controller.dataAr.length),
                     )
                   ],

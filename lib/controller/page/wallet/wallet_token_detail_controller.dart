@@ -2,41 +2,47 @@
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_phpcoin/data/constants/wallet_type.dart';
 import 'package:flutter_phpcoin/data/wallet/wallet_export_private_key_data.dart';
 import 'package:flutter_phpcoin/routes/app_pages.dart';
 import 'package:flutter_phpcoin/service/resp/node/query_public_key_resp.dart';
 import 'package:get/get.dart';
 
 import '../../../data/wallet/wallet_create_import_data.dart';
+import '../../../data/wallet/wallet_token_detail_data.dart';
 import '../../../db/entity/wallet_entity.dart';
 import '../../../db/service/wallet_db_service.dart';
 import '../../../lang/string.dart';
-import '../../../res/resource.dart';
 import '../../../service/node/node_service.dart';
+import '../../../service/resp/node/query_balance_resp.dart';
 import '../../../utils/toast_util.dart';
 import '../../../widget/loading/loading_dialog.dart';
 import '../home/assets/home_assets_have_wallet_controller.dart';
 import '../home/home_assets_controller.dart';
 
 
-class WalletManagerController extends SuperController{
+class WalletTokenDetailController extends SuperController{
 
+  WalletTokenDetailData? data;
 
-  RxList<WalletTypeBean> leftAr=<WalletTypeBean>[].obs;
+  Wallet? wallet;
+  var tokenName="".obs;
+  var tokenAddress="".obs;
+  var balance="0".obs;
+  CancelToken cancelToken=CancelToken();
+  WalletTokenDetailController(this.data){
 
-  int leftSelect=0;
+    if(data!=null){
+      wallet=data!.wallet;
+      tokenName.value=data!.tokenName??"";
+      tokenAddress.value=data!.tokenAddress??"";
+    }
 
-  var walletType=WalletType.phpCoin.obs;
+  }
 
-  HomeAssetsHaveWalletController homeAssetsHaveWalletController=Get.find();
   @override
   void onInit() {
     super.onInit();
-    leftAr.value=[
-      WalletTypeBean(ImageResource.phpCoin,ImageResource.phpCoin,WalletType.phpCoin)
-    ];
-    leftSelect=0;
+    queryBalance();
   }
   @override
   void onReady() {
@@ -46,7 +52,7 @@ class WalletManagerController extends SuperController{
   @override
   void onClose() {
     super.onClose();
-
+    cancelToken.cancel();
   }
 
 
@@ -68,22 +74,18 @@ class WalletManagerController extends SuperController{
   void onResumed() {
 
   }
+  void queryBalance()async{
+    QueryBalanceResp? resp=await NodeService.getInstance()!.queryBalance(wallet!.walletAddress??"",wallet!.walletPublicKey??"",cancelToken: cancelToken);
+    if(resp==null){
 
-  void switchWallet(Wallet selected)async {
+      return;
+    }
 
-    await WalletDbService.getInstance()!.updateAllSelect(0);
-     selected.walletSelect=1;
-    await WalletDbService.getInstance()!.update(selected);
-    homeAssetsHaveWalletController.initWallet();
-    Get.back();
+    if(resp.status=='ok'){
+       balance.value=resp.data??"0";
+    }
   }
-}
 
 
 
-class WalletTypeBean{
-  String selectImg="";
-  String noSelectImg="";
-  String walletType="";
-  WalletTypeBean(this.selectImg,this.noSelectImg,this.walletType,);
 }

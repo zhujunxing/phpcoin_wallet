@@ -26,7 +26,8 @@ import 'wallet_select_page.dart';
 class WalletManagerRightPage extends StatelessWidget {
   final WalletTypeBean data;
   late WalletManagerRightController controller;
-   WalletManagerRightPage(this.data,{Key? key}) : super(key: key);
+  Function? callback;
+   WalletManagerRightPage(this.data,{Key? key,this.callback}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +90,9 @@ class WalletManagerRightPage extends StatelessWidget {
                 child: GestureDetector(
                   child: WalletManagerRightItem(controller.walletAr.toList().elementAt(index),index),
                   onTap: (){
-                    Get.off(WalletDetailPage(wallet: controller.walletAr.toList().elementAt(index)));
+                    if(callback!=null){
+                      callback!.call(controller.walletAr.toList().elementAt(index));
+                    }
                   },
                 ),
                 margin: EdgeInsets.fromLTRB(Dimens.dp15, Dimens.dp10, Dimens.dp15, 0),

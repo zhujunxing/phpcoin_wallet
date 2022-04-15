@@ -117,7 +117,7 @@ class _WalletManagerRightItemState extends State<WalletManagerRightItem> {
           Gaps.hGap6,
           Container(
             child: Obx((){
-              return Text("${controller.balance.value} ${controller.wallet.walletType}",style: TextStyle(
+              return Text("${controller.balance.value} ${controller.wallet.tokenName}",style: TextStyle(
                 fontSize: Dimens.sp14,
                 color: Colors.white,
                 fontWeight: FontWeight.w500,

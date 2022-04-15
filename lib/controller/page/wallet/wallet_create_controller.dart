@@ -4,6 +4,7 @@ import 'dart:ffi';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_phpcoin/data/constants/wallet_type.dart';
 import 'package:flutter_phpcoin/db/entity/wallet_entity.dart';
 import 'package:flutter_phpcoin/db/service/wallet_db_service.dart';
 import 'package:flutter_phpcoin/service/resp/node/create_wallet_resp.dart';
@@ -184,7 +185,7 @@ class WalletCreateController extends SuperController{
                  editPwdTip.text.trim(),
                  DateTime.now().millisecondsSinceEpoch,
                  "",
-                 null,0,allAr.isNotEmpty?0:1);
+                 null,0,allAr.isNotEmpty?0:1,BType.phpCoin,"");
             await WalletDbService.getInstance()!.add(wallet);
 
              homeAssetsController.initWallet();

@@ -16,9 +16,11 @@ class Wallet {
   int? updateDate; //更新时间
   int? watch; // 0 不是观察钱包 1 是观察钱包
   int? walletSelect;//0 没有选中 1 被选中
+  String? tokenName;//token名字
+  String tokenAddress;//token地址
   Wallet(this.id,this.walletName, this.walletType, this.walletAddress, this.walletPublicKey,
       this.walletPrivateKey,this.pwd,this.pwdTip,this.createDate,this.mnemonic,this.updateDate,
-      this.watch,this.walletSelect);
+      this.watch,this.walletSelect,this.tokenName,this.tokenAddress);
 
   @override
   int get hashCode => id.hashCode;
