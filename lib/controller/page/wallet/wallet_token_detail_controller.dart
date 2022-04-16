@@ -29,6 +29,8 @@ class WalletTokenDetailController extends SuperController{
   var tokenAddress="".obs;
   var balance="0".obs;
   CancelToken cancelToken=CancelToken();
+
+  RxList<String> titleAr=<String>[].obs;
   WalletTokenDetailController(this.data){
 
     if(data!=null){
@@ -42,6 +44,7 @@ class WalletTokenDetailController extends SuperController{
   @override
   void onInit() {
     super.onInit();
+    titleAr.value=[(Ids.all1.tr),Ids.into.tr,Ids.out.tr];
     queryBalance();
   }
   @override

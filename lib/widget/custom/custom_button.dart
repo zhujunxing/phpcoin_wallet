@@ -16,12 +16,17 @@ class CustomButton extends StatelessWidget {
  final VoidCallback? onPressed;
  final double? radius;
  final bool? isBorderButton;
+ final Color? color;
  const CustomButton(this.title,
-      {Key? key, this.width, this.height,this.isClick,this.onPressed,this.radius,this.isBorderButton}) : super(key: key);
+      {Key? key, this.width, this.height,this.isClick,this.onPressed,this.radius,this.isBorderButton,
+      this.color}) : super(key: key);
 
 
   @override
   Widget build(BuildContext context) {
+
+      Color   customColor=color??Colours.accentColor;
+
     return SizedBox(
         width:width ?? Screen.width,
         height:height ?? Dimens.dp40,
@@ -30,12 +35,12 @@ class CustomButton extends StatelessWidget {
             backgroundColor:isBorderButton==true?MaterialStateProperty.all(
               Colors.white,
             ):MaterialStateProperty.all(
-              isClick??true?Colours.accentColor:Colours.accentColor.withOpacity(0.5),
+              isClick??true?customColor:customColor.withOpacity(0.5),
             ),
             shape: MaterialStateProperty.all(RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(radius!=null?radius!:Dimens.sp4),
               side:isBorderButton==true?BorderSide(
-                color: Colours.accentColor,
+                color: customColor,
                 width: Dimens.dp1,
               ): BorderSide.none,
             )
