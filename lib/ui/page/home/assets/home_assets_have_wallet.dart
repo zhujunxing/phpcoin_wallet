@@ -254,7 +254,7 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                                   Positioned(child: Container(
                                     child: Row(
                                       children: [
-                                        Text("详情",style: TextStyle(
+                                        Text(Ids.detail.tr,style: TextStyle(
                                           fontSize: Dimens.sp12,
                                           color: Colors.white.withOpacity(0.5),
                                         ),),
@@ -293,7 +293,7 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                                         children: [
                                           ImageIcon(AssetImage(ImageResource.transfer),size: Dimens.sp14,color:Colors.white,),
                                           Gaps.wGap8,
-                                          Text("转账",style: TextStyle(
+                                          Text(Ids.transfer.tr,style: TextStyle(
                                             fontSize:Dimens.sp14,
                                             color: Colors.white,
                                           ),),
@@ -324,7 +324,7 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                                         children: [
                                           ImageIcon(AssetImage(ImageResource.receive),size: Dimens.sp14,color:Colors.white,),
                                           Gaps.wGap8,
-                                          Text("收款",style: TextStyle(
+                                          Text(Ids.collection.tr,style: TextStyle(
                                             fontSize:Dimens.sp14,
                                             color: Colors.white,
                                           ),),

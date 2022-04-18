@@ -15,5 +15,9 @@ class NodeApi{
     static String queryBalance=BaseApi.baseNodeUrl+"/api.php?q=getBalance";
 
 
+  //发送余额
+  static String sendBalance=BaseApi.baseNodeUrl+"/api.php?q=send";
+
+
 
 }

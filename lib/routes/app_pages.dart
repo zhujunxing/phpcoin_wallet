@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_phpcoin/ui/page/address/address_book_list_page.dart';
 import 'package:flutter_phpcoin/ui/page/transfer/transfer_receive_erwei_page.dart';
+import 'package:flutter_phpcoin/ui/page/transfer/transfer_token_page.dart';
 import 'package:flutter_phpcoin/ui/page/wallet/wallet_create_import_page.dart';
 import 'package:flutter_phpcoin/ui/page/wallet/wallet_detail_page.dart';
 import 'package:flutter_phpcoin/ui/page/wallet/wallet_manager_page.dart';
@@ -52,7 +53,7 @@ class AppPages {
     ),
     GetPage(
       name: Routes.addressBookList,
-      page:()=>  AddressBookListPage(),
+      page:()=>  AddressBookListPage(type: Get.arguments,),
     ),
     GetPage(
       name: Routes.addressBookEdit,
@@ -145,6 +146,11 @@ class AppPages {
     GetPage(
       name: Routes.walletTokenDetail,
       page:()=> WalletTokenDetailPage(data: Get.arguments),
+    ),
+
+    GetPage(
+      name: Routes.transferToken,
+      page:()=> TransferTokenPage(data: Get.arguments),
     ),
   ];
 }

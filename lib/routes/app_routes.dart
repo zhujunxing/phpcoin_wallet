@@ -65,6 +65,9 @@ abstract class Routes {
   ///钱包token详情
   static const  walletTokenDetail=Paths.walletTokenDetail;
 
+  ///钱包token-转账
+  static const  transferToken=Paths.transferToken;
+
 }
 
 
@@ -110,6 +113,8 @@ abstract class Paths {
   static const walletManager= '/wallet/manager';
 
   static const walletTokenDetail= '/wallet/token/detail';
+
+  static const transferToken= '/transfer/token';
 
 }
 

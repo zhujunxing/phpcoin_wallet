@@ -27,12 +27,18 @@ import '../../../widget/bar/app_bar.dart';
 import '../../../widget/custom/custom_smart_refresher.dart';
 import '../../../widget/custom/divider_line.dart';
 
+class AddressBookListType{
+   static const int select=1;
+   static const  int edit=2;
+}
+
 
 //总资产
 // ignore: must_be_immutable
 class AddressBookListPage extends StatelessWidget {
   late AddressBookListController controller;
-  AddressBookListPage({Key? key}) : super(key: key);
+   int? type;
+  AddressBookListPage({Key? key,this.type=AddressBookListType.edit}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -60,15 +66,20 @@ class AddressBookListPage extends StatelessWidget {
                      return Material(
                        color: Colors.white,
                        child: InkWell(
-                         onTap: ()async{
+                         onTap: (){
 
-                          Get.toNamed(Routes.addressBookEdit,arguments: AddressBookData(
-                               type: AddressBookType.modify,
-                               data: item,
-                               refresh:(){
-                                 controller.queryAddressBookList();
-                               }
-                           ));
+                           if(type==AddressBookListType.edit){
+                             Get.toNamed(Routes.addressBookEdit,arguments: AddressBookData(
+                                 type: AddressBookType.modify,
+                                 data: item,
+                                 refresh:(){
+                                   controller.queryAddressBookList();
+                                 }
+                             ));
+
+                           }else{
+                             Get.back(result: item);
+                           }
 
                          },
                          child: AddressBookItem(item,index),

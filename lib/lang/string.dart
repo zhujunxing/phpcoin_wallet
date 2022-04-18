@@ -644,6 +644,43 @@ class Ids {
   static const String collection = "collection";
   static const String seeMoreRecord = "seeMoreRecord";
 
+  static const String tradeDetail = "tradeDetail";
+  static const String payAddress = "payAddress";
+  static const String collectionAddress = "collectionAddress";
+  static const String minerFee = "minerFee";
+  static const String confirmPay = "confirmPay";
+  static const String walletList = "walletList";
+
+  static const String savedPhotoAlbum = "savedPhotoAlbum";
+  static const String saveImageError = "saveImageError";
+  static const String saveImageSuccess = "saveImageSuccess";
+
+  static const String inputCopyWalletAddress = "inputCopyWalletAddress";
+  static const String pleaseInputNum = "pleaseInputNum";
+  static const String inputPwd = "inputPwd";
+  static const String pwdIsNotEmpty = "pwdIsNotEmpty";
+  static const String pwdError = "pwdError";
+  static const String transferSendSuccess = "transferSendSuccess";
+  static const String transferSendError = "transferSendError";
+  static const String walletIsNotEmpty = "walletIsNotEmpty";
+
+
+  static const String newsPwdIsNotEmpty = "newsPwdIsNotEmpty";
+  static const String newsPwdLengthValidate = "newsPwdLengthValidate";
+  static const String surePwdIsNotEmpty = "surePwdIsNotEmpty";
+  static const String newsPwdConfirmIsNotEqual = "newsPwdConfirmIsNotEqual";
+  static const String pwdModifySuccess = "pwdModifySuccess";
+
+  static const String privateKeyIsNotEmpty = "privateKeyIsNotEmpty";
+  static const String setPwdIsNotEmpty = "setPwdIsNotEmpty";
+  static const String setPwdLengthValidate = "setPwdLengthValidate";
+  static const String repeatPwdIsNotEmpty = "repeatPwdIsNotEmpty";
+  static const String repeatPwdIsNotEqual = "repeatPwdIsNotEqual";
+  static const String privateKeyIsError = "privateKeyIsError";
+  static const String numMust0 = "numMust0";
+
+
+
 
 }
   Map<String, Map<String, Map<String, String>>> localizedDefaultValues = {

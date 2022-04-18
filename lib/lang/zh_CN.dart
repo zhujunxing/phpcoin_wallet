@@ -542,20 +542,60 @@ const Map<String, String> zhCn={
 
 
 
-  Ids.tokenDetail:"Token详情",
-  Ids.projectDetail:"项目详情",
-  Ids.assetsBalance:"资产余额",
-  Ids.exchange:"交易所",
-  Ids.referencePrice:"参考价格",
-  Ids.all1:"全部",
-  Ids.into:"转入",
-  Ids.out:"转出",
-  Ids.transfer:"转账",
-  Ids.collection:"收款",
-  Ids.seeMoreRecord:"查看更多记录",
+      Ids.tokenDetail:"Token详情",
+      Ids.projectDetail:"项目详情",
+      Ids.assetsBalance:"资产余额",
+      Ids.exchange:"交易所",
+      Ids.referencePrice:"参考价格",
+      Ids.all1:"全部",
+      Ids.into:"转入",
+      Ids.out:"转出",
+      Ids.transfer:"转账",
+      Ids.collection:"收款",
+      Ids.seeMoreRecord:"查看更多记录",
 
 
 
+      Ids.tradeDetail:"交易详情",
+      Ids.payAddress:"付款地址",
+      Ids.collectionAddress:"收款地址",
 
+      Ids.pwdIsNotEmpty:"密码不能为空",
+      Ids.pwdError:"密码错误",
+      Ids.transferSendSuccess:"转账发送成功",
+      Ids.transferSendError:"转账发送失败",
+
+
+      Ids.minerFee:"矿工费",
+      Ids.confirmPay:"确认支付",
+      Ids.walletList:"钱包列表",
+
+
+      Ids.savedPhotoAlbum:"已保存到图片相册里",
+      Ids.saveImageError:"保存图片失败",
+      Ids.saveImageSuccess:"保存图片成功",
+
+      Ids.inputCopyWalletAddress:"输入或粘贴钱包地址",
+      Ids.pleaseInputNum:"请输入数量",
+      Ids.inputPwd:"输入密码",
+
+      Ids.walletIsNotEmpty:"钱包不能为空",
+
+
+      Ids.newsPwdIsNotEmpty:"新密码不能为空",
+      Ids.newsPwdLengthValidate:"新密码长度不能小于6位数",
+      Ids.surePwdIsNotEmpty:"确认密码不能为空",
+      Ids.newsPwdConfirmIsNotEqual:"新密码跟确认密码不一致",
+      Ids.pwdModifySuccess:"密码修改成功",
+
+
+      Ids.privateKeyIsNotEmpty:"私钥不能为空",
+      Ids.setPwdIsNotEmpty:"设置密码不能为空",
+      Ids.setPwdLengthValidate:"设置密码长度不能小于6位数",
+      Ids.repeatPwdIsNotEmpty:"重复密码不能为空",
+      Ids.repeatPwdIsNotEqual:"设置密码跟重复密码不一致",
+      Ids.privateKeyIsError:"私钥错误",
+
+      Ids.numMust0:"数量必须大于0",
 
 };

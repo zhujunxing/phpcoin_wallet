@@ -87,7 +87,7 @@ const Map<String, String> enUs={
   Ids.toStoreGive: "Send to the store",
   Ids.multiDelivery: "Multiple Delivery",
 
-  Ids.searchGoodsUserStore: "Search Goods, Users, Stores",
+  Ids.searchGoodsUserStore: "Search Goods.Users, Stores",
 
 
 
@@ -100,7 +100,7 @@ const Map<String, String> enUs={
   Ids.newProducts: "Fresh Tasting Fresh",
   Ids.maybeLike: "you might like it",
   Ids.moreApplication: "More Applications",
-  Ids.moreHotWords: "More HotWords",
+  Ids.moreHotWords:"More HotWords",
   Ids.pleaseInputAppName: "Please enter the app name",
   Ids.anotherBatch: "Change batch",
   Ids.searchAppIsNotNull: "Search application name cannot be empty",
@@ -443,7 +443,7 @@ const Map<String, String> enUs={
 
 
   Ids.lastBlockBefore: "Last block before",
-  Ids.seconds: "seconds",
+  Ids.seconds:"seconds",
   Ids.averageBlockTime: "Average Block time",
   Ids.last: "last",
   Ids.blocks: "Blocks",
@@ -547,4 +547,46 @@ const Map<String, String> enUs={
   Ids.transfer:"Transfer",
   Ids.collection:"Collection",
   Ids.seeMoreRecord:"View more records",
+
+
+  Ids.tradeDetail: "transaction details",
+  Ids.payAddress: "payment address",
+  Ids.collectionAddress: "collection address",
+  Ids.pwdIsNotEmpty: "password cannot be empty",
+  Ids.pwdError: "password error",
+  Ids.transferSendSuccess: "transfer sent successfully",
+  Ids.transferSendError: "transfer sending failed",
+
+
+  Ids.minerFee:"Miner's fee",
+  Ids.confirmPay:"Confirm payment",
+  Ids.walletList:"Wallet list",
+
+
+  Ids.savedPhotoAlbum:"Saved to photo album",
+  Ids.saveImageError:"Failed to save picture",
+  Ids.saveImageSuccess:"Picture saved successfully",
+
+  Ids.inputCopyWalletAddress:"Enter or paste wallet address",
+  Ids.pleaseInputNum:"Please enter quantity",
+  Ids.inputPwd:"Enter password",
+
+
+
+
+  Ids.walletIsNotEmpty: "wallet cannot be empty",
+  Ids.newsPwdIsNotEmpty: "the new password cannot be empty",
+  Ids.newsPwdLengthValidate: "the length of the new password cannot be less than 6 digits",
+  Ids.surePwdIsNotEmpty: "confirm password cannot be empty",
+  Ids.newsPwdConfirmIsNotEqual: "the new password is inconsistent with the confirmed password",
+  Ids.pwdModifySuccess: "password modification succeeded",
+  Ids.privateKeyIsNotEmpty: "private key cannot be empty",
+  Ids.setPwdIsNotEmpty: "setting password cannot be empty",
+  Ids.setPwdLengthValidate: "set password length not less than 6 digits",
+  Ids.repeatPwdIsNotEmpty: "duplicate password cannot be empty",
+  Ids.repeatPwdIsNotEqual: "the setting password is inconsistent with the duplicate password",
+  Ids.privateKeyIsError: "private key error",
+  Ids.numMust0: "quantity must be greater than 0",
+
+
 };

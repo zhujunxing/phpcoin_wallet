@@ -25,13 +25,9 @@ import '../home/assets/home_assets_have_wallet_controller.dart';
 import '../home/home_assets_controller.dart';
 
 
-class TransferReceiveErWeiController extends SuperController{
+class TransferRecordListController extends SuperController{
 
-   var address="".obs;
-   GlobalKey rootWidgetKey=GlobalKey();
-   TransferReceiveErWeiController(String address){
-     this.address.value=address;
-   }
+
   @override
   void onInit() {
     super.onInit();
@@ -68,22 +64,7 @@ class TransferReceiveErWeiController extends SuperController{
 
   }
 
-  void share(BuildContext context)async {
 
-   dynamic result=await Screen.saveScreen(rootWidgetKey, context);
-
-       if(result!=null&&result['isSuccess']){
-         ToastUtil.toast(context, Ids.savedPhotoAlbum.tr);
-           File?  file=await FileUtil.convertUriToFile(result['filePath']);
-           if(file!=null){
-             Share.shareFiles([file.path],
-               text: address.value,);
-           }
-       }else{
-         ToastUtil.toast(context, Ids.saveImageError.tr);
-       }
-
-  }
 
 
 }

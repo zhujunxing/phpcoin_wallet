@@ -33,7 +33,7 @@ const Map<String, String> zhHK={
 
   Ids.day1: "天",
   Ids.baoYouCircle: "寶友圈",
-  Ids.openHandlePermissionTip: '請手動打開權限界面，並重新打開界面重試',
+  Ids.openHandlePermissionTip: '請手動打開權限界面,並重新打開界面重試',
   Ids.openHandlePermissionTipError: '無法打開權限設置界面',
   Ids.inputCityNameSearch: "輸入城市名進行搜索",
 
@@ -88,7 +88,7 @@ const Map<String, String> zhHK={
   Ids.toStoreGive: "到店送",
   Ids.multiDelivery: "各種多送",
 
-  Ids.searchGoodsUserStore: "搜索商品，用戶，店鋪",
+  Ids.searchGoodsUserStore: "搜索商品,用戶,店鋪",
 
 
 
@@ -136,13 +136,13 @@ const Map<String, String> zhHK={
   Ids.commentClose: "評論關閉",
   Ids.people: "人",
   Ids.score: "評分",
-  Ids.noDataComment: "沒人評論，來搶沙發吧( ‘-ωก̀ )",
+  Ids.noDataComment: "沒人評論,來搶沙發吧( ‘-ωก̀ )",
   Ids.downloadManager: "下載管理",
   Ids.noDataDownloadManager: "暫未下載安裝包(..•˘_˘•..)",
-  Ids.downloadWarnTip: "已經下載過一次，請進入下載管理界面查看",
-  Ids.loadingDownloadWait: "正在下載，請耐心等待",
-  Ids.downloadError: "下載失敗，請進入下載管理界面操作",
-  Ids.downloadOpenError: "安裝失敗，請檢測安裝包是否存在",
+  Ids.downloadWarnTip: "已經下載過一次,請進入下載管理界面查看",
+  Ids.loadingDownloadWait: "正在下載,請耐心等待",
+  Ids.downloadError: "下載失敗,請進入下載管理界面操作",
+  Ids.downloadOpenError: "安裝失敗,請檢測安裝包是否存在",
   Ids.downloadLoading: "下載中",
   Ids.startInstall: "開始安裝",
   Ids.downloadErrorRetry: "點擊重試",
@@ -168,7 +168,7 @@ const Map<String, String> zhHK={
   Ids.isExitLogin: "是否退出登錄",
 
   Ids.goLogin: "馬上登錄",
-  Ids.welcomeLoginAccount: "親，歡迎登錄送寶帳戶",
+  Ids.welcomeLoginAccount: "親,歡迎登錄送寶帳戶",
 
 
   Ids.switchSmsLogin: "切換手機短信登錄",
@@ -251,7 +251,7 @@ const Map<String, String> zhHK={
   Ids.pleaseInputSearchNews: "請輸入搜索文章內容",
   Ids.sureBind: "確定綁定",
   Ids.nowBindPhoneNumber: "當前綁定手機號碼",
-  Ids.pleaseFastBindPhoneNumberTip: "請盡快綁定手機號碼，防止帳號走丟",
+  Ids.pleaseFastBindPhoneNumberTip: "請盡快綁定手機號碼,防止帳號走丟",
   Ids.personalProfile: "個人資料",
   Ids.avatar: "頭像",
   Ids.nickName: "暱稱",
@@ -279,8 +279,8 @@ const Map<String, String> zhHK={
   Ids.goGind: "立即綁定",
   Ids.importantTips: "重要提示",
   Ids.sendEmailValidateTip:
-  "請注意：您正在進行郵箱驗證的操作，完成郵箱驗證能極大提升賬號安全等級，查看發送驗證郵件的驗證碼並填寫進手機端進行認證",
-  Ids.alreadyBindEmail: "已經綁定郵箱，無需進行下一步操作",
+  "請注意：您正在進行郵箱驗證的操作,完成郵箱驗證能極大提升賬號安全等級,查看發送驗證郵件的驗證碼並填寫進手機端進行認證",
+  Ids.alreadyBindEmail: "已經綁定郵箱,無需進行下一步操作",
   Ids.emailInputError: "郵箱輸入不正確",
   Ids.appShare: "應用分享",
   Ids.noGetDownload: "暫無下載",
@@ -292,9 +292,9 @@ const Map<String, String> zhHK={
   Ids.bindEmailAfterStopSupportChange: "綁定郵箱後暫不支持更改",
   Ids.realNameAuth: "實名認證",
   Ids.sureSubmit: "確認提交",
-  Ids.realAuthTip: "完成認證需要核實你的身份信息，請拍攝你本人的身份證",
+  Ids.realAuthTip: "完成認證需要核實你的身份信息,請拍攝你本人的身份證",
   Ids.aboutApp: "關於App",
-  Ids.scanQrCodeDownloadClient: "掃描二維碼，您的朋友也可下載派雲客戶端",
+  Ids.scanQrCodeDownloadClient: "掃描二維碼,您的朋友也可下載派雲客戶端",
   Ids.aboutExpYearToYear: "Copyright@2021-2022",
   Ids.aboutVersionPowerAll: "pilipipi.com 版權所有",
   Ids.versionUpdate: "版本更新",
@@ -350,7 +350,7 @@ const Map<String, String> zhHK={
   Ids.save: "保存",
 
 
-  Ids.releasePostTip: "選最棒的照片作為主圖，帖子更容易被推薦哦～",
+  Ids.releasePostTip: "選最棒的照片作為主圖,帖子更容易被推薦哦～",
   Ids.topic: "話題",
   Ids.image: "圖片",
   Ids.video: "視頻",
@@ -431,7 +431,7 @@ const Map<String, String> zhHK={
   Ids.an: "按",
   Ids.type: "類型",
   Ids.ming: "名",
-  Ids.sigNoData: "他注定是一個低調的大俠，所以什麼都沒寫",
+  Ids.sigNoData: "他注定是一個低調的大俠,所以什麼都沒寫",
   Ids.clean: "清理",
 
   Ids.noDataPost: "沒有搜到相關動態～",
@@ -512,7 +512,7 @@ const Map<String, String> zhHK={
   Ids.privateImport:"私鑰導入",
   Ids.privateImportTip:"通過輸入明文公鑰跟私鑰或掃描私鑰二維碼進行導入",
   Ids.watchWallet:"觀察錢包",
-  Ids.watchWalletTip:"無需導入私鑰，輸入對應錢包地址即可導入",
+  Ids.watchWalletTip:"無需導入私鑰,輸入對應錢包地址即可導入",
   Ids.setWalletName:"設置錢包名",
   Ids.pleaseEnterName:"請輸入名稱",
   Ids.setPassword:"設置密碼",
@@ -521,7 +521,7 @@ const Map<String, String> zhHK={
   Ids.pwdTip:"密碼提示",
   Ids.optional:"可不填",
   Ids.enterOrPasteWalletAddress:"輸入或粘貼錢包地址",
-  Ids.watchWalletImportTip:"觀察錢包不需要導入私鑰，只導入地址，進行日常查看賬號，交易記錄和接受通知。",
+  Ids.watchWalletImportTip:"觀察錢包不需要導入私鑰,只導入地址,進行日常查看賬號,交易記錄和接受通知。",
   Ids.startImport:"開始導入",
   Ids.walletSystem:"錢包體系",
   Ids.walletPublicKey:"錢包公鑰",
@@ -551,4 +551,42 @@ const Map<String, String> zhHK={
   Ids.transfer:"轉帳",
   Ids.collection:"收款",
   Ids.seeMoreRecord:"查看更多記錄",
+
+
+
+  Ids.tradeDetail:"交易詳情",
+  Ids.payAddress:"付款地址",
+  Ids.collectionAddress:"收款地址",
+  Ids.pwdIsNotEmpty:"密碼不能為空",
+  Ids.pwdError:"密碼錯誤",
+  Ids.transferSendSuccess:"轉帳發送成功",
+  Ids.transferSendError:"轉帳發送失敗",
+
+
+  Ids.minerFee:"礦工費",
+  Ids.confirmPay:"確認支付",
+  Ids.walletList:"錢包清單",
+
+
+  Ids.savedPhotoAlbum:"已保存到圖片相册裏",
+  Ids.saveImageError:"保存圖片失敗",
+  Ids.saveImageSuccess:"保存圖片成功",
+
+  Ids.inputCopyWalletAddress:"輸入或粘貼錢包地址",
+  Ids.pleaseInputNum:"請輸入數量",
+  Ids.inputPwd:"輸入密碼",
+
+  Ids.walletIsNotEmpty:"錢包不能為空",
+  Ids.newsPwdIsNotEmpty:"新密碼不能為空",
+  Ids.newsPwdLengthValidate:"新密碼長度不能小於6位數",
+  Ids.surePwdIsNotEmpty:"確認密碼不能為空",
+  Ids.newsPwdConfirmIsNotEqual:"新密碼跟確認密碼不一致",
+  Ids.pwdModifySuccess:"密碼修改成功",
+  Ids.privateKeyIsNotEmpty:"私密金鑰不能為空",
+  Ids.setPwdIsNotEmpty:"設置密碼不能為空",
+  Ids.setPwdLengthValidate:"設置密碼長度不能小於6位數",
+  Ids.repeatPwdIsNotEmpty:"重複密碼不能為空",
+  Ids.repeatPwdIsNotEqual:"設置密碼跟重複密碼不一致",
+  Ids.privateKeyIsError:"私密金鑰錯誤",
+  Ids.numMust0:"數量必須大於0",
 };

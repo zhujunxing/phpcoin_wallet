@@ -8,6 +8,7 @@ import 'package:flutter_phpcoin/service/resp/node/query_public_key_resp.dart';
 
 import '../../utils/dio_util.dart';
 import '../resp/node/query_node_info_resp.dart';
+import '../resp/node/send_balance_resp.dart';
 
 class NodeService {
   static  NodeService? _service;
@@ -140,4 +141,55 @@ class NodeService {
       return null;
     }
   }
+
+
+
+
+  //发送余额
+  Future<SendBalanceResp?> sendBalance({CancelToken? cancelToken,Function? successCallBack,Function? errorCallBack,
+    String? val,String? dst,String? publicKey,
+    String? signature,String? date,String? message,
+    String?  type,
+  }) async {
+    var  requestData = {
+      "val":val,
+      "dst":dst,
+      "publicKey":publicKey,
+      "signature":signature,
+      "date":date,
+      "message":message,
+      "type":type,
+      "fee":"0.00000000",
+    };
+    print(requestData.toString());
+
+    dynamic result=await HttpUtil.getInstance()!.post(NodeApi.sendBalance,(data) {
+      if(successCallBack!=null){
+        successCallBack(data);
+      }
+    },
+        cancelToken: cancelToken,
+        data: requestData,
+        errorCallBack: (error) {
+          if(errorCallBack!=null){
+            errorCallBack(error);
+          }
+        });
+
+    if(result!=null){
+      SendBalanceResp? resp=SendBalanceResp.fromMap(result);
+      return resp;
+    }else{
+      return null;
+    }
+
+  }
+
 }
+
+
+
+
+
+
+

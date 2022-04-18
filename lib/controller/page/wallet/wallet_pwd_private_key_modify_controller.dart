@@ -94,35 +94,35 @@ class WalletPwdPrivateKeyModifyController extends SuperController{
 
 
     if(editPwd.text.trim().isEmpty){
-      ToastUtil.toast(context, "私钥不能为空");
+      ToastUtil.toast(context, Ids.privateKeyIsError.tr);
       return;
     }
 
     if(editNew.text.trim().isEmpty){
-      ToastUtil.toast(context, "设置密码不能为空");
+      ToastUtil.toast(context, Ids.setPwdIsNotEmpty.tr);
       return;
     }
     if(editNew.text.trim().length<6){
-      ToastUtil.toast(context, "设置密码长度不能小于6位数");
+      ToastUtil.toast(context, Ids.setPwdLengthValidate.tr);
       return;
     }
     if(editNewConfirm.text.trim().isEmpty){
-      ToastUtil.toast(context, "重复密码不能为空");
+      ToastUtil.toast(context, Ids.repeatPwdIsNotEmpty.tr);
       return;
     }
     if(editNew.text.trim()!=editNewConfirm.text.trim()){
-      ToastUtil.toast(context, "设置密码跟重复密码不一致");
+      ToastUtil.toast(context, Ids.repeatPwdIsNotEqual.tr);
       return;
     }
 
     Wallet? queryWallet=await WalletDbService.getInstance()!.findWalletByPrivateKeyAddress(editPwd.text.trim(),address);
     if(queryWallet==null){
-      ToastUtil.toast(context, "私钥错误");
+      ToastUtil.toast(context,Ids.privateKeyIsError.tr);
       return;
     }
     queryWallet.pwd=editNewConfirm.text.trim();
     await WalletDbService.getInstance()!.update(queryWallet);
-    ToastUtil.toast(context, "密码修改成功");
+    ToastUtil.toast(context, Ids.pwdModifySuccess.tr);
     Get.back();
   }
 

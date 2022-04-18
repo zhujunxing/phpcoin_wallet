@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_phpcoin/data/transfer/transfer_token_data.dart';
 import 'package:flutter_phpcoin/data/wallet/wallet_create_import_data.dart';
 import 'package:flutter_phpcoin/routes/app_pages.dart';
 import 'package:flutter_phpcoin/ui/dialog/input_content_dialog.dart';
@@ -294,7 +295,8 @@ class WalletTokenDetailPage extends StatelessWidget {
                     Ids.transfer.tr,
                     color: Colours.color00d8a7,
                     onPressed: (){
-
+                      Get.toNamed(Routes.transferToken,arguments: TransferTokenData(tokenAddress: controller.tokenAddress.value,tokenName: controller.tokenName.value,
+                      transferAddress: ""));
                     },
                   )),
                   Gaps.wGap15,
@@ -303,6 +305,7 @@ class WalletTokenDetailPage extends StatelessWidget {
                     color: Colours.accentColor,
                     onPressed: (){
 
+                      Get.toNamed(Routes.transferReceiveErWei,arguments: controller.wallet!.walletAddress??"");
                     },
                   )),
                 ],

@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_phpcoin/routes/app_pages.dart';
+import 'package:flutter_phpcoin/ui/page/address/address_book_list_page.dart';
 import 'package:get/get.dart';
 
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
@@ -56,7 +57,7 @@ class HomeMyselfPage extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: _buildItem(ImageResource.address,Ids.addressBook.tr,click: (){
-                Get.toNamed(Routes.addressBookList);
+                Get.toNamed(Routes.addressBookList,arguments:AddressBookListType.edit);
               },isVisible: false),
             ),
             SliverToBoxAdapter(

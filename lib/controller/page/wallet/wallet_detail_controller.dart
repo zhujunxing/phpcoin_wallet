@@ -78,7 +78,7 @@ class WalletDetailController extends SuperController{
       return;
     }
        if(name.isEmpty){
-         ToastUtil.toast(context, "钱包不能为空");
+         ToastUtil.toast(context,Ids.walletIsNotEmpty.tr);
          return;
        }
       List<Wallet> walletList=await WalletDbService.getInstance()!.findWalletByWalletName(name);
@@ -96,13 +96,13 @@ class WalletDetailController extends SuperController{
   void verifyPwd(BuildContext content,pwd)async {
 
     if(pwd.isEmpty){
-      ToastUtil.toast(content, "密码不能为空");
+      ToastUtil.toast(content, Ids.pwdIsNotEmpty.tr);
       return;
     }
     
    Wallet? queryWallet=await WalletDbService.getInstance()!.findWalletByPwdAddress(pwd,wallet!.walletAddress!);
      if(queryWallet==null){
-       ToastUtil.toast(content, "密码错误");
+       ToastUtil.toast(content,Ids.pwdError.tr);
        return;
      }
      Get.toNamed(Routes.walletExportPrivateKey,
