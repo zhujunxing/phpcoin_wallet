@@ -150,16 +150,17 @@ class NodeService {
     String? val,String? dst,String? publicKey,
     String? signature,String? date,String? message,
     String?  type,
+    String? fee,
   }) async {
     var  requestData = {
       "val":val,
       "dst":dst,
-      "publicKey":publicKey,
+      "public_key":publicKey,
       "signature":signature,
       "date":date,
       "message":message,
       "type":type,
-      "fee":"0.00000000",
+      "fee":fee,
     };
     print(requestData.toString());
 

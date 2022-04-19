@@ -201,7 +201,7 @@ class WalletPaySureDialog extends StatelessWidget {
                 Container(
                   color: Colors.white,
                   width: Screen.width,
-                  height: Screen.bottomBarHeight,
+                  height: Screen.bottomBarHeight+Dimens.dp20,
                 ),
               ],
             ),

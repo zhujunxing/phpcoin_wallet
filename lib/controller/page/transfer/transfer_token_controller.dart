@@ -158,7 +158,7 @@ class TransferTokenController extends SuperController{
           if(flag){
             surePayPWd(wallet);
           }
-    },));
+    },),isScrollControlled: true);
   }
   void surePayPWd(Wallet wallet)async {
     Get.dialog(InputContentDialog(Ids.inputPwd.tr, "",content: ""
@@ -195,7 +195,17 @@ class TransferTokenController extends SuperController{
     }
     String date="${DateTime.now().millisecondsSinceEpoch~/1000}";
     String message="Wallet Transfer";
-    String signature=sign(wallet.walletPrivateKey!, message);
+
+
+
+
+    String fee = "0.00000000";
+    String  walletPublicKey = wallet.walletPublicKey!;
+    String type = "1";
+    String tx= num + "-" + fee + "-" + editAddress.text.trim() + "-" + message + "-" + type + "-" + walletPublicKey + "-" + date;
+
+    String signature=sign(wallet.walletPrivateKey!, tx);
+
     LoadingDialog.show();
     SendBalanceResp? resp=await NodeService.getInstance()!.sendBalance(cancelToken: cancelToken,
       val:num,
@@ -204,7 +214,8 @@ class TransferTokenController extends SuperController{
      signature: signature,
       date: date,
       message: message,
-      type: "1",
+      type: type,
+       fee:fee,
     );
     LoadingDialog.hide();
     if(!cancelToken.isCancelled){
