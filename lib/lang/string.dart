@@ -678,9 +678,40 @@ class Ids {
   static const String repeatPwdIsNotEqual = "repeatPwdIsNotEqual";
   static const String privateKeyIsError = "privateKeyIsError";
   static const String numMust0 = "numMust0";
+  static const String exchange1 = "exchange1";
+  static const String waitingOpen = "waitingOpen";
 
 
+  static const String copy = "copy";
+  static const String alreadyCopy = "alreadyCopy";
+  static const String onlyAddressTransferTip = "onlyAddressTransferTip";
 
+  static const String transferAmount = "transferAmount";
+  static const String fast = "fast";
+
+
+  static const String walletDetail = "walletDetail";
+  static const String changeWalletName = "changeWalletName";
+  static const String pleaseInputWalletName = "pleaseInputWalletName";
+  static const String walletAddressAlreadyCopy = "walletAddressAlreadyCopy";
+  static const String exportPrivate = "exportPrivate";
+  static const String modifyPwd = "modifyPwd";
+  static const String resetPwd = "resetPwd";
+  static const String deleteWallet = "deleteWallet";
+  static const String sureDeleteWallet = "sureDeleteWallet";
+  static const String walletDeleteNoRestored = "walletDeleteNoRestored";
+
+
+  static const String backupPrivate = "backupPrivate";
+  static const String backupPrivateTip = "backupPrivateTip";
+  static const String plaintextPrivateKey = "plaintextPrivateKey";
+  static const String copyPrivate = "copyPrivate";
+  static const String current = "current";
+  static const String addWallet = "addWallet";
+
+  static const String currentPwd = "currentPwd";
+  static const String newsPwd = "newsPwd";
+  static const String confirmPwd = "confirmPwd";
 
 }
   Map<String, Map<String, Map<String, String>>> localizedDefaultValues = {

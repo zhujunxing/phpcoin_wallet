@@ -48,8 +48,8 @@ class TransferReceiveErWeiPage extends StatelessWidget {
       key: controller.rootWidgetKey,
       child: Scaffold(
         backgroundColor: Colours.accentColor,
-        appBar:const BaseAppBar(
-          title:"收款",
+        appBar: BaseAppBar(
+          title:Ids.collection.tr,
           backBtColor:Colors.white,
           bgColor: Colors.transparent,
           textColor: Colors.white,
@@ -87,7 +87,7 @@ class TransferReceiveErWeiPage extends StatelessWidget {
                                 ImageIcon(AssetImage(ImageResource.warn),size: Dimens.sp16,
                                   color: Colours.orangeColor,),
                                 Gaps.wGap10,
-                                Expanded(child: Text("仅向该地址转入PHPCOIN相关资产",style: TextStyle(
+                                Expanded(child: Text(Ids.onlyAddressTransferTip.tr,style: TextStyle(
                                   fontSize: Dimens.sp12,
                                   color: Colours.orangeColor,
                                   fontWeight: FontWeight.w500,
@@ -126,7 +126,7 @@ class TransferReceiveErWeiPage extends StatelessWidget {
                       padding: EdgeInsets.only(top:  Dimens.dp10,bottom: Dimens.dp10),
                       child: Column(
                         children: [
-                          Text("收款地址",style: TextStyle(
+                          Text(Ids.collectionAddress.tr,style: TextStyle(
                             fontSize: Dimens.sp16,
                             color: Colours.grayColor,
                           ),),
@@ -182,7 +182,7 @@ class TransferReceiveErWeiPage extends StatelessWidget {
                                 children: [
                                   ImageIcon(AssetImage(ImageResource.copy),size: Dimens.sp16,),
                                   Gaps.wGap5,
-                                  Text("复制",style: TextStyle(
+                                  Text("${Ids.copy.tr}",style: TextStyle(
                                     fontSize: Dimens.sp16,
                                     color: Colours.defaultTextColor,
                                   ),),
@@ -192,7 +192,7 @@ class TransferReceiveErWeiPage extends StatelessWidget {
                             ),
                             onTap: (){
                               Clipboard.setData(ClipboardData(text:controller.address.value));
-                              ToastUtil.toast(context, "${controller.address.value}已复制到粘贴板");
+                              ToastUtil.toast(context, "${controller.address.value}${Ids.alreadyCopy.tr}");
                             },
                           )),
                         ],

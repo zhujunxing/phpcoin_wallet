@@ -34,7 +34,7 @@ class WalletPwdModifyPage extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: BaseAppBar(
-          title:"修改密码",
+          title:Ids.modifyPwd.tr,
         ),
         body: CustomScrollView(
           slivers: [
@@ -50,7 +50,7 @@ class WalletPwdModifyPage extends StatelessWidget {
                         children: [
                           SizedBox(
                             width: Dimens.dp90,
-                            child: Text("当前密码",style: TextStyle(
+                            child: Text(Ids.currentPwd.tr,style: TextStyle(
                               fontSize: Dimens.sp16,
                               color: Colours.defaultTextColor,
                             ),),
@@ -66,7 +66,7 @@ class WalletPwdModifyPage extends StatelessWidget {
                                 fontSize: Dimens.sp16),
                             maxLines: 1,
                             decoration: InputDecoration(
-                              hintText:"当前密码",
+                              hintText:Ids.currentPwd.tr,
                               hintStyle: TextStyle(
                                 fontSize: Dimens.sp16,
                                 color: Colours.hintTextColor,
@@ -98,7 +98,7 @@ class WalletPwdModifyPage extends StatelessWidget {
                           children: [
                             SizedBox(
                               width: Dimens.dp90,
-                              child: Text("新密码",style: TextStyle(
+                              child: Text(Ids.newsPwd.tr,style: TextStyle(
                                 fontSize: Dimens.sp16,
                                 color: Colours.defaultTextColor,
                               ),),
@@ -114,7 +114,7 @@ class WalletPwdModifyPage extends StatelessWidget {
                                   fontSize: Dimens.sp16),
                               maxLines: 1,
                               decoration: InputDecoration(
-                                hintText:"新密码",
+                                hintText:Ids.newsPwd.tr,
                                 hintStyle: TextStyle(
                                   fontSize: Dimens.sp16,
                                   color: Colours.hintTextColor,
@@ -146,7 +146,7 @@ class WalletPwdModifyPage extends StatelessWidget {
                           children: [
                             SizedBox(
                               width: Dimens.dp90,
-                              child: Text("确认密码",style: TextStyle(
+                              child: Text(Ids.confirmPwd.tr,style: TextStyle(
                                 fontSize: Dimens.sp16,
                                 color: Colours.defaultTextColor,
                               ),),
@@ -162,7 +162,7 @@ class WalletPwdModifyPage extends StatelessWidget {
                                   fontSize: Dimens.sp16),
                               maxLines: 1,
                               decoration: InputDecoration(
-                                hintText:"确认密码",
+                                hintText:Ids.confirmPwd.tr,
                                 hintStyle: TextStyle(
                                   fontSize: Dimens.sp16,
                                   color: Colours.hintTextColor,

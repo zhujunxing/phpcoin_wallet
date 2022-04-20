@@ -587,6 +587,37 @@ const Map<String, String> enUs={
   Ids.repeatPwdIsNotEqual: "the setting password is inconsistent with the duplicate password",
   Ids.privateKeyIsError: "private key error",
   Ids.numMust0: "quantity must be greater than 0",
+  Ids.exchange1:"Flash ex",
+  Ids.waitingOpen:"Waiting for opening",
 
 
+
+  Ids.copy:"copy",
+  Ids.alreadyCopy:"Copied to pasteboard",
+  Ids.onlyAddressTransferTip:"Transfer phpcoin related assets only to this address",
+  Ids.transferAmount:"Transfer amount",
+  Ids.fast:"Fast",
+
+  Ids.walletDetail:"Wallet details",
+  Ids.changeWalletName:"Change wallet name",
+  Ids.pleaseInputWalletName:"Please fill in the wallet name",
+  Ids.walletAddressAlreadyCopy:"Wallet address copied to pasteboard",
+  Ids.exportPrivate:"Export private key",
+  Ids.modifyPwd:"Change Password",
+  Ids.resetPwd:"reset password",
+  Ids.deleteWallet:"Delete Wallet",
+  Ids.sureDeleteWallet:"Confirm to delete Wallet",
+  Ids.walletDeleteNoRestored:"Wallet cannot be recovered after deletion",
+
+  Ids.backupPrivate:"Backup private key",
+  Ids.backupPrivateTip:"The private key is not encrypted. Please export it carefully and make a safe backup! When making private key backup, please make sure there is no other person around!",
+  Ids.plaintextPrivateKey:"Plaintext private key",
+  Ids.copyPrivate:"Copy PrivateKey",
+  Ids.current:"Current",
+   Ids.addWallet:"Add Wallet",
+
+
+  Ids.currentPwd:"Current password",
+  Ids.newsPwd:"New password",
+    Ids.confirmPwd:"Confirm password",
 };

@@ -47,8 +47,8 @@ class WalletManagerPage extends StatelessWidget {
 
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar: const BaseAppBar(
-          title:"钱包管理",
+        appBar:  BaseAppBar(
+          title:Ids.walletManager.tr,
         ),
         body: WalletManagerItemPage());
   }

@@ -589,4 +589,35 @@ const Map<String, String> zhHK={
   Ids.repeatPwdIsNotEqual:"設置密碼跟重複密碼不一致",
   Ids.privateKeyIsError:"私密金鑰錯誤",
   Ids.numMust0:"數量必須大於0",
+
+  Ids.exchange1:"閃兌",
+  Ids.waitingOpen:"等待開放",
+
+  Ids.copy:"複製",
+  Ids.alreadyCopy:"已複製到粘貼板",
+  Ids.onlyAddressTransferTip:"僅向該地址轉入PHPCOIN相關資產",
+  Ids.transferAmount:"轉帳金額",
+  Ids.fast:"快",
+
+  Ids.walletDetail:"錢包詳情",
+  Ids.changeWalletName:"更換錢包名",
+  Ids.pleaseInputWalletName:"請填寫錢包名",
+  Ids.walletAddressAlreadyCopy:"錢包地址已複製到粘貼板",
+  Ids.exportPrivate:"匯出私密金鑰",
+  Ids.modifyPwd:"修改密碼",
+  Ids.resetPwd:"重置密碼",
+  Ids.deleteWallet:"删除錢包",
+  Ids.sureDeleteWallet:"確認删除錢包",
+  Ids.walletDeleteNoRestored:"錢包删除後無法恢復",
+
+  Ids.backupPrivate:"備份私密金鑰",
+  Ids.backupPrivateTip:"私密金鑰未加密，請謹慎匯出，做好安全備份！ 做私密金鑰備份時，請確保周邊沒有其他人！",
+  Ids.plaintextPrivateKey:"明文私密金鑰",
+  Ids.copyPrivate:"複製私密金鑰",
+  Ids.current:"當前",
+  Ids.addWallet:"添加錢包",
+
+  Ids.currentPwd:"當前密碼",
+  Ids.newsPwd:"新密碼",
+  Ids.confirmPwd:"確認密碼",
 };

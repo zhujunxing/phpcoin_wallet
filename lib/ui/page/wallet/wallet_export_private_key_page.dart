@@ -42,7 +42,7 @@ class WalletExportPrivateKeyPage extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: BaseAppBar(
-          title:"备份私钥",
+          title:Ids.backupPrivate.tr,
         ),
       body: CustomScrollView(
         slivers: [
@@ -61,7 +61,7 @@ class WalletExportPrivateKeyPage extends StatelessWidget {
                   ImageIcon(AssetImage(ImageResource.warnExport),size: Dimens.sp24,
                   color: Colours.redColor,),
                   Gaps.wGap10,
-                  Expanded(child: Text("私钥未加密，请谨慎导出，做好安全备份！做私钥备份时，请确保周边没有其他人！",style: TextStyle(
+                  Expanded(child: Text(Ids.backupPrivateTip.tr,style: TextStyle(
                     fontSize: Dimens.sp12,
                     color: Colours.redColor,
                     fontWeight: FontWeight.w500,
@@ -98,7 +98,7 @@ class WalletExportPrivateKeyPage extends StatelessWidget {
                     color: Colours.lineTextColor,
                   )),
                   Gaps.wGap10,
-                  Text("明文私钥",style: TextStyle(
+                  Text(Ids.plaintextPrivateKey.tr,style: TextStyle(
                     fontSize: Dimens.sp14,
                     color:Colours.grayColor,
                   ),),
@@ -139,11 +139,11 @@ class WalletExportPrivateKeyPage extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  CustomButton("复制私钥",
+                  CustomButton(Ids.copyPrivate.tr,
                     width: Dimens.dp220,
                     onPressed: (){
                       Clipboard.setData(ClipboardData(text:'${data.privateKey}'));
-                      ToastUtil.toast(context, "${data.privateKey}已复制到粘贴板");
+                      ToastUtil.toast(context, "${data.privateKey}${Ids.alreadyCopy.tr}");
                     },
                   )
                 ],

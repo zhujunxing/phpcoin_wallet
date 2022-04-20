@@ -66,7 +66,7 @@ class TransferTokenPage extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Text("收款地址",style: TextStyle(
+                        Text(Ids.collectionAddress.tr,style: TextStyle(
                           fontSize: Dimens.sp14,
                           color: Colours.defaultTextColor,
                         ),),
@@ -102,7 +102,7 @@ class TransferTokenPage extends StatelessWidget {
                         maxLines: 1,
                         focusNode: controller.editAddressNode,
                         decoration: InputDecoration(
-                          hintText:"输入或粘贴钱包地址",
+                          hintText:Ids.inputCopyWalletAddress.tr,
                           hintStyle: TextStyle(
                             fontSize: Dimens.sp16,
                             color: Colours.hintTextColor,
@@ -132,7 +132,7 @@ class TransferTokenPage extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Text("转账金额",style: TextStyle(
+                        Text(Ids.transferAmount.tr,style: TextStyle(
                           fontSize: Dimens.sp14,
                           color: Colours.defaultTextColor,
                         ),),
@@ -174,7 +174,7 @@ class TransferTokenPage extends StatelessWidget {
                             maxLines: 1,
                             focusNode: controller.editNumNode,
                             decoration: InputDecoration(
-                              hintText:"请输入数量",
+                              hintText:Ids.pleaseInputNum.tr,
                               hintStyle: TextStyle(
                                 fontSize: Dimens.sp16,
                                 color: Colours.hintTextColor,
@@ -196,7 +196,7 @@ class TransferTokenPage extends StatelessWidget {
                                 Container(
                                   height: Dimens.dp20,
                                   alignment: Alignment.center,
-                                  child: Text("全部",style: TextStyle(
+                                  child: Text(Ids.all1.tr,style: TextStyle(
                                     fontSize: Dimens.sp10,
                                     color: Colours.hintTextColor,
                                   ),),
@@ -222,7 +222,7 @@ class TransferTokenPage extends StatelessWidget {
                       width: Screen.width,
                       child:Row(
                         children: [
-                          Text("转账金额",style: TextStyle(
+                          Text(Ids.transferAmount.tr,style: TextStyle(
                             fontSize: Dimens.sp14,
                             color: Colours.defaultTextColor,
                           ),),
@@ -251,7 +251,7 @@ class TransferTokenPage extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(Dimens.dp15,0, Dimens.dp15, 0),
                 child: Row(
                   children: [
-                    Text("矿工费",style: TextStyle(
+                    Text(Ids.minerFee.tr,style: TextStyle(
                       fontSize: Dimens.sp14,
                       color: Colours.defaultTextColor,
                     ),),
@@ -302,7 +302,7 @@ class TransferTokenPage extends StatelessWidget {
                                child: Column(
                                  mainAxisSize: MainAxisSize.min,
                                  children: [
-                                   Text("快",style: TextStyle(
+                                   Text(Ids.fast.tr,style: TextStyle(
                                      fontSize: Dimens.sp14,
                                      color: Colours.accentColor,
                                    ),),
@@ -351,7 +351,7 @@ class TransferTokenPage extends StatelessWidget {
                                          Radius.circular(Dimens.sp4),
                                        )
                                      ),
-                                     child: Text("≈ 1 分钟",style: TextStyle(
+                                     child: Text("≈ 1 ${Ids.minute.tr}",style: TextStyle(
                                        fontSize: Dimens.sp10,
                                        color: Colours.accentColor,
                                      ),),

@@ -35,7 +35,7 @@ class WalletPwdPrivateKeyModifyPage extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: BaseAppBar(
-          title:"重置密码",
+          title:Ids.resetPwd.tr,
         ),
         body: CustomScrollView(
           slivers: [
@@ -56,7 +56,7 @@ class WalletPwdPrivateKeyModifyPage extends StatelessWidget {
                   minLines: 1,
                   decoration: InputDecoration(
                     isCollapsed: true,
-                    hintText:"明文私钥",
+                    hintText:Ids.plaintextPrivateKey.tr,
                     hintStyle: TextStyle(
                       fontSize: Dimens.sp13,
                       textBaseline: TextBaseline.alphabetic,
@@ -93,7 +93,7 @@ class WalletPwdPrivateKeyModifyPage extends StatelessWidget {
                           children: [
                             SizedBox(
                               width: Dimens.dp90,
-                              child: Text("设置密码",style: TextStyle(
+                              child: Text(Ids.setPassword.tr,style: TextStyle(
                                 fontSize: Dimens.sp16,
                                 color: Colours.defaultTextColor,
                               ),),
@@ -109,7 +109,7 @@ class WalletPwdPrivateKeyModifyPage extends StatelessWidget {
                                   fontSize: Dimens.sp16),
                               maxLines: 1,
                               decoration: InputDecoration(
-                                hintText:"设置密码",
+                                hintText:Ids.setPassword.tr,
                                 hintStyle: TextStyle(
                                   fontSize: Dimens.sp16,
                                   color: Colours.hintTextColor,
@@ -141,7 +141,7 @@ class WalletPwdPrivateKeyModifyPage extends StatelessWidget {
                           children: [
                             SizedBox(
                               width: Dimens.dp90,
-                              child: Text("重置密码",style: TextStyle(
+                              child: Text(Ids.resetPwd.tr,style: TextStyle(
                                 fontSize: Dimens.sp16,
                                 color: Colours.defaultTextColor,
                               ),),
@@ -157,7 +157,7 @@ class WalletPwdPrivateKeyModifyPage extends StatelessWidget {
                                   fontSize: Dimens.sp16),
                               maxLines: 1,
                               decoration: InputDecoration(
-                                hintText:"重置密码",
+                                hintText:Ids.resetPwd.tr,
                                 hintStyle: TextStyle(
                                   fontSize: Dimens.sp16,
                                   color: Colours.hintTextColor,

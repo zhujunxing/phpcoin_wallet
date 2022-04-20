@@ -8,6 +8,7 @@ import '../../../controller/page/wallet/wallet_manager_controller.dart';
 import '../../../controller/page/wallet/wallet_manager_right_item_controller.dart';
 import '../../../data/model/language/language_switch_model.dart';
 import '../../../db/entity/wallet_entity.dart';
+import '../../../lang/string.dart';
 import '../../../res/colors.dart';
 import '../../../res/constant.dart';
 import '../../../res/resource.dart';
@@ -81,7 +82,7 @@ class _WalletManagerRightItemState extends State<WalletManagerRightItem> {
                       borderRadius: BorderRadius.circular(Dimens.sp4),
                     ),
                     alignment: Alignment.center,
-                    child: Text("当前",style: TextStyle(
+                    child: Text(Ids.current.tr,style: TextStyle(
                       fontSize: Dimens.sp10,
                       color: Colours.defaultTextColor,
                     ),),
@@ -109,7 +110,7 @@ class _WalletManagerRightItemState extends State<WalletManagerRightItem> {
                 ),
                 onTap: (){
                   Clipboard.setData(ClipboardData(text:controller.walletAddress.value));
-                  ToastUtil.toast(context, "钱包地址已复制到粘贴板");
+                  ToastUtil.toast(context, Ids.walletAddressAlreadyCopy.tr);
                 },
               ),
             ],

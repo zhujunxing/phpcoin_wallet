@@ -43,7 +43,7 @@ class WalletDetailPage extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colours.bgColor,
         appBar: BaseAppBar(
-          title:"钱包详情",
+          title:Ids.walletDetail.tr,
         ),
         body: Obx((){
           return Column(
@@ -98,7 +98,7 @@ class WalletDetailPage extends StatelessWidget {
                                     padding: EdgeInsets.only(bottom: Dimens.dp5),
                                   ),
                                   onTap: (){
-                                    Get.dialog(InputContentDialog("更换钱包名", "请填写钱包名",content: "${controller.wallet!.walletName}"
+                                    Get.dialog(InputContentDialog(Ids.changeWalletName.tr, Ids.pleaseInputWalletName.tr,content: "${controller.wallet!.walletName}"
                                       ,listener: (select,content){
                                         if(select){
                                           controller.modifyWalletName(context,content);
@@ -121,7 +121,7 @@ class WalletDetailPage extends StatelessWidget {
                                       ),
                                       onTap: (){
                                         Clipboard.setData(ClipboardData(text:'${controller.wallet!.walletAddress}'));
-                                        ToastUtil.toast(context, "钱包地址已复制到粘贴板");
+                                        ToastUtil.toast(context, Ids.walletAddressAlreadyCopy.tr);
                                       },
                                     )
                                   ],
@@ -138,8 +138,8 @@ class WalletDetailPage extends StatelessWidget {
                     child: Gaps.hGap10,
                   ),
                   SliverToBoxAdapter(
-                    child: _buildItem("导出私钥",click: (){
-                      Get.dialog(InputContentDialog("输入密码", "",content: ""
+                    child: _buildItem(Ids.exportPrivate.tr,click: (){
+                      Get.dialog(InputContentDialog(Ids.inputPwd.tr, "",content: ""
                         ,listener: (select,pwd){
                           if(select){
                             controller.verifyPwd(Get.context!,pwd);
@@ -151,12 +151,12 @@ class WalletDetailPage extends StatelessWidget {
                     child: Gaps.hGap10,
                   ),
                   SliverToBoxAdapter(
-                    child: _buildItem("修改密码",click: (){
+                    child: _buildItem(Ids.modifyPwd.tr,click: (){
                       Get.toNamed(Routes.walletPwdModify,arguments: wallet.walletAddress);
                     }),
                   ),
                   SliverToBoxAdapter(
-                    child: _buildItem("重置密码",click: (){
+                    child: _buildItem(Ids.resetPwd.tr,click: (){
                       Get.toNamed(Routes.walletPwdPrivateKeyModify,arguments: wallet.walletAddress);
                     },isVisible: false),
                   ),
@@ -164,7 +164,7 @@ class WalletDetailPage extends StatelessWidget {
               )),
               GestureDetector(
                 child: Container(
-                  child: Text("删除钱包",style: TextStyle(
+                  child: Text(Ids.deleteWallet.tr,style: TextStyle(
                     fontSize: Dimens.sp14,
                     color: Colours.redColor,
                   ),),
@@ -178,7 +178,7 @@ class WalletDetailPage extends StatelessWidget {
                   margin: EdgeInsets.fromLTRB(Dimens.dp15, 0, Dimens.dp15, Screen.bottomBarHeight+Dimens.dp20),
                 ),
                 onTap: (){
-                  Get.dialog(SureIsDialog("确认删除钱包",desc: "钱包删除后无法恢复",selectCallback: (select){
+                  Get.dialog(SureIsDialog(Ids.sureDeleteWallet.tr,desc: Ids.walletDeleteNoRestored.tr,selectCallback: (select){
                        if(select){
                          controller.deleteWallet(context);
                        }

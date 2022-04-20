@@ -222,7 +222,7 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                                         Row(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
-                                            Text("我的资产(\$)",style: TextStyle(
+                                            Text("${Ids.myAssets.tr}(\$)",style: TextStyle(
                                               fontSize: Dimens.sp12,
                                               color: Colors.white,
                                             ),),
@@ -346,7 +346,7 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                                         children: [
                                           ImageIcon(AssetImage(ImageResource.exchange),size: Dimens.sp14,color:Colors.white,),
                                           Gaps.wGap8,
-                                          Text("闪兑",style: TextStyle(
+                                          Text(Ids.exchange1.tr,style: TextStyle(
                                             fontSize:Dimens.sp14,
                                             color: Colors.white,
                                           ),),
@@ -355,7 +355,7 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                                       ),
                                     ),
                                     onTap: (){
-                                       ToastUtil.toast(context, "等待开放");
+                                       ToastUtil.toast(context, Ids.waitingOpen.tr);
                                     },
                                   )),
                                 ],
@@ -424,7 +424,7 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                                         ImageIcon(AssetImage(ImageResource.search),size: Dimens.sp14,
                                           color: Colours.defaultTextColor,),
                                         Gaps.wGap4,
-                                        Text("搜索",style: TextStyle(
+                                        Text(Ids.search.tr,style: TextStyle(
                                           fontSize: Dimens.sp12,
                                           color: Colours.hintTextColor,
                                         ),)
@@ -432,7 +432,7 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                                     ),
                                   ),
                                   onTap: (){
-                                    ToastUtil.toast(context, "等待开放");
+                                    ToastUtil.toast(context, Ids.waitingOpen.tr);
                                   },
                                 ),
                                 Gaps.wGap5,
@@ -455,7 +455,7 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                                     ),
                                   ),
                                   onTap: (){
-                                    ToastUtil.toast(context, "等待开放");
+                                    ToastUtil.toast(context, Ids.waitingOpen.tr);
                                   },
                                 ),
                               ],

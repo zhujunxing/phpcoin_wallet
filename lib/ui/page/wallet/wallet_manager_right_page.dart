@@ -108,7 +108,7 @@ class WalletManagerRightPage extends StatelessWidget {
                   color: Colours.grayColor.withOpacity(0.2),
                   child: Container(
                     height: Dimens.dp50,
-                    child: Text("添加钱包",style: TextStyle(
+                    child: Text(Ids.addWallet.tr,style: TextStyle(
                       fontSize: Dimens.sp14,
                       color: Colours.hintTextColor,
                     ),),

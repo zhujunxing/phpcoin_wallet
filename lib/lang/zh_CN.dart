@@ -598,4 +598,35 @@ const Map<String, String> zhCn={
 
       Ids.numMust0:"数量必须大于0",
 
+      Ids.exchange1:"闪兑",
+      Ids.waitingOpen:"等待开放",
+
+
+        Ids.copy:"复制",
+        Ids.alreadyCopy:"已复制到粘贴板",
+        Ids.onlyAddressTransferTip:"仅向该地址转入PHPCOIN相关资产",
+        Ids.transferAmount:"转账金额",
+        Ids.fast:"快",
+
+      Ids.walletDetail:"钱包详情",
+      Ids.changeWalletName:"更换钱包名",
+      Ids.pleaseInputWalletName:"请填写钱包名",
+      Ids.walletAddressAlreadyCopy:"钱包地址已复制到粘贴板",
+      Ids.exportPrivate:"导出私钥",
+      Ids.modifyPwd:"修改密码",
+      Ids.resetPwd:"重置密码",
+      Ids.deleteWallet:"删除钱包",
+      Ids.sureDeleteWallet:"确认删除钱包",
+      Ids.walletDeleteNoRestored:"钱包删除后无法恢复",
+
+      Ids.backupPrivate:"备份私钥",
+      Ids.backupPrivateTip:"私钥未加密，请谨慎导出，做好安全备份！做私钥备份时，请确保周边没有其他人！",
+      Ids.plaintextPrivateKey:"明文私钥",
+      Ids.copyPrivate:"复制私钥",
+      Ids.current:"当前",
+      Ids.addWallet:"添加钱包",
+
+      Ids.currentPwd:"当前密码",
+      Ids.newsPwd:"新密码",
+      Ids.confirmPwd:"确认密码",
 };
