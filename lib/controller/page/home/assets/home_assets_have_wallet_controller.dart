@@ -85,7 +85,7 @@ class HomeAssetsHaveWalletController extends SuperController{
       refreshController.refreshCompleted();
       if(resp.status=='ok'){
         dataAr.value=[
-          AssetsCoinData(ImageResource.phpCoin,resp.data??"0","0",resp.coin!.toUpperCase(),""),
+          AssetsCoinData(ImageResource.phpCoin,"${double.parse(resp.data??"0")}","0",resp.coin!.toUpperCase(),""),
         ];
       }
   }

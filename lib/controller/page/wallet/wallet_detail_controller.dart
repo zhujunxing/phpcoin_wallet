@@ -31,7 +31,7 @@ class WalletDetailController extends SuperController{
         walletName.value=wallet!.walletName??"";
               String address=wallet!.walletAddress??"";
             if(address.isNotEmpty){
-              walletAddress.value=address.substring(0,9)+"···"+address.substring(address.length-7,address.length);
+              walletAddress.value=address.substring(0,5)+"···"+address.substring(address.length-4,address.length);
             }
       }
 

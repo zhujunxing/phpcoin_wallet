@@ -89,6 +89,7 @@ class AssetsMainPage extends StatelessWidget {
                         Gaps.hGap10,
 
                         controller.isEye.value?AnimatedDigitWidget(
+                          loop: false,
                           value: 0.00,
                           fractionDigits: 2, // number of decimal places reserved, not rounded
                           textStyle: TextStyle(
@@ -109,15 +110,18 @@ class AssetsMainPage extends StatelessWidget {
               SliverToBoxAdapter(
                 child: Gaps.hGap10,
               ),
-              SliverList(
-                delegate: SliverChildBuilderDelegate((content, index) {
-                  dynamic  item=controller.dataAr.toList().elementAt(index);
-                  return Container(
-                    margin: EdgeInsets.fromLTRB(Dimens.dp15, Dimens.dp10, Dimens.dp15, 0),
-                    child: AssetsBItem(controller.dataAr.toList().elementAt(index),index),
-                  );
-                }, childCount: controller.dataAr.length),
-              )
+             Obx((){
+
+               return  SliverList(
+                 delegate: SliverChildBuilderDelegate((content, index) {
+                   dynamic  item=controller.dataAr.toList().elementAt(index);
+                   return Container(
+                     margin: EdgeInsets.fromLTRB(Dimens.dp15, Dimens.dp10, Dimens.dp15, 0),
+                     child: AssetsBItem(controller.dataAr.toList().elementAt(index),index),
+                   );
+                 }, childCount: controller.dataAr.length),
+               );
+             }),
 
 
 

@@ -19,5 +19,7 @@ class NodeApi{
   static String sendBalance=BaseApi.baseNodeUrl+"/api.php?q=send";
 
 
+  //查询交易记录
+  static String queryTransactions=BaseApi.baseNodeUrl+"/api.php?q=getTransactions";
 
 }

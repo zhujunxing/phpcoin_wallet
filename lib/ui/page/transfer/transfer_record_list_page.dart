@@ -7,8 +7,10 @@ import 'package:flutter_phpcoin/data/wallet/wallet_create_import_data.dart';
 import 'package:flutter_phpcoin/routes/app_pages.dart';
 import 'package:flutter_phpcoin/ui/dialog/input_content_dialog.dart';
 import 'package:flutter_phpcoin/ui/dialog/sure_is_dialog.dart';
+import 'package:flutter_phpcoin/ui/page/wallet/transfer_record_item.dart';
 import 'package:flutter_phpcoin/ui/page/wallet/wallet_select_page.dart';
 import 'package:flutter_phpcoin/utils/toast_util.dart';
+import 'package:flutter_phpcoin/widget/custom/custom_smart_refresher.dart';
 
 
 import 'package:get/get.dart';
@@ -34,26 +36,84 @@ import '../../../widget/custom/back_button.dart';
 import '../../../widget/custom/custom_button.dart';
 import '../../../widget/custom/divider_line.dart';
 
-///转账交易-交易列表
-// ignore: must_be_immutable
-class TransferRecordListPage extends StatelessWidget {
-   TransferRecordListController controller=TransferRecordListController();
 
 
-   TransferRecordListPage({Key? key}) : super(key: key);
+class TransferRecordListPage extends StatefulWidget {
+
+  String? address;
+  TransferRecordListPage({Key? key,this.address}) : super(key: key);
+
+  @override
+  State<TransferRecordListPage> createState() => _TransferRecordListPageState();
+}
+
+class _TransferRecordListPageState extends State<TransferRecordListPage> {
+  TransferRecordListController controller=TransferRecordListController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    controller.initData(widget.address!);
+    Future.delayed(Duration.zero,(){
+      controller.refreshController.requestRefresh();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    return  CustomSmartRefresher(
+      refreshController: controller.refreshController,
+      onRefresh: (){
+        controller.refreshing(context);
+      },
+      onLoading: (){
+        controller.loading(context);
+      },
+      child: CustomScrollView(
+        slivers: [
+          Obx((){
+            return SliverList(
+              delegate: SliverChildBuilderDelegate((content, index) {
+                return  TransferRecordItem(controller.dataAr.toList().elementAt(index),index);
+              }, childCount: controller.dataAr.length),
+            );
+          }),
+          SliverToBoxAdapter(
+            child: Container(
+              margin: EdgeInsets.fromLTRB(0, Dimens.dp20, 0, 0),
+              alignment: Alignment.center,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  GestureDetector(
+                    child: Container(
+                      width: Dimens.dp120,
+                      height: Dimens.dp30,
+                      alignment: Alignment.center,
+                      child: Text("查看更多记录",style: TextStyle(
+                        fontSize: Dimens.sp14,
+                        color: Colours.grayColor,
+                        height: 1,
+                      ),),
+                      decoration: BoxDecoration(
+                        color: Colours.hintBgColor,
+                        borderRadius: BorderRadius.circular(Dimens.sp4),
+                      ),
 
-    return const Scaffold(
-        backgroundColor: Colors.white,
-        body: CustomScrollView(
-          slivers: [
+                    ),
+                    onTap: (){
+                      Get.toNamed(Routes.web,arguments: "https://node1.phpcoin.net/apps/explorer/address.php?address=${controller.address}");
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
 
-          ],
-        )
     );
   }
-
 }
 

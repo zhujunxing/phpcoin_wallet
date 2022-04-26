@@ -15,13 +15,12 @@ import 'assets/home_assets_have_wallet.dart';
 //资产
 // ignore: must_be_immutable
 class HomeAssetsPage extends StatelessWidget {
-  late HomeAssetsController controller;
+  late HomeAssetsController controller=Get.find();
   HomeAssetsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
 
-    controller=Get.put(HomeAssetsController());
 
     return Obx((){
       return controller.isHaveWallet.value? HomeAssetsHaveWallet():const HomeAssetsNoWallet();

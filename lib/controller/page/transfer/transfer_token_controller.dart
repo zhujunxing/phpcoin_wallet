@@ -124,7 +124,7 @@ class TransferTokenController extends SuperController{
       return;
     }
     if(resp.status=='ok'){
-      balance.value=resp.data??"0";
+      balance.value="${double.parse(resp.data??"0")}";
     }
   }
 

@@ -17,6 +17,7 @@ import 'package:get/get.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
 import '../../../../controller/page/home/assets/home_assets_have_wallet_controller.dart';
+import '../../../../data/transfer/transfer_token_data.dart';
 import '../../../../data/wallet/assets_b_data.dart';
 import '../../../../lang/string.dart';
 import '../../../../utils/screen.dart';
@@ -148,9 +149,13 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                                         ),
                                       ),
                                       GestureDetector(
-                                        onTap: (){
+                                        onTap: ()async{
 
-                                        Get.toNamed(Routes.scan);
+                                       var result=await Get.toNamed(Routes.scan);
+                                       if(result!=null){
+                                         Get.toNamed(Routes.transferToken,arguments: TransferTokenData(tokenAddress:"",tokenName: "PHPCOIN",
+                                             transferAddress: result));
+                                       }
 
                                         },
                                         child: Container(
@@ -239,6 +244,7 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                                         ),
                                         Gaps.hGap10,
                                         AnimatedDigitWidget(
+                                            loop: false,
                                             value: 0.00,
                                             fractionDigits: 2, // number of decimal places reserved, not rounded
                                             textStyle: TextStyle(
@@ -302,7 +308,8 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                                       ),
                                     ),
                                     onTap: (){
-
+                                      Get.toNamed(Routes.transferToken,arguments: TransferTokenData(tokenAddress:"",tokenName: "PHPCOIN",
+                                          transferAddress: ""));
                                     },
                                   )),
                                   Container(

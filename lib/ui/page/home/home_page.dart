@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
+import '../../../controller/page/home/home_assets_controller.dart';
 import '../../../controller/page/home/home_controller.dart';
 import '../../../lang/string.dart';
 import '../../../res/colors.dart';
@@ -17,12 +18,13 @@ import 'home_node_page.dart';
 // ignore: must_be_immutable
 class HomePage extends StatelessWidget {
    late HomeController controller;
+   late HomeAssetsController homeAssetsController;
    HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     controller=Get.put(HomeController());
-
+    homeAssetsController=Get.put(HomeAssetsController());
     controller.tabData=[
       TabData(Ids.assets.tr,ImageResource.homeAssets,ImageResource.homeAssets, HomeAssetsPage(),0),
       TabData(Ids.node.tr,ImageResource.homeNode,ImageResource.homeNode,  HomeNodePage(),0),

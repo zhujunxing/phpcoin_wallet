@@ -5,6 +5,7 @@ import 'package:flutter_phpcoin/service/api/node_api.dart';
 import 'package:flutter_phpcoin/service/resp/node/create_wallet_resp.dart';
 import 'package:flutter_phpcoin/service/resp/node/query_balance_resp.dart';
 import 'package:flutter_phpcoin/service/resp/node/query_public_key_resp.dart';
+import 'package:flutter_phpcoin/service/resp/node/query_transfer_record_resp.dart';
 
 import '../../utils/dio_util.dart';
 import '../resp/node/query_node_info_resp.dart';
@@ -162,7 +163,6 @@ class NodeService {
       "type":type,
       "fee":fee,
     };
-    print(requestData.toString());
 
     dynamic result=await HttpUtil.getInstance()!.post(NodeApi.sendBalance,(data) {
       if(successCallBack!=null){
@@ -185,6 +185,44 @@ class NodeService {
     }
 
   }
+
+
+
+
+  //查询交易记录
+  Future<QueryTransferRecordResp?> queryTransactions({CancelToken? cancelToken,Function? successCallBack,Function? errorCallBack,
+   String? address,
+    int? offset,
+    int? limit,
+  }) async {
+    var  requestData = {
+      "address":address,
+      "offset":offset,
+      "limit":limit,
+    };
+
+    dynamic result=await HttpUtil.getInstance()!.post(NodeApi.queryTransactions,(data) {
+      if(successCallBack!=null){
+        successCallBack(data);
+      }
+    },
+        cancelToken: cancelToken,
+        data: requestData,
+        errorCallBack: (error) {
+          if(errorCallBack!=null){
+            errorCallBack(error);
+          }
+        });
+
+    if(result!=null){
+      QueryTransferRecordResp? resp=QueryTransferRecordResp.fromMap(result);
+      return resp;
+    }else{
+      return null;
+    }
+
+  }
+
 
 }
 

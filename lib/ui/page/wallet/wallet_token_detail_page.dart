@@ -8,6 +8,7 @@ import 'package:flutter_phpcoin/data/wallet/wallet_create_import_data.dart';
 import 'package:flutter_phpcoin/routes/app_pages.dart';
 import 'package:flutter_phpcoin/ui/dialog/input_content_dialog.dart';
 import 'package:flutter_phpcoin/ui/dialog/sure_is_dialog.dart';
+import 'package:flutter_phpcoin/ui/page/transfer/transfer_record_list_page.dart';
 import 'package:flutter_phpcoin/ui/page/wallet/wallet_select_page.dart';
 import 'package:flutter_phpcoin/utils/toast_util.dart';
 import 'package:flutter_phpcoin/widget/custom/join_right.dart';
@@ -282,7 +283,16 @@ class WalletTokenDetailPage extends StatelessWidget {
                   ),
                 ];
               },
-              body: Container(),
+              body: PageView.builder(
+                  controller:controller.pageController,
+                  onPageChanged: (i){
+
+                  },
+                  itemCount: controller.titleAr.length,
+                  itemBuilder: (context,index){
+                    return TransferRecordListPage(address: controller.wallet!.walletAddress??"",);
+                  }
+              ),
             ),),
             const DividerLine(),
             Container(

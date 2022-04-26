@@ -36,7 +36,7 @@ class WalletManagerRightItemController extends SuperController{
     walletName.value=wallet.walletName??"";
     address.value=wallet.walletAddress??"";
     if(address.isNotEmpty){
-      walletAddress.value=address.substring(0,9)+"···"+address.substring(address.value.length-7,address.value.length);
+      walletAddress.value=address.substring(0,5)+"···"+address.substring(address.value.length-4,address.value.length);
     }
   }
   @override
@@ -80,7 +80,7 @@ class WalletManagerRightItemController extends SuperController{
       return;
     }
     if(resp.status=='ok'){
-      balance.value=resp.data??"0";
+      balance.value="${double.parse(resp.data??"0")}";
     }
   }
 }
