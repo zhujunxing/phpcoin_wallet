@@ -37,11 +37,12 @@ import '../../../widget/custom/custom_button.dart';
 import '../../../widget/custom/divider_line.dart';
 
 
-
+// ignore: must_be_immutable
 class TransferRecordListPage extends StatefulWidget {
 
   String? address;
-  TransferRecordListPage({Key? key,this.address}) : super(key: key);
+  int index;
+  TransferRecordListPage({Key? key,this.address,this.index=0}) : super(key: key);
 
   @override
   State<TransferRecordListPage> createState() => _TransferRecordListPageState();
@@ -54,7 +55,7 @@ class _TransferRecordListPageState extends State<TransferRecordListPage> {
   void initState() {
     super.initState();
 
-    controller.initData(widget.address!);
+    controller.initData(widget.address!,widget.index);
     Future.delayed(Duration.zero,(){
       controller.refreshController.requestRefresh();
     });

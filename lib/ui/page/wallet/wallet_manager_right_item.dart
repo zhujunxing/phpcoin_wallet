@@ -109,7 +109,7 @@ class _WalletManagerRightItemState extends State<WalletManagerRightItem> {
                   padding: EdgeInsets.only(left: Dimens.dp5,right: Dimens.dp10),
                 ),
                 onTap: (){
-                  Clipboard.setData(ClipboardData(text:controller.walletAddress.value));
+                  Clipboard.setData(ClipboardData(text:controller.address.value));
                   ToastUtil.toast(context, Ids.walletAddressAlreadyCopy.tr);
                 },
               ),

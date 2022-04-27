@@ -34,7 +34,9 @@ class HomeAssetsHaveWalletController extends SuperController{
     dataAr.value=[
      AssetsCoinData(ImageResource.phpCoin,"0","0","PHPCOIN",''),
     ];
-    initWallet();
+    Future.delayed(Duration.zero,(){
+      initWallet();
+    });
   }
 
   @override

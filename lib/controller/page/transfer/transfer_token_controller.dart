@@ -161,7 +161,7 @@ class TransferTokenController extends SuperController{
     },),isScrollControlled: true);
   }
   void surePayPWd(Wallet wallet)async {
-    Get.dialog(InputContentDialog(Ids.inputPwd.tr, "",content: ""
+    Get.dialog(InputContentDialog(Ids.inputPwd.tr, "请填写钱包密码",content: ""
       ,listener: (select,pwd){
         if(select){
           verifyPwd(Get.context!,pwd,wallet);

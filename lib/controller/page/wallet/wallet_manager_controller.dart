@@ -29,15 +29,11 @@ class WalletManagerController extends SuperController{
 
   var walletType=WalletType.phpCoin.obs;
 
-   HomeAssetsHaveWalletController? homeAssetsHaveWalletController;
+
   @override
   void onInit() {
     super.onInit();
-    try{
-      homeAssetsHaveWalletController=Get.find();
-    }catch(e){
 
-    }
     leftAr.value=[
       WalletTypeBean(ImageResource.phpCoin,ImageResource.phpCoin,WalletType.phpCoin)
     ];
@@ -79,9 +75,10 @@ class WalletManagerController extends SuperController{
     await WalletDbService.getInstance()!.updateAllSelect(0);
      selected.walletSelect=1;
     await WalletDbService.getInstance()!.update(selected);
-    if(homeAssetsHaveWalletController!=null){
-      homeAssetsHaveWalletController!.initWallet();
-    }
+
+    HomeAssetsHaveWalletController homeAssetsHaveWalletController=Get.find();
+    homeAssetsHaveWalletController.refreshController.requestRefresh();
+
 
     Get.back();
   }

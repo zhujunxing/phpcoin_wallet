@@ -59,6 +59,7 @@ class InputContentDialog extends StatelessWidget {
                   borderRadius: BorderRadius.circular(Dimens.dp4),
                 ),
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Gaps.hGap20,
                     Container(

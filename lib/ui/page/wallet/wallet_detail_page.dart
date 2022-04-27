@@ -87,10 +87,10 @@ class WalletDetailPage extends StatelessWidget {
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        Text(controller.walletName.value,style: TextStyle(
+                                        Expanded(child: Text(controller.walletName.value,style: TextStyle(
                                           fontSize: Dimens.sp16,
                                           color: Colours.grayColor,
-                                        ),),
+                                        ),maxLines: 1,overflow: TextOverflow.ellipsis,),),
                                         Gaps.wGap2,
                                         ImageIcon(AssetImage(ImageResource.edit),color: Colours.grayColor,size: Dimens.sp14,),
                                       ],

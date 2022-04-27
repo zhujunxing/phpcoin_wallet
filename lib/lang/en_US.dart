@@ -622,5 +622,7 @@ const Map<String, String> enUs={
     Ids.confirmPwd:"Confirm password",
 
    Ids.viewMoreRecords:"View more records",
+  Ids.pleaseInputWalletPwd:"Please fill in the wallet password",
 
+  Ids.submitBlockConfirm:"Submitted confirmed",
 };

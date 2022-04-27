@@ -77,6 +77,7 @@ class WalletManagerItemPage extends StatelessWidget {
                   Get.off(WalletDetailPage(wallet:wallet));
                 }else{
 
+          
                   controller.switchWallet(wallet);
 
                 }

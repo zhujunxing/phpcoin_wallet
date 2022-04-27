@@ -630,6 +630,10 @@ const Map<String, String> zhCn={
       Ids.newsPwd:"新密码",
       Ids.confirmPwd:"确认密码",
       Ids.viewMoreRecords:"查看更多记录",
+      Ids.pleaseInputWalletPwd:"请填写钱包密码",
+
+
+    Ids.submitBlockConfirm:"已提交，待区块确认",
 
 
 };

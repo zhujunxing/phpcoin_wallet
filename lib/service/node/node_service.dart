@@ -194,13 +194,14 @@ class NodeService {
    String? address,
     int? offset,
     int? limit,
+    String? transferType,
   }) async {
     var  requestData = {
       "address":address,
       "offset":offset,
       "limit":limit,
+      "filter[dir]":transferType,
     };
-
     dynamic result=await HttpUtil.getInstance()!.post(NodeApi.queryTransactions,(data) {
       if(successCallBack!=null){
         successCallBack(data);
@@ -214,8 +215,15 @@ class NodeService {
           }
         });
 
+    print("result:${result}");
     if(result!=null){
-      QueryTransferRecordResp? resp=QueryTransferRecordResp.fromMap(result);
+      QueryTransferRecordResp? resp;
+      try{
+        resp=QueryTransferRecordResp.fromMap(result);
+      }catch(e){
+        print("eeeeee${e}");
+      }
+
       return resp;
     }else{
       return null;

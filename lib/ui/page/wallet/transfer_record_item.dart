@@ -86,7 +86,7 @@ class TransferRecordItem extends StatelessWidget {
                     ),
                     Gaps.hGap4,
                     Text(formatDate(
-                        DateTime.fromMillisecondsSinceEpoch(item.date??0*1000),[yyyy, "-", mm, "-", dd, " ", HH, ":", nn, ":", ss]),style: TextStyle(
+                        DateTime.fromMillisecondsSinceEpoch((item.date??0)*1000),[yyyy, "-", mm, "-", dd, " ", HH, ":", nn, ":", ss]),style: TextStyle(
                       fontSize: Dimens.sp12,
                       color: Colours.grayColor,
                     ),)
@@ -94,11 +94,24 @@ class TransferRecordItem extends StatelessWidget {
                 ),
                 alignment: Alignment.centerLeft,
               )),
-              Text("${item.sign}${double.parse(item.val??"0")} ${BType.phpCoin}",style: TextStyle(
-                fontSize: Dimens.sp16,
-                color: item.sign=='+'?Colours.color349AFF:Colours.color00d8a7,
-                fontWeight: FontWeight.w500,
-              ),),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text("${item.sign}${double.parse(item.val??"0")} ${BType.phpCoin}",style: TextStyle(
+                    fontSize: item.confirmations!<0?Dimens.sp14:Dimens.sp16,
+                    color: item.sign=='+'?Colours.color349AFF:Colours.color00d8a7,
+                    fontWeight: FontWeight.w500,
+                  ),),
+                  item.confirmations!<0?Container(
+                    margin: EdgeInsets.fromLTRB(0, Dimens.dp4, 0, 0),
+                    child: Text(Ids.submitBlockConfirm.tr,style: TextStyle(
+                      fontSize: Dimens.sp12,
+                      color: Colours.grayColor,
+                    ),),
+                  ):const SizedBox(),
+                ],
+              ),
             ],
           ),
 

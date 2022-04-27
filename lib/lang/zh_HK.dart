@@ -622,4 +622,6 @@ const Map<String, String> zhHK={
   Ids.confirmPwd:"確認密碼",
 
   Ids.viewMoreRecords:"查看更多記錄",
+  Ids.pleaseInputWalletPwd:"请填写钱包密码",
+  Ids.submitBlockConfirm:"已提交，待區塊確認",
 };

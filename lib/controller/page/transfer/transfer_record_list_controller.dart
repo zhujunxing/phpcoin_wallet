@@ -37,6 +37,7 @@ class TransferRecordListController extends SuperController{
   int pageSize=10;
   var isMore=false.obs;
   var  isNoData=false.obs;
+  int index=0;
   @override
   void onReady() {
     super.onReady();
@@ -68,8 +69,9 @@ class TransferRecordListController extends SuperController{
 
   }
 
-  void initData(String address) {
+  void initData(String address,int index) {
      this.address=address;
+     this.index=index;
 
   }
   void refreshing(BuildContext context) {
@@ -87,7 +89,16 @@ class TransferRecordListController extends SuperController{
 
   void queryTransactions(BuildContext context,int pageNow,int pageSize) async{
 
-    QueryTransferRecordResp? resp=await NodeService.getInstance()!.queryTransactions(address: address,offset: pageNow,limit: pageSize);
+    String transferType='';
+    if(index==0){
+      transferType="";
+    }else if(index==1){
+      transferType="receive";
+    }else if(index==2){
+      transferType="send";
+    }
+    QueryTransferRecordResp? resp=await NodeService.getInstance()!.queryTransactions(address: address,offset: (pageNow-1)*pageSize,limit: pageSize,
+    transferType: transferType);
 
     if(resp!=null&&resp.status=='ok'){
       if(pageNow==1){

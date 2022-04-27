@@ -183,7 +183,7 @@ class HomeAssetsHaveWallet extends StatelessWidget {
                 refreshController: controller.refreshController,
                 enablePullUp: false,
                 onRefresh: (){
-                  controller.queryBalance();
+                  controller.initWallet();
                 },
                 child: CustomScrollView(
                   slivers: [

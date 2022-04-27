@@ -206,75 +206,12 @@ class WalletTokenDetailPage extends StatelessWidget {
                   SliverPersistentHeader(
                     pinned: true,
                     delegate: StickyTabBarDelegate(
-                      child: DefaultTabController(
-                        length:controller.titleAr.length,
-                        child: Container(
-                          color: Colors.white,
-                          width: Screen.width,
-                          height: Dimens.dp45,
-                          padding: EdgeInsets.only(left:0,right: Dimens.dp15),
-                          child: Row(
-                            children: [
-                              Expanded(child: controller.titleAr.isNotEmpty?TabBar(
-                                indicatorSize: TabBarIndicatorSize.label,
-                                unselectedLabelColor: Colours.grayColor,
-                                isScrollable: true,
-                                indicatorPadding: EdgeInsets.fromLTRB(0, 0, 0, Dimens.dp4),
-                                labelStyle: TextStyle(
-                                  fontSize: Dimens.sp16,
-                                  color: Colours.defaultTextColor,
-                                ),
-                                unselectedLabelStyle: TextStyle(
-                                  fontSize: Dimens.sp16,
-                                  color: Colours.grayColor,
-                                ),
-                                indicator: MaterialIndicator(
-                                  height: Dimens.dp3,
-                                  topLeftRadius: Dimens.sp2,
-                                  strokeWidth: Dimens.dp4,
-                                  topRightRadius: Dimens.sp2,
-                                  bottomLeftRadius: Dimens.sp2,
-                                  bottomRightRadius:Dimens.sp2,
-                                  horizontalPadding: Dimens.dp4,
-                                  color: Colours.defaultTextColor,
-                                ),
-                                tabs:  controller.titleAr.toList().map((item) {
-                                  return Tab(
-                                    child: Text(
-                                      item,
-                                    ),
-                                  );
-                                }).toList(),
-                              ):Container()),
-                              GestureDetector(
-                                child: Container(
-                                  width: Dimens.dp90,
-                                  height: Dimens.dp25,
-                                  padding: EdgeInsets.only(left: Dimens.dp10),
-                                  decoration: BoxDecoration(
-                                    color: Colours.hintBgColor,
-                                    borderRadius: BorderRadius.circular(Dimens.sp20),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      ImageIcon(AssetImage(ImageResource.search),size: Dimens.sp14,
-                                        color: Colours.defaultTextColor,),
-                                      Gaps.wGap4,
-                                      Text(Ids.search.tr,style: TextStyle(
-                                        fontSize: Dimens.sp12,
-                                        color: Colours.hintTextColor,
-                                      ),)
-                                    ],
-                                  ),
-                                ),
-                                onTap: (){
-
-                                },
-                              ),
-
-                            ],
-                          ),
-                        ),
+                      child: TransferRecordTabBar(controller.titleAr.toList(),index:0,
+                        pageController: controller.pageController,
+                        tabController: controller.tabController,
+                        onIndex: (index){
+                          controller.tabController!.animateTo(index);
+                        },
                       ),
                     ),
                   ),
@@ -283,16 +220,13 @@ class WalletTokenDetailPage extends StatelessWidget {
                   ),
                 ];
               },
-              body: PageView.builder(
+              body: controller.titleAr.isNotEmpty?PageView.builder(
                   controller:controller.pageController,
-                  onPageChanged: (i){
-
-                  },
                   itemCount: controller.titleAr.length,
                   itemBuilder: (context,index){
-                    return TransferRecordListPage(address: controller.wallet!.walletAddress??"",);
+                    return TransferRecordListPage(address: controller.wallet!.walletAddress??"",index:index,);
                   }
-              ),
+              ):const SizedBox(),
             ),),
             const DividerLine(),
             Container(
@@ -305,6 +239,7 @@ class WalletTokenDetailPage extends StatelessWidget {
                     Ids.transfer.tr,
                     color: Colours.color00d8a7,
                     onPressed: (){
+
                       Get.toNamed(Routes.transferToken,arguments: TransferTokenData(tokenAddress: controller.tokenAddress.value,tokenName: controller.tokenName.value,
                       transferAddress: ""));
                     },
@@ -333,3 +268,119 @@ class WalletTokenDetailPage extends StatelessWidget {
 
 }
 
+
+
+
+// ignore: must_be_immutable
+class TransferRecordTabBar extends StatefulWidget {
+  int index;
+  PageController? pageController;
+  List<String> titleAr = [];
+  Function? onIndex;
+  TabController? tabController;
+  TransferRecordTabBar(this.titleAr,{Key? key,this.index=0,this.pageController,this.onIndex,
+    this.tabController}) : super(key: key);
+
+  @override
+  _TransferRecordTabBarState createState() => _TransferRecordTabBarState();
+}
+
+class _TransferRecordTabBarState extends State<TransferRecordTabBar>  with TickerProviderStateMixin{
+
+  List<String> titleAr = [];
+  WalletTokenDetailController homeIndexPageController=Get.find();
+
+  @override
+  void initState() {
+    super.initState();
+    titleAr=widget.titleAr;
+    widget.tabController = TabController(length: titleAr.length, vsync: this,initialIndex:widget.index);
+    homeIndexPageController.tabController=widget.tabController!;
+
+  }
+
+  @override
+  Widget build(BuildContext context) {
+
+
+
+    return widget.tabController!.length>0?Container(
+      color: Colors.white,
+      width: Screen.width,
+      height: Dimens.dp45,
+      padding: EdgeInsets.only(left:0,right: Dimens.dp15),
+      child: Row(
+        children: [
+          Expanded(child: titleAr.isNotEmpty?TabBar(
+            onTap: (index){
+              if(widget.pageController!=null){
+                widget.pageController!.animateToPage(
+                    index, duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeIn);
+              }
+              if(widget.onIndex!=null){
+                widget.onIndex!.call(index);
+              }
+            },
+            indicatorSize: TabBarIndicatorSize.label,
+            unselectedLabelColor: Colours.grayColor,
+            isScrollable: true,
+            controller: widget.tabController,
+            indicatorPadding: EdgeInsets.fromLTRB(0, 0, 0, Dimens.dp4),
+            labelStyle: TextStyle(
+              fontSize: Dimens.sp16,
+              color: Colours.defaultTextColor,
+            ),
+            unselectedLabelStyle: TextStyle(
+              fontSize: Dimens.sp16,
+              color: Colours.grayColor,
+            ),
+            indicator: MaterialIndicator(
+              height: Dimens.dp3,
+              topLeftRadius: Dimens.sp2,
+              strokeWidth: Dimens.dp4,
+              topRightRadius: Dimens.sp2,
+              bottomLeftRadius: Dimens.sp2,
+              bottomRightRadius:Dimens.sp2,
+              horizontalPadding: Dimens.dp4,
+              color: Colours.defaultTextColor,
+            ),
+            tabs:  titleAr.toList().map((item) {
+              return Tab(
+                child: Text(
+                  item,
+                ),
+              );
+            }).toList(),
+          ):Container()),
+          GestureDetector(
+            child: Container(
+              width: Dimens.dp90,
+              height: Dimens.dp25,
+              padding: EdgeInsets.only(left: Dimens.dp10),
+              decoration: BoxDecoration(
+                color: Colours.hintBgColor,
+                borderRadius: BorderRadius.circular(Dimens.sp20),
+              ),
+              child: Row(
+                children: [
+                  ImageIcon(AssetImage(ImageResource.search),size: Dimens.sp14,
+                    color: Colours.defaultTextColor,),
+                  Gaps.wGap4,
+                  Text(Ids.search.tr,style: TextStyle(
+                    fontSize: Dimens.sp12,
+                    color: Colours.hintTextColor,
+                  ),)
+                ],
+              ),
+            ),
+            onTap: (){
+
+            },
+          ),
+
+        ],
+      ),
+    ):const SizedBox();
+  }
+}

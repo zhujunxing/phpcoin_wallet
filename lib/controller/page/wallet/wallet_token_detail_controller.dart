@@ -32,6 +32,15 @@ class WalletTokenDetailController extends SuperController{
 
   RxList<String> titleAr=<String>[].obs;
   PageController pageController=PageController();
+
+
+
+  TabController? tabController;
+
+
+
+
+
   WalletTokenDetailController(this.data){
 
     if(data!=null){
@@ -45,7 +54,7 @@ class WalletTokenDetailController extends SuperController{
   @override
   void onInit() {
     super.onInit();
-    titleAr.value=[(Ids.all1.tr)];
+    titleAr.value=[Ids.all1.tr,Ids.into.tr,Ids.out.tr];
     queryBalance();
   }
   @override

@@ -714,6 +714,8 @@ class Ids {
   static const String confirmPwd = "confirmPwd";
 
   static const String viewMoreRecords = "viewMoreRecords";
+  static const String pleaseInputWalletPwd = "pleaseInputWalletPwd";
+  static const String submitBlockConfirm = "submitBlockConfirm";
 
 }
   Map<String, Map<String, Map<String, String>>> localizedDefaultValues = {
