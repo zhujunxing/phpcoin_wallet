@@ -76,6 +76,7 @@ class _TransferRecordListPageState extends State<TransferRecordListPage> {
             return SliverList(
               delegate: SliverChildBuilderDelegate((content, index) {
                 return  GestureDetector(
+                  behavior: HitTestBehavior.opaque,
                   child: TransferRecordItem(controller.dataAr.toList().elementAt(index),index),
                   onTap: (){
                     Get.toNamed(Routes.web,arguments: "https://node1.phpcoin.net/apps/explorer/tx.php?id=${controller.dataAr.toList().elementAt(index).id}");
