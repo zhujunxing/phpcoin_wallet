@@ -34,3 +34,5 @@ SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
 flutter run -t lib/main_test.dart
 flutter build apk -t lib/main_test.dart
 flutter build ios -t lib/main_test.dart
+
+flutter build apk -t lib/main_release.dart
