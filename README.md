@@ -1,37 +1,6 @@
 
 A new Flutter project.
 
-# store 模板代码
-
-/*
-* 1. 执行命令: flutter packages pub run build_runner build
-* 2. 删除之内再生成: flutter packages pub run build_runner build --delete-conflicting-outputs
-* 3. 实时更新.g文件: flutter packages pub run build_runner watch
-     */
-
-import 'package:flutter/material.dart';
-import 'package:mobx/mobx.dart';
-part 'login.g.dart';
-
-class LoginStore = LoginStoreMobx with _$LoginStore;
-
-abstract class LoginStoreMobx with Store {
-// data
-@observable
-int tabCurrentIndex = 0;
-// computed
-@computed
-String get getToken => 'token';
-
-// methods
-
-@action
-void setIconFontSize(double size, int index) {}
-
-@action
-void setOrderTabController(TabController controller) {
-}
-}
 
 # flutter 颜色透明度
 
