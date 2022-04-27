@@ -620,4 +620,7 @@ const Map<String, String> enUs={
   Ids.currentPwd:"Current password",
   Ids.newsPwd:"New password",
     Ids.confirmPwd:"Confirm password",
+
+   Ids.viewMoreRecords:"View more records",
+
 };

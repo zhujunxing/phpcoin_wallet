@@ -67,7 +67,7 @@ class TransferRecordItem extends StatelessWidget {
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text("$address",style: TextStyle(
+                        Text(address,style: TextStyle(
                           fontSize: Dimens.sp12,
                           color: Colours.defaultTextColor,
                         ),),
@@ -96,7 +96,7 @@ class TransferRecordItem extends StatelessWidget {
               )),
               Text("${item.sign}${double.parse(item.val??"0")} ${BType.phpCoin}",style: TextStyle(
                 fontSize: Dimens.sp16,
-                color: Colours.color349AFF,
+                color: item.sign=='+'?Colours.color349AFF:Colours.color00d8a7,
                 fontWeight: FontWeight.w500,
               ),),
             ],

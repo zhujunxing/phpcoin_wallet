@@ -629,4 +629,7 @@ const Map<String, String> zhCn={
       Ids.currentPwd:"当前密码",
       Ids.newsPwd:"新密码",
       Ids.confirmPwd:"确认密码",
+      Ids.viewMoreRecords:"查看更多记录",
+
+
 };

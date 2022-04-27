@@ -75,7 +75,12 @@ class _TransferRecordListPageState extends State<TransferRecordListPage> {
           Obx((){
             return SliverList(
               delegate: SliverChildBuilderDelegate((content, index) {
-                return  TransferRecordItem(controller.dataAr.toList().elementAt(index),index);
+                return  GestureDetector(
+                  child: TransferRecordItem(controller.dataAr.toList().elementAt(index),index),
+                  onTap: (){
+                    Get.toNamed(Routes.web,arguments: "https://node1.phpcoin.net/apps/explorer/tx.php?id=${controller.dataAr.toList().elementAt(index).id}");
+                  },
+                );
               }, childCount: controller.dataAr.length),
             );
           }),
@@ -88,10 +93,10 @@ class _TransferRecordListPageState extends State<TransferRecordListPage> {
                 children: [
                   GestureDetector(
                     child: Container(
-                      width: Dimens.dp120,
+                      padding: EdgeInsets.fromLTRB(Dimens.dp10, 0, Dimens.dp10, 0),
                       height: Dimens.dp30,
                       alignment: Alignment.center,
-                      child: Text("查看更多记录",style: TextStyle(
+                      child: Text(Ids.viewMoreRecords.tr,style: TextStyle(
                         fontSize: Dimens.sp14,
                         color: Colours.grayColor,
                         height: 1,

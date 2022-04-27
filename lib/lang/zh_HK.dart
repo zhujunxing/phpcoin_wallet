@@ -620,4 +620,6 @@ const Map<String, String> zhHK={
   Ids.currentPwd:"當前密碼",
   Ids.newsPwd:"新密碼",
   Ids.confirmPwd:"確認密碼",
+
+  Ids.viewMoreRecords:"查看更多記錄",
 };

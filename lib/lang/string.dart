@@ -713,6 +713,8 @@ class Ids {
   static const String newsPwd = "newsPwd";
   static const String confirmPwd = "confirmPwd";
 
+  static const String viewMoreRecords = "viewMoreRecords";
+
 }
   Map<String, Map<String, Map<String, String>>> localizedDefaultValues = {
     'en': {
