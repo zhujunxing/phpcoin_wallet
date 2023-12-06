@@ -1,7 +1,7 @@
 import 'package:flutter_phpcoin/service/base_api.dart';
 
 class NodeApi{
-
+  //https://node1.phpcoin.net/doc/#api-API-getTransactions
   //查询节点信息
   static String queryNodeInfo=BaseApi.baseNodeUrl+"/api.php?q=nodeInfo";
 

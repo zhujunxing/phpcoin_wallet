@@ -56,7 +56,7 @@ void init()async{
       color: Colors.transparent,
       location: BannerLocation.topStart,
       variables: {
-          "nodeUrl":"https://node1.phpcoin.net",
+            "nodeUrl":"https://main1.phpcoin.net",
       },
     );
     runApp(FlavorBanner(
